@@ -154,7 +154,16 @@ var pacdag = {
     self.pacs = self.svg.selectAll('circle.pac')
       .data(self.pacSummary)
       .enter().append('circle')
-        .attr('class', 'pac')
+        .attr('class', function(d) {
+          var s = 'pac';
+          if (d.spentToPacPercent >= 60) {
+            s += ' storefront';
+          }
+          if (d.receivedFromPacPercent >= 60) {
+            s += ' masked-spender';
+          }
+          return s;
+        })
         .attr('cx', function(d) { return self.x(d.spentToPacPercent); })
         .attr('cy', function(d) { return self.y(d.receivedFromPacPercent); })
         .attr('r', function(d) { return self.r(d.spent); })
@@ -167,6 +176,25 @@ var pacdag = {
     self.path = self.svg.selectAll('path')
       .data(self.interPacDonations)
       .enter().append('path')
+        .attr('class', function(d) {
+          var s = 'donation';
+          // TODO
+          /*
+          if (d.source.classed('storefront')) {
+            s += 'from-storefront';
+          }
+          if (d.source.classed('masked-spender')) {
+            s += 'from-masked-spender';
+          }
+          if (d.target.classed('storefront')) {
+            s += 'from-storefront';
+          }
+          if (d.target.classed('masked-spender')) {
+            s += 'from-masked-spender';
+          }
+          */
+          return s;
+        })
         .attr('d', function(d) {
           var src = d.source;
           return [
