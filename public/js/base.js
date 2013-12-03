@@ -47,6 +47,19 @@ var pacdag = {
       d.receivedFromPacPercent = d.received > 0 ? 100 * d.receivedFromPac / d.received : 0;
     });
 
+    self.pacSummary = pacSummary;
+    self.interPacDonations = interPacDonations;
+
+    self.pacSummaryById = {};
+    _.each(self.pacSummary, function(d) {
+      self.pacSummaryById[d.ComID] = d;
+    });
+
+    _.each(self.interPacDonations, function(d) {
+      d.source = self.pacSummaryById[d.src];
+      d.target = self.pacSummaryById[d.dst];
+    });
+
     self.x = d3.scale.linear()
       .domain([0, 100])
       .range([0, self.width])
@@ -62,7 +75,7 @@ var pacdag = {
     self.xAxis = d3.svg.axis()
       .scale(self.x)
       .orient('bottom')
-      .tickSize(self.height)
+      .tickSize(self.height - 1)
       .tickPadding(10)
       .ticks(5)
 
@@ -80,52 +93,17 @@ var pacdag = {
       .call(self.xAxis);
 
     self.axis.append('g')
-      .attr('transform', 'translate(' + self.width + ',0)')
+      .attr('transform', 'translate(' + (self.width + 1) + ',0)')
       .call(self.yAxis);
 
     self.pacs = self.svg.selectAll('circle.pac')
-      .data(pacSummary)
+      .data(self.pacSummary)
       .enter().append('circle')
         .attr('class', 'pac')
         .attr('cx', function(d) { return self.x(d.spentToPacPercent); })
         .attr('cy', function(d) { return self.y(d.receivedFromPacPercent); })
         .attr('r', function(d) { return self.r(d.spent); })
         .on('click', function(d) { console.log(d); })
-
-    /*
-    self.links = data;
-    self.nodes = {};
-
-    // Find nodes
-    _.each(self.links, function(link) {
-      // http://bl.ocks.org/mbostock/1153292
-      link.source = self.nodes[link.src]
-          || (self.nodes[link.src] = {id: link.src, name: link.srcname, amt: 0});
-      link.target = self.nodes[link.dst]
-          || (self.nodes[link.dst] = {id: link.dst, name: link.dstname, amt: 0});
-
-      self.nodes[link.dst].amt += +link.amt;
-    });
-
-    self.draw();
-    */
-  },
-
-  draw: function() {
-    var self = this;
-
-    self.r = d3.scale.sqrt()
-      .domain([0, d3.max(d3.values(self.nodes), function(d) { return d.amt; })])
-      .range([4, 20])
-
-    self.force = d3.layout.force()
-      .nodes(d3.values(self.nodes))
-      .links(self.links)
-      .size([self.width, self.height])
-      .charge(-100)
-      .linkDistance(50)
-      .on('tick', self.tick)
-      .start();
 
     self.defs.append('marker')
       .attr('id', 'triangle')
@@ -139,23 +117,70 @@ var pacdag = {
         .attr('d', 'M0,-5L10,0L0,5');
 
     self.path = self.svg.selectAll('path')
+      .data(self.interPacDonations)
+      .enter().append('path')
+        .attr('d', function(d) {
+          var src = d.source;
+          return [
+            'M',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+            'L',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+          ].join('');
+        })
+
+    /*
+    self.force = d3.layout.force()
+      .nodes(self.pacSummary)
+      .links(self.interPacDonations)
+      .size([self.width, self.height])
+      .charge(-100)
+      .linkDistance(50)
+      .on('tick', self.tick)
+
+    self.path = self.svg.selectAll('path')
       .data(self.force.links())
       .enter().append('path')
         .attr('marker-end', 'url(#triangle)')
 
-    self.circle = self.svg.selectAll('circle')
-      .data(self.force.nodes())
-      .enter().append('circle')
-        .attr('r', function(d) { return self.r(d.amt); })
-        .on('click', function(d) { console.log(d); })
-        .call(self.force.drag);
+    self.pacs
+      .call(self.force.drag);
+   */
+  },
+
+  drawLinks: function() {
+    var self = this;
+
+    self.path
+      .attr('marker-end', 'url(#triangle)')
+      .transition()
+        .duration(5000)
+        .attr('d', function(d) {
+          var src = d.source;
+          var dst = d.target;
+          return [
+            'M',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+            'L',
+            self.x(dst.spentToPacPercent),
+            ',',
+            self.y(dst.receivedFromPacPercent),
+          ].join('');
+        })
+    //self.force.start();
   },
 
   tick: function() {
     var self = this;
 
     self.path.attr('d', self.link);
-    self.circle.attr('transform', self.transform);
+    self.pacs.attr('transform', self.transform);
   },
 
   link: function(d) {

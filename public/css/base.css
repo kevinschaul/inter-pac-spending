@@ -31,9 +31,10 @@ circle {
 /* line 28, ../../sass/base.scss */
 path {
   stroke: #666;
+  opacity: 0.3;
 }
 
-/* line 32, ../../sass/base.scss */
+/* line 33, ../../sass/base.scss */
 marker {
   fill: #666;
 }
