@@ -1,3 +1,24 @@
+text {
+  fill: #333;
+  stroke: none;
+  font-family: arial, sans-serif;
+  font-size: 11px;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+  fill: none;
+  stroke: #eee;
+
+  .tick:first-child {
+    stroke: #000;
+  }
+
+  .domain {
+    stroke: none;
+  }
+}
+
 circle {
   fill: #ccc;
   stroke: #333;

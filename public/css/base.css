@@ -1,16 +1,39 @@
 /* line 1, ../../sass/base.scss */
+text {
+  fill: #333;
+  stroke: none;
+  font-family: arial, sans-serif;
+  font-size: 11px;
+}
+
+/* line 8, ../../sass/base.scss */
+.axis {
+  shape-rendering: crispEdges;
+  fill: none;
+  stroke: #eee;
+}
+/* line 13, ../../sass/base.scss */
+.axis .tick:first-child {
+  stroke: #000;
+}
+/* line 17, ../../sass/base.scss */
+.axis .domain {
+  stroke: none;
+}
+
+/* line 22, ../../sass/base.scss */
 circle {
   fill: #ccc;
   stroke: #333;
   opacity: 0.8;
 }
 
-/* line 7, ../../sass/base.scss */
+/* line 28, ../../sass/base.scss */
 path {
   stroke: #666;
 }
 
-/* line 11, ../../sass/base.scss */
+/* line 32, ../../sass/base.scss */
 marker {
   fill: #666;
 }
