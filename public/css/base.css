@@ -33,7 +33,15 @@ path {
   stroke: #666;
 }
 
-/* line 32, ../../sass/base.scss */
-marker {
-  fill: #666;
+/* line 33, ../../sass/base.scss */
+.highlights rect {
+  opacity: 0.5;
+}
+/* line 37, ../../sass/base.scss */
+.highlights .masked-spenders {
+  fill: #8BC58B;
+}
+/* line 41, ../../sass/base.scss */
+.highlights .storefronts {
+  fill: #E98A5D;
 }

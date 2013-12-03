@@ -29,7 +29,17 @@ path {
   stroke: #666;
 }
 
-marker {
-  fill: #666;
+.highlights {
+  rect {
+    opacity: 0.5;
+  }
+
+  .masked-spenders {
+    fill: #8BC58B;
+  }
+
+  .storefronts {
+    fill: #E98A5D;
+  }
 }
 
