@@ -8,10 +8,9 @@ circle {
 /* line 7, ../../sass/base.scss */
 path {
   stroke: #666;
-  stroke-width: 1;
 }
 
-/* line 12, ../../sass/base.scss */
+/* line 11, ../../sass/base.scss */
 marker {
   fill: #666;
 }

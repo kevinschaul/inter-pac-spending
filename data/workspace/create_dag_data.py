@@ -28,7 +28,10 @@ def main(argv):
                 # TODO Make sure I know what this value is.
                 # The value we want is the percent of this pac's money
                 # donated to the src pac.
-                'pct': (float(row['pctgiventopacs']) / 100) * (float(row['pctgiventoall']) / 100) * 100
+                'pct': (float(row['pctgiventopacs']) / 100) * (float(row['pctgiventoall']) / 100) * 100,
+                'amt': row['dontot'],
+                'srcname': row['DonorName'],
+                'dstname': row['RecipName']
             })
 
     with open(OUTFILE, 'w') as outfile:

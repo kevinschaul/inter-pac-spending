@@ -23,6 +23,6 @@ public/lib/underscore-min.js:
 	mkdir -p public/lib
 	curl -o $@ http://underscorejs.org/underscore-min.js
 
-public/inter-pac-donations.json:
+public/inter-pac-donations.json: data/workspace/pacout.csv data/workspace/create_dag_data.py
 	./data/workspace/create_dag_data.py data/workspace/pacout.csv $@
 
