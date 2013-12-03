@@ -10,6 +10,7 @@
 
 <h1>2013-12-3-pac-dag</h1>
 
+<button onclick='p.drawLinks();'>Draw lines</button>
 <div id='target'></div>
 
 <script src="lib/d3.v3.js" type="text/javascript" charset="utf-8"></script>

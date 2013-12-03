@@ -56,6 +56,7 @@ var pacdag = {
     });
 
     _.each(self.interPacDonations, function(d) {
+      d.amt = +d.amt;
       d.source = self.pacSummaryById[d.src];
       d.target = self.pacSummaryById[d.dst];
     });
@@ -71,6 +72,10 @@ var pacdag = {
     self.r = d3.scale.sqrt()
       .domain([0, d3.max(pacSummary, function(d) { return d.spent; })])
       .range([4, 20])
+
+    self.w = d3.scale.linear()
+      .domain([0, d3.max(self.interPacDonations, function(d) { return d.amt; })])
+      .range([0.1, 3])
 
     self.xAxis = d3.svg.axis()
       .scale(self.x)
@@ -95,15 +100,6 @@ var pacdag = {
     self.axis.append('g')
       .attr('transform', 'translate(' + (self.width + 1) + ',0)')
       .call(self.yAxis);
-
-    self.pacs = self.svg.selectAll('circle.pac')
-      .data(self.pacSummary)
-      .enter().append('circle')
-        .attr('class', 'pac')
-        .attr('cx', function(d) { return self.x(d.spentToPacPercent); })
-        .attr('cy', function(d) { return self.y(d.receivedFromPacPercent); })
-        .attr('r', function(d) { return self.r(d.spent); })
-        .on('click', function(d) { console.log(d); })
 
     self.defs.append('marker')
       .attr('id', 'triangle')
@@ -132,6 +128,18 @@ var pacdag = {
             self.y(src.receivedFromPacPercent),
           ].join('');
         })
+        .style('stroke-width', function(d) {
+          return self.w(d.amt);
+        })
+
+    self.pacs = self.svg.selectAll('circle.pac')
+      .data(self.pacSummary)
+      .enter().append('circle')
+        .attr('class', 'pac')
+        .attr('cx', function(d) { return self.x(d.spentToPacPercent); })
+        .attr('cy', function(d) { return self.y(d.receivedFromPacPercent); })
+        .attr('r', function(d) { return self.r(d.spent); })
+        .on('click', function(d) { console.log(d); })
 
     /*
     self.force = d3.layout.force()
