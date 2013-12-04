@@ -26,7 +26,22 @@ var pacdag = {
 
     self.defs = self.svg.append('defs')
 
+    d3.selectAll('.stage')
+      .on('click', function() {
+        var stage = d3.select(this).attr('data-stage');
+        self.setStage(stage);
+      });
+
+    self.setStage(1);
+
     return this;
+  },
+
+  setStage: function(stage) {
+    d3.selectAll('.stage')
+      .classed('active', false);
+    d3.select('.stage-' + stage)
+      .classed('active', true);
   },
 
   go: function() {

@@ -1,4 +1,34 @@
-/* line 1, ../../sass/base.scss */
+/* line 3, ../../sass/base.scss */
+.clear {
+  clear: both;
+}
+
+/* line 7, ../../sass/base.scss */
+.stage {
+  float: left;
+  background-color: #fff;
+  border: 1px solid #999999;
+  border-right: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+/* line 15, ../../sass/base.scss */
+.stage:last-child {
+  border-right: 1px solid #999999;
+}
+
+/* line 18, ../../sass/base.scss */
+.stage:hover {
+  background-color: #efefef;
+}
+
+/* line 21, ../../sass/base.scss */
+.stage.active {
+  background-color: #efefef;
+}
+
+/* line 26, ../../sass/base.scss */
 text {
   fill: #333;
   stroke: none;
@@ -6,42 +36,42 @@ text {
   font-size: 11px;
 }
 
-/* line 8, ../../sass/base.scss */
+/* line 33, ../../sass/base.scss */
 .axis {
   shape-rendering: crispEdges;
   fill: none;
   stroke: #eee;
 }
-/* line 13, ../../sass/base.scss */
+/* line 38, ../../sass/base.scss */
 .axis .tick:first-child {
   stroke: #000;
 }
-/* line 17, ../../sass/base.scss */
+/* line 42, ../../sass/base.scss */
 .axis .domain {
   stroke: none;
 }
 
-/* line 22, ../../sass/base.scss */
+/* line 47, ../../sass/base.scss */
 circle {
   fill: #ccc;
   stroke: #333;
   opacity: 0.8;
 }
 
-/* line 28, ../../sass/base.scss */
+/* line 53, ../../sass/base.scss */
 path {
   stroke: #666;
 }
 
-/* line 33, ../../sass/base.scss */
+/* line 58, ../../sass/base.scss */
 .highlights rect {
   opacity: 0.5;
 }
-/* line 37, ../../sass/base.scss */
+/* line 62, ../../sass/base.scss */
 .highlights .masked-spenders {
   fill: #8BC58B;
 }
-/* line 41, ../../sass/base.scss */
+/* line 66, ../../sass/base.scss */
 .highlights .storefronts {
   fill: #E98A5D;
 }

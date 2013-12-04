@@ -1,3 +1,28 @@
+$stage-border: 1px solid #999;
+
+.clear {
+  clear: both;
+}
+
+.stage {
+  float: left;
+  background-color: #fff;
+  border: $stage-border;
+  border-right: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.stage:last-child {
+  border-right: $stage-border;
+}
+.stage:hover {
+  background-color: #efefef;
+}
+.stage.active {
+  background-color: #efefef;
+}
+
+
 text {
   fill: #333;
   stroke: none;
