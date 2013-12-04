@@ -154,6 +154,9 @@ var pacdag = {
     self.pacs = self.svg.selectAll('circle.pac')
       .data(self.pacSummary)
       .enter().append('circle')
+        .attr('id', function(d) {
+          return 'comid-' + d.ComID;
+        })
         .attr('class', function(d) {
           var s = 'pac';
           if (d.spentToPacPercent >= 60) {
@@ -178,21 +181,20 @@ var pacdag = {
       .enter().append('path')
         .attr('class', function(d) {
           var s = 'donation';
-          // TODO
-          /*
-          if (d.source.classed('storefront')) {
-            s += 'from-storefront';
+          var srcCircle = d3.select('#comid-' + d.src);
+          var dstCircle = d3.select('#comid-' + d.dst);
+          if (srcCircle.classed('storefront')) {
+            s += ' from-storefront';
           }
-          if (d.source.classed('masked-spender')) {
-            s += 'from-masked-spender';
+          if (srcCircle.classed('masked-spender')) {
+            s += ' from-masked-spender';
           }
-          if (d.target.classed('storefront')) {
-            s += 'from-storefront';
+          if (dstCircle.classed('storefront')) {
+            s += ' from-storefront';
           }
-          if (d.target.classed('masked-spender')) {
-            s += 'from-masked-spender';
+          if (dstCircle.classed('masked-spender')) {
+            s += ' from-masked-spender';
           }
-          */
           return s;
         })
         .attr('d', function(d) {
