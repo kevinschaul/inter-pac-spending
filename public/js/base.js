@@ -10,6 +10,7 @@ var pacdag = {
   },
 
   activePacs: [],
+  stickyActive: false,
 
   // TODO Fix decimal
   formatDollar: d3.format('$,'),
@@ -162,6 +163,9 @@ var pacdag = {
       .append('path')
         .attr('d', 'M0,-5L10,0L0,5');
 
+    self.links = self.svg.append('g')
+    self.pacs = self.svg.append('g')
+
   },
 
   prepHighlights: function() {
@@ -189,7 +193,7 @@ var pacdag = {
   drawChart: function() {
     var self = this;
 
-    self.pacs = self.svg.selectAll('circle.pac')
+    self.pacs.selectAll('circle.pac')
       .data(self.pacSummary)
       .enter().append('circle')
         .attr('id', function(d) {
@@ -210,10 +214,19 @@ var pacdag = {
         .attr('r', function(d) { return self.r(d.spent); })
         .on('click', function(d) { console.log(d); })
         .on('mouseover', function(d) {
+          self.stickyActive = false;
+          self.deactivateTextHovers();
+          self.activatePac(d.ComID);
+        })
+        .on('click', function(d) {
+          self.stickyActive = true;
+          self.deactivateTextHovers();
           self.activatePac(d.ComID);
         })
         .on('mouseout', function(d) {
-          self.deactivateAllPacs();
+          if (!self.stickyActive) {
+            self.deactivateAllPacs();
+          }
         })
 
   },
@@ -294,7 +307,7 @@ var pacdag = {
   drawLinks: function() {
     var self = this;
 
-    self.path = self.svg.selectAll('path')
+    self.links.selectAll('path')
       .data(self.interPacDonations)
       .enter().append('path')
         .attr('class', function(d) {
@@ -411,15 +424,27 @@ var pacdag = {
       .text('$10,000 spent')
   },
 
+  deactivateTextHovers: function() {
+    var self = this;
+
+    d3.selectAll('.pac-hover.active')
+      .classed('active', false);
+  },
+
   setTextHovers: function() {
     var self = this;
 
     d3.selectAll('.pac-hover')
       .on('click', function(d) {
+
         self.deactivateAllPacs();
         var thisd3 = d3.select(this);
         var id = thisd3.attr('data-pacid');
         self.activatePac(id);
+
+        self.deactivateTextHovers();
+
+        thisd3.classed('active', true);
       })
   }
 };

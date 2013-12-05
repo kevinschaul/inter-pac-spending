@@ -4,6 +4,7 @@ $sans-serif: Arial, sans-serif;
 $dark-gray: #333;
 $gray: #999;
 $light-gray: #ccc;
+$active-color: #92B5C4;
 
 $circle-color: $light-gray;
 $receiver-color: #467530;
@@ -73,7 +74,10 @@ $stage-border: 1px solid #999;
 
 .pac-hover {
   cursor: pointer;
-  background-color: yellow;
+  padding: 4px;
+}
+.pac-hover.active {
+  background-color: $active-color;
 }
 
 .stage {
@@ -178,7 +182,9 @@ text {
   cursor: pointer;
 }
 .pac.active {
-    stroke-width: 2px;
+  stroke-width: 2px;
+  stroke: darken($active-color, 40%);
+  fill: $active-color;
 }
 
 .link {
