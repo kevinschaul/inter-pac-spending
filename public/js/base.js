@@ -284,10 +284,72 @@ var pacdag = {
     d3.selectAll('.to-' + id)
       .style('display', 'block')
       .classed('link-to', true)
+      .attr('d', function(d) {
+          var src = d.source;
+          var dst = d.target;
+          return [
+            'M',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+            'L',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+          ].join('');
+        })
+      .transition()
+        .duration(400)
+        .ease('linear')
+        .attr('d', function(d) {
+          var src = d.source;
+          var dst = d.target;
+          return [
+            'M',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+            'L',
+            self.x(dst.spentToPacPercent),
+            ',',
+            self.y(dst.receivedFromPacPercent),
+          ].join('');
+        })
 
     d3.selectAll('.from-' + id)
       .style('display', 'block')
       .classed('link-from', true)
+      .attr('d', function(d) {
+          var src = d.source;
+          var dst = d.target;
+          return [
+            'M',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+            'L',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+          ].join('');
+        })
+      .transition()
+        .duration(400)
+        .ease('linear')
+        .attr('d', function(d) {
+          var src = d.source;
+          var dst = d.target;
+          return [
+            'M',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+            'L',
+            self.x(dst.spentToPacPercent),
+            ',',
+            self.y(dst.receivedFromPacPercent),
+          ].join('');
+        })
   },
 
   hideLinks: function(id) {
@@ -296,10 +358,38 @@ var pacdag = {
     d3.selectAll('.to-' + id)
       .style('display', 'none')
       .classed('link-to', false)
+      .attr('d', function(d) {
+          var src = d.source;
+          var dst = d.target;
+          return [
+            'M',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+            'L',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+          ].join('');
+        })
 
       d3.selectAll('.from-' + id)
       .style('display', 'none')
       .classed('link-from', false)
+      .attr('d', function(d) {
+          var src = d.source;
+          var dst = d.target;
+          return [
+            'M',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+            'L',
+            self.x(src.spentToPacPercent),
+            ',',
+            self.y(src.receivedFromPacPercent),
+          ].join('');
+        })
   },
 
   drawLinks: function() {
