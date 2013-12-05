@@ -156,19 +156,19 @@ var pacdag = {
   prepHighlights: function() {
     var self = this;
 
-    self.storefronts = self.highlights.append('g')
-      .attr('class', 'storefronts')
+    self.receivers = self.highlights.append('g')
+      .attr('class', 'receivers')
 
-    self.storefronts.append('rect')
+    self.receivers.append('rect')
       .attr('x', self.x(60))
       .attr('width', self.x(100) - self.x(60))
       .attr('y', 0)
       .attr('height', self.height)
 
-    self.maskedSpenders = self.highlights.append('g')
-      .attr('class', 'masked-spenders')
+    self.feeders = self.highlights.append('g')
+      .attr('class', 'feeders')
 
-    self.maskedSpenders.append('rect')
+    self.feeders.append('rect')
       .attr('x', 0)
       .attr('width', self.width)
       .attr('y', 0)
@@ -219,7 +219,7 @@ var pacdag = {
           var r = parseInt(thisd3.attr('r'));
 
           var top = (parseInt(thisd3.attr('cy')) + self.margin.top
-              + r + offset)  + 'px';
+              - 32)  + 'px';
 
           var left = (parseInt(thisd3.attr('cx')) + self.margin.left
               + r + offset) + 'px';

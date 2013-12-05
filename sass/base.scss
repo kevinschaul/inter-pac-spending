@@ -6,6 +6,8 @@ $gray: #999;
 $light-gray: #ccc;
 
 $circle-color: $light-gray;
+$receiver-color: #467530;
+$feeder-color: #7E2727;
 
 $stage-border: 1px solid #999;
 
@@ -104,6 +106,27 @@ $stage-border: 1px solid #999;
   }
 }
 
+.triangle-left {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.triangle-left.outer {
+  border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	border-right: 10px solid darken($circle-color, 40%); 
+  top: 20px;
+  left: -12px;
+}
+.triangle-left.inner {
+  border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent; 
+	border-right: 8px solid #fff; 
+  top: 22px;
+  left: -8px;
+  z-index: 1;
+}
+
 text {
   fill: #333;
   stroke: none;
@@ -143,15 +166,15 @@ path {
 
 .highlights {
   rect {
-    opacity: 0.5;
+    opacity: 0.4;
   }
 
-  .masked-spenders {
-    fill: #8BC58B;
+  .receivers {
+    fill: lighten($receiver-color, 10%);
   }
 
-  .storefronts {
-    fill: #E98A5D;
+  .feeders {
+    fill: lighten($feeder-color, 10%);
   }
 }
 

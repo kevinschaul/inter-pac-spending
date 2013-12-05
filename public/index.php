@@ -32,6 +32,13 @@
   </div>
   <div class='clear'></div>
 
+  <div id='chart-wrapper'>
+    <div id='chart-target'></div>
+    <div id='tooltip-target'></div>
+  </div>
+
+</div>
+
   <button onclick='p.drawLinks();'>Draw lines</button>
 
   <div class='stages'>
@@ -41,11 +48,6 @@
   </div>
   <div class='clear'></div>
 
-  <div id='chart-wrapper'>
-    <div id='chart-target'></div>
-    <div id='tooltip-target'></div>
-  </div>
-</div>
 
 <script id='tooltip-template' type='text/template'>
   <div class='name'><%= name %></div>
@@ -61,6 +63,8 @@
       <div class='clear'></div>
     </div>
   </div>
+  <div class='triangle-left inner'></div>
+  <div class='triangle-left outer'></div>
 </script>
 
 <script src="lib/d3.v3.js" type="text/javascript" charset="utf-8"></script>
