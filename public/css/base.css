@@ -69,15 +69,16 @@
 /* line 75, ../../sass/base.scss */
 .pac-hover {
   cursor: pointer;
-  padding: 4px;
+  padding: 0 4px;
+  line-height: 1.5em;
 }
 
-/* line 79, ../../sass/base.scss */
+/* line 80, ../../sass/base.scss */
 .pac-hover.active {
   background-color: #92b5c4;
 }
 
-/* line 83, ../../sass/base.scss */
+/* line 84, ../../sass/base.scss */
 .stage {
   float: left;
   background-color: #fff;
@@ -87,29 +88,29 @@
   cursor: pointer;
 }
 
-/* line 91, ../../sass/base.scss */
+/* line 92, ../../sass/base.scss */
 .stage:last-child {
   border-right: 1px solid #999999;
 }
 
-/* line 94, ../../sass/base.scss */
+/* line 95, ../../sass/base.scss */
 .stage:hover {
   background-color: #efefef;
 }
 
-/* line 97, ../../sass/base.scss */
+/* line 98, ../../sass/base.scss */
 .stage.active {
   background-color: #efefef;
 }
 
-/* line 101, ../../sass/base.scss */
+/* line 102, ../../sass/base.scss */
 #chart-wrapper {
   position: relative;
   width: 590px;
   float: left;
 }
 
-/* line 107, ../../sass/base.scss */
+/* line 108, ../../sass/base.scss */
 #tooltip-target {
   display: none;
   position: absolute;
@@ -119,35 +120,35 @@
   padding: 4px 10px;
   line-height: 1.1em;
 }
-/* line 116, ../../sass/base.scss */
+/* line 117, ../../sass/base.scss */
 #tooltip-target .info-wrapper {
   width: 180px;
 }
-/* line 120, ../../sass/base.scss */
+/* line 121, ../../sass/base.scss */
 #tooltip-target .name {
   font-size: 1.1em;
   margin-bottom: 4px;
 }
-/* line 124, ../../sass/base.scss */
+/* line 125, ../../sass/base.scss */
 #tooltip-target .label {
   color: #333333;
   font-size: 0.9em;
   float: left;
 }
-/* line 129, ../../sass/base.scss */
+/* line 130, ../../sass/base.scss */
 #tooltip-target .value {
   font-weight: bold;
   float: right;
 }
 
-/* line 135, ../../sass/base.scss */
+/* line 136, ../../sass/base.scss */
 .triangle-left {
   position: absolute;
   width: 0;
   height: 0;
 }
 
-/* line 140, ../../sass/base.scss */
+/* line 141, ../../sass/base.scss */
 .triangle-left.outer {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
@@ -156,7 +157,7 @@
   left: -12px;
 }
 
-/* line 147, ../../sass/base.scss */
+/* line 148, ../../sass/base.scss */
 .triangle-left.inner {
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
@@ -166,7 +167,7 @@
   z-index: 1;
 }
 
-/* line 156, ../../sass/base.scss */
+/* line 157, ../../sass/base.scss */
 text {
   fill: #333;
   stroke: none;
@@ -175,22 +176,22 @@ text {
   text-anchor: middle;
 }
 
-/* line 164, ../../sass/base.scss */
+/* line 165, ../../sass/base.scss */
 .axis {
   shape-rendering: crispEdges;
   fill: none;
   stroke: #eee;
 }
-/* line 169, ../../sass/base.scss */
+/* line 170, ../../sass/base.scss */
 .axis .tick:first-child {
   stroke: #000;
 }
-/* line 173, ../../sass/base.scss */
+/* line 174, ../../sass/base.scss */
 .axis .domain {
   stroke: none;
 }
 
-/* line 178, ../../sass/base.scss */
+/* line 179, ../../sass/base.scss */
 .pac {
   fill: #cccccc;
   stroke: #4d4d4d;
@@ -198,44 +199,44 @@ text {
   cursor: pointer;
 }
 
-/* line 184, ../../sass/base.scss */
+/* line 185, ../../sass/base.scss */
 .pac.active {
   stroke-width: 2px;
   stroke: #304d5a;
   fill: #92b5c4;
 }
 
-/* line 190, ../../sass/base.scss */
+/* line 191, ../../sass/base.scss */
 .link {
   stroke: #666;
   pointer-events: none;
   display: none;
 }
 
-/* line 195, ../../sass/base.scss */
+/* line 196, ../../sass/base.scss */
 .link.link-to {
   stroke-dasharray: 1,4;
 }
 
-/* line 200, ../../sass/base.scss */
+/* line 201, ../../sass/base.scss */
 .highlights rect {
   opacity: 0.4;
 }
-/* line 204, ../../sass/base.scss */
+/* line 205, ../../sass/base.scss */
 .highlights .receivers {
   fill: #5c993f;
 }
-/* line 208, ../../sass/base.scss */
+/* line 209, ../../sass/base.scss */
 .highlights .feeders {
   fill: #a53333;
 }
 
-/* line 214, ../../sass/base.scss */
+/* line 215, ../../sass/base.scss */
 .annotations text {
   font-size: 13px;
 }
 
-/* line 219, ../../sass/base.scss */
+/* line 220, ../../sass/base.scss */
 #legend-target {
   float: left;
   margin-top: 10px;
@@ -243,17 +244,21 @@ text {
   border-top: 1px solid #cccccc;
   padding-top: 10px;
 }
-/* line 226, ../../sass/base.scss */
+/* line 227, ../../sass/base.scss */
 #legend-target text {
   text-anchor: start;
 }
-/* line 230, ../../sass/base.scss */
+/* line 231, ../../sass/base.scss */
 #legend-target line {
   shape-rendering: crispEdges;
   stroke-width: 1px;
   stroke: #999999;
 }
-/* line 236, ../../sass/base.scss */
+/* line 237, ../../sass/base.scss */
+#legend-target .pac {
+  cursor: auto;
+}
+/* line 241, ../../sass/base.scss */
 #legend-target .link {
   shape-rendering: crispEdges;
   stroke-width: 2px;

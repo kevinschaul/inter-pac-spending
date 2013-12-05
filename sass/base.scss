@@ -74,7 +74,8 @@ $stage-border: 1px solid #999;
 
 .pac-hover {
   cursor: pointer;
-  padding: 4px;
+  padding: 0 4px;
+  line-height: 1.5em;
 }
 .pac-hover.active {
   background-color: $active-color;
@@ -231,6 +232,10 @@ text {
     shape-rendering: crispEdges;
     stroke-width: 1px;
     stroke: $gray;
+  }
+
+  .pac {
+    cursor: auto;
   }
 
   .link {

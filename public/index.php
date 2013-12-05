@@ -16,22 +16,22 @@
   </div>
   <div class='col'>
     <span class='box receiver'></span><h3>Receiver PACs</h3>
-    <p>Some PACs receive the bulk of their money from other PACs. Some more text describing their general properties and tactics.</p>
+    <p>These PACs receive the bulk of their money from other PACs. Some more text describing their general properties and tactics.</p>
     <h4>Top Receiver PACs</h4>
     <ol>
-      <li class='pac-hover' data-pacid='80024'>Alliance for a Better Minnesota Action Fund</li>
-      <li class='pac-hover' data-pacid='30593'>North Central States Carpenters PAC</li>
-      <li class='pac-hover' data-pacid='70007'>Coalition of MN Businesses PAC</li>
+      <li class='pac-hover pacid-80024' data-pacid='80024'>Alliance for a Better Minnesota Action Fund</li>
+      <li class='pac-hover pacid-30593' data-pacid='30593'>North Central States Carpenters PAC</li>
+      <li class='pac-hover pacid-70007' data-pacid='70007'>Coalition of MN Businesses PAC</li>
     </ol>
   </div>
   <div class='col'>
     <span class='box feeder'></span><h3>Feeder PACs</h3>
-    <p>Some PACs spend most of their money directly to other PACs. Some more text describing their general properties and tactics.</p>
+    <p>These PACs spend most of their money directly to other PACs. Some more text describing their general properties and tactics.</p>
     <h4>Top Feeder PACs</h4>
     <ol>
-      <li class='pac-hover' data-pacid='30625'>WIN Minnesota Political Action Fund</li>
-      <li class='pac-hover' data-pacid='30204'>AFSCME</li>
-      <li class='pac-hover' data-pacid='41051'>Minnesota Future LLC</li>
+      <li class='pac-hover pacid-30625' data-pacid='30625'>WIN Minnesota Political Action Fund</li>
+      <li class='pac-hover pacid-30204' data-pacid='30204'>AFSCME</li>
+      <li class='pac-hover pacid-41051' data-pacid='41051'>Minnesota Future LLC</li>
     </ol>
   </div>
   <div id='legend-target'></div>

@@ -11,6 +11,7 @@ var pacdag = {
 
   activePacs: [],
   stickyActive: false,
+  textHovers: [],
 
   // TODO Fix decimal
   formatDollar: d3.format('$,'),
@@ -65,6 +66,8 @@ var pacdag = {
     self.drawLinks();
     self.drawLegend();
     self.setTextHovers();
+
+    self.activatePac('80024');
   },
 
   handleData: function(error, pacSummary, interPacDonations) {
@@ -226,6 +229,7 @@ var pacdag = {
         .on('mouseout', function(d) {
           if (!self.stickyActive) {
             self.deactivateAllPacs();
+            self.deactivateTextHovers();
           }
         })
 
@@ -258,6 +262,10 @@ var pacdag = {
       .style('display', 'block')
 
     self.showLinks(id);
+
+    if (_.indexOf(self.textHovers, id) >= 0) {
+      d3.select('.pac-hover.pacid-' + id).classed('active', true);
+    }
   },
 
   deactivatePac: function(id, skipTootip) {
@@ -357,14 +365,14 @@ var pacdag = {
 
     self.annotations.append('text')
       .attr('x', -self.y(50))
-      .attr('y', -50)
+      .attr('y', -58)
       .attr('transform', 'rotate(270)')
-      .text('Receiver PACs →')
+      .text('Percent of donations received from other PACs')
 
     self.annotations.append('text')
       .attr('x', self.x(50))
       .attr('y', 550)
-      .text('Feeder PACs →')
+      .text('Percent of donations sent to other PACs')
 
   },
 
@@ -435,6 +443,11 @@ var pacdag = {
     var self = this;
 
     d3.selectAll('.pac-hover')
+      .each(function(d) {
+        var thisd3 = d3.select(this);
+        var id = thisd3.attr('data-pacid');
+        self.textHovers.push(id);
+      })
       .on('click', function(d) {
 
         self.deactivateAllPacs();
