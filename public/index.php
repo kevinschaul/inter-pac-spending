@@ -11,8 +11,8 @@
 <h1>2013-12-3-pac-dag</h1>
 <div class='graphic'>
   <div id='chart-wrapper'>
-    <div id='chart-target'></div>
     <div id='tooltip-target'></div>
+    <div id='chart-target'></div>
   </div>
   <div class='col'>
     <span class='box receiver'></span><h3>Receiver PACs</h3>
@@ -63,8 +63,6 @@
       <div class='clear'></div>
     </div>
   </div>
-  <div class='triangle-left inner'></div>
-  <div class='triangle-left outer'></div>
 </script>
 
 <script src="lib/d3.v3.js" type="text/javascript" charset="utf-8"></script>

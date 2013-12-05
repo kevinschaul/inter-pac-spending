@@ -112,43 +112,41 @@
 
 /* line 108, ../../sass/base.scss */
 #tooltip-target {
-  display: none;
-  position: absolute;
   pointer-events: none;
   background: #fff;
-  border: 3px solid #666666;
+  border: 2px solid #92b5c4;
   padding: 4px 10px;
   line-height: 1.1em;
 }
-/* line 117, ../../sass/base.scss */
+/* line 115, ../../sass/base.scss */
 #tooltip-target .info-wrapper {
   width: 180px;
 }
-/* line 121, ../../sass/base.scss */
+/* line 119, ../../sass/base.scss */
 #tooltip-target .name {
   font-size: 1.1em;
   margin-bottom: 4px;
 }
-/* line 125, ../../sass/base.scss */
+/* line 123, ../../sass/base.scss */
 #tooltip-target .label {
   color: #333333;
   font-size: 0.9em;
   float: left;
 }
-/* line 130, ../../sass/base.scss */
+/* line 128, ../../sass/base.scss */
 #tooltip-target .value {
   font-weight: bold;
   float: right;
 }
 
-/* line 136, ../../sass/base.scss */
+/* line 134, ../../sass/base.scss */
 .triangle-left {
   position: absolute;
   width: 0;
   height: 0;
 }
 
-/* line 141, ../../sass/base.scss */
+/* line 139, ../../sass/base.scss */
 .triangle-left.outer {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
@@ -157,7 +155,7 @@
   left: -12px;
 }
 
-/* line 148, ../../sass/base.scss */
+/* line 146, ../../sass/base.scss */
 .triangle-left.inner {
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
@@ -167,7 +165,7 @@
   z-index: 1;
 }
 
-/* line 157, ../../sass/base.scss */
+/* line 155, ../../sass/base.scss */
 text {
   fill: #333;
   stroke: none;
@@ -176,22 +174,22 @@ text {
   text-anchor: middle;
 }
 
-/* line 165, ../../sass/base.scss */
+/* line 163, ../../sass/base.scss */
 .axis {
   shape-rendering: crispEdges;
   fill: none;
   stroke: #eee;
 }
-/* line 170, ../../sass/base.scss */
+/* line 168, ../../sass/base.scss */
 .axis .tick:first-child {
   stroke: #000;
 }
-/* line 174, ../../sass/base.scss */
+/* line 172, ../../sass/base.scss */
 .axis .domain {
   stroke: none;
 }
 
-/* line 179, ../../sass/base.scss */
+/* line 177, ../../sass/base.scss */
 .pac {
   fill: #cccccc;
   stroke: #4d4d4d;
@@ -199,44 +197,44 @@ text {
   cursor: pointer;
 }
 
-/* line 185, ../../sass/base.scss */
+/* line 183, ../../sass/base.scss */
 .pac.active {
   stroke-width: 2px;
   stroke: #304d5a;
   fill: #92b5c4;
 }
 
-/* line 191, ../../sass/base.scss */
+/* line 189, ../../sass/base.scss */
 .link {
   stroke: #666;
   pointer-events: none;
   display: none;
 }
 
-/* line 196, ../../sass/base.scss */
+/* line 194, ../../sass/base.scss */
 .link.link-to {
   stroke-dasharray: 1,4;
 }
 
-/* line 201, ../../sass/base.scss */
+/* line 199, ../../sass/base.scss */
 .highlights rect {
   opacity: 0.4;
 }
-/* line 205, ../../sass/base.scss */
+/* line 203, ../../sass/base.scss */
 .highlights .receivers {
   fill: #5c993f;
 }
-/* line 209, ../../sass/base.scss */
+/* line 207, ../../sass/base.scss */
 .highlights .feeders {
   fill: #a53333;
 }
 
-/* line 215, ../../sass/base.scss */
+/* line 213, ../../sass/base.scss */
 .annotations text {
   font-size: 13px;
 }
 
-/* line 220, ../../sass/base.scss */
+/* line 218, ../../sass/base.scss */
 #legend-target {
   float: left;
   margin-top: 10px;
@@ -244,21 +242,21 @@ text {
   border-top: 1px solid #cccccc;
   padding-top: 10px;
 }
-/* line 227, ../../sass/base.scss */
+/* line 225, ../../sass/base.scss */
 #legend-target text {
   text-anchor: start;
 }
-/* line 231, ../../sass/base.scss */
+/* line 229, ../../sass/base.scss */
 #legend-target line {
   shape-rendering: crispEdges;
   stroke-width: 1px;
   stroke: #999999;
 }
-/* line 237, ../../sass/base.scss */
+/* line 235, ../../sass/base.scss */
 #legend-target .pac {
   cursor: auto;
 }
-/* line 241, ../../sass/base.scss */
+/* line 239, ../../sass/base.scss */
 #legend-target .link {
   shape-rendering: crispEdges;
   stroke-width: 2px;

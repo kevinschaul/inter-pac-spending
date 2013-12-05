@@ -251,15 +251,8 @@ var pacdag = {
       spentTotal: self.formatDollar(d.spent)
     };
 
-    var r = parseInt(thisd3.attr('r'));
-    var top = (parseInt(thisd3.attr('cy')) + self.margin.top - 32)  + 'px';
-    var left = (parseInt(thisd3.attr('cx')) + self.margin.left + r + 10) + 'px';
-
     self.tooltip
       .html(self.tooltipTemplate(pac))
-      .style('top', top)
-      .style('left', left)
-      .style('display', 'block')
 
     self.showLinks(id);
 
@@ -273,9 +266,6 @@ var pacdag = {
 
     d3.select('.pac#comid-' + id)
       .classed('active', false)
-
-    self.tooltip
-      .style('display', 'none')
 
     self.hideLinks(id);
   },

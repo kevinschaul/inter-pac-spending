@@ -106,11 +106,9 @@ $stage-border: 1px solid #999;
 }
 
 #tooltip-target {
-  display: none;
-  position: absolute;
   pointer-events: none;
   background: #fff;
-  border: 3px solid darken($circle-color, 40%);
+  border: 2px solid $active-color;
   padding: 4px 10px;
   line-height: 1.1em;
 
