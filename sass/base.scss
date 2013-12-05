@@ -2,8 +2,10 @@ $serif: Georgia, serif;
 $sans-serif: Arial, sans-serif;
 
 $dark-gray: #333;
-$gray: #666;
-$light-gray: #999;
+$gray: #999;
+$light-gray: #ccc;
+
+$circle-color: $light-gray;
 
 $stage-border: 1px solid #999;
 
@@ -30,7 +32,7 @@ $stage-border: 1px solid #999;
     text-transform: uppercase;
     font-weight: normal;
     font-size: 0.8em;
-    color: $light-gray;
+    color: $gray;
     margin: 0;
   }
 
@@ -70,6 +72,38 @@ $stage-border: 1px solid #999;
 }
 
 
+#chart-wrapper {
+  position: relative;
+}
+
+#tooltip-target {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+  background: #fff;
+  border: 3px solid darken($circle-color, 40%);
+  padding: 4px 10px;
+  line-height: 1.1em;
+
+  .info-wrapper {
+    width: 180px;
+  }
+
+  .name {
+    font-size: 1.1em;
+    margin-bottom: 4px;
+  }
+  .label {
+    color: $dark-gray;
+    font-size: 0.9em;
+    float: left;
+  }
+  .value {
+    font-weight: bold;
+    float: right;
+  }
+}
+
 text {
   fill: #333;
   stroke: none;
@@ -93,13 +127,18 @@ text {
 }
 
 circle {
-  fill: #ccc;
-  stroke: #333;
+  fill: $circle-color;
+  stroke: darken($circle-color, 50%);
   opacity: 0.8;
+  cursor: pointer;
+}
+circle.active {
+    stroke-width: 2px;
 }
 
 path {
   stroke: #666;
+  pointer-events: none;
 }
 
 .highlights {

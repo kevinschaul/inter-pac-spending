@@ -9,6 +9,9 @@ var pacdag = {
     left: 100
   },
 
+  // TODO Fix decimal
+  formatDollar: d3.format('$,'),
+
   init: function() {
     var self = this;
     _.bindAll(this, 'handleData');
@@ -18,7 +21,7 @@ var pacdag = {
       .defer(d3.json, 'inter-pac-donations.json')
       .await(self.handleData)
 
-    self.svg = d3.select('#target').append('svg')
+    self.svg = d3.select('#chart-target').append('svg')
       .attr('width', self.width + self.margin.left + self.margin.right)
       .attr('height', self.height + self.margin.top + self.margin.bottom)
       .append('g')
@@ -47,6 +50,7 @@ var pacdag = {
   go: function() {
     var self = this;
 
+    self.prepTooltip();
     self.prepChart();
     self.prepHighlights();
     self.drawAnnotations();
@@ -97,6 +101,13 @@ var pacdag = {
       .range([0.1, 3])
 
     self.go();
+  },
+
+  prepTooltip: function() {
+    var self = this;
+
+    this.tooltipTemplate = _.template(d3.select('#tooltip-template').html());
+    this.tooltip = d3.select('#tooltip-target');
   },
 
   prepChart: function() {
@@ -187,6 +198,46 @@ var pacdag = {
         .attr('cy', function(d) { return self.y(d.receivedFromPacPercent); })
         .attr('r', function(d) { return self.r(d.spent); })
         .on('click', function(d) { console.log(d); })
+        .on('mouseover', function(d) {
+          var thisd3 = d3.select(this)
+
+          thisd3.classed('active', true)
+
+          console.log(d);
+          console.log(this);
+
+          var pac = {
+            name: d.Committee,
+            receivedTotal: self.formatDollar(d.received),
+            spentTotal: self.formatDollar(d.spent)
+          };
+
+          console.log(thisd3.attr('cy'));
+          console.log(thisd3.attr('cx'));
+
+          var offset = 10;
+          var r = parseInt(thisd3.attr('r'));
+
+          var top = (parseInt(thisd3.attr('cy')) + self.margin.top
+              + r + offset)  + 'px';
+
+          var left = (parseInt(thisd3.attr('cx')) + self.margin.left
+              + r + offset) + 'px';
+          console.log(left);
+
+          self.tooltip
+            .html(self.tooltipTemplate(pac))
+            .style('top', top)
+            .style('left', left)
+            .style('display', 'block')
+        })
+        .on('mouseout', function(d) {
+          d3.select(this)
+            .classed('active', false)
+
+          self.tooltip
+            .style('display', 'none')
+        })
   },
 
   drawLinks: function() {

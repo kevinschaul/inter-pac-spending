@@ -41,8 +41,27 @@
   </div>
   <div class='clear'></div>
 
-  <div id='target'></div>
+  <div id='chart-wrapper'>
+    <div id='chart-target'></div>
+    <div id='tooltip-target'></div>
+  </div>
 </div>
+
+<script id='tooltip-template' type='text/template'>
+  <div class='name'><%= name %></div>
+  <div class='info-wrapper'>
+    <div class='received-total'>
+      <span class='label'>Receieved: </span>
+      <span class='value'><%= receivedTotal %></span>
+      <div class='clear'></div>
+    </div>
+    <div class='spent-total'>
+      <span class='label'>Spent: </span>
+      <span class='value'><%= spentTotal %></span>
+      <div class='clear'></div>
+    </div>
+  </div>
+</script>
 
 <script src="lib/d3.v3.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/underscore-min.js" type="text/javascript" charset="utf-8"></script>
