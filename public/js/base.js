@@ -9,12 +9,14 @@ var pacdag = {
     left: 70
   },
 
+  activePacs: [],
+
   // TODO Fix decimal
   formatDollar: d3.format('$,'),
 
   init: function() {
     var self = this;
-    _.bindAll(this, 'handleData');
+    _.bindAll(this, 'handleData', 'activatePac', 'deactivatePac');
 
     queue()
       .defer(d3.csv, 'pacs.csv')
@@ -61,6 +63,7 @@ var pacdag = {
     self.drawChart();
     self.drawLinks();
     self.drawLegend();
+    self.setTextHovers();
   },
 
   handleData: function(error, pacSummary, interPacDonations) {
@@ -207,41 +210,61 @@ var pacdag = {
         .attr('r', function(d) { return self.r(d.spent); })
         .on('click', function(d) { console.log(d); })
         .on('mouseover', function(d) {
-          var thisd3 = d3.select(this)
-
-          thisd3.classed('active', true)
-
-          var pac = {
-            name: d.Committee,
-            receivedTotal: self.formatDollar(d.received),
-            spentTotal: self.formatDollar(d.spent)
-          };
-
-          var r = parseInt(thisd3.attr('r'));
-
-          var top = (parseInt(thisd3.attr('cy')) + self.margin.top
-              - 32)  + 'px';
-
-          var left = (parseInt(thisd3.attr('cx')) + self.margin.left
-              + r + 10) + 'px';
-
-          self.tooltip
-            .html(self.tooltipTemplate(pac))
-            .style('top', top)
-            .style('left', left)
-            .style('display', 'block')
-
-          self.showLinks(d.ComID);
+          self.activatePac(d.ComID);
         })
         .on('mouseout', function(d) {
-          d3.select(this)
-            .classed('active', false)
-
-          self.tooltip
-            .style('display', 'none')
-
-          self.hideLinks(d.ComID);
+          self.deactivateAllPacs();
         })
+
+  },
+
+  activatePac: function(id) {
+    var self = this;
+
+    self.deactivateAllPacs();
+    self.activePacs.push(id);
+
+    var d = self.pacSummaryById[id];
+    var thisd3 = d3.select('.pac#comid-' + id)
+    thisd3.classed('active', true)
+
+    var pac = {
+      name: d.Committee,
+      receivedTotal: self.formatDollar(d.received),
+      spentTotal: self.formatDollar(d.spent)
+    };
+
+    var r = parseInt(thisd3.attr('r'));
+    var top = (parseInt(thisd3.attr('cy')) + self.margin.top - 32)  + 'px';
+    var left = (parseInt(thisd3.attr('cx')) + self.margin.left + r + 10) + 'px';
+
+    self.tooltip
+      .html(self.tooltipTemplate(pac))
+      .style('top', top)
+      .style('left', left)
+      .style('display', 'block')
+
+    self.showLinks(id);
+  },
+
+  deactivatePac: function(id, skipTootip) {
+    var self = this;
+
+    d3.select('.pac#comid-' + id)
+      .classed('active', false)
+
+    self.tooltip
+      .style('display', 'none')
+
+    self.hideLinks(id);
+  },
+
+  deactivateAllPacs: function() {
+    var self = this;
+
+    while (self.activePacs.length > 0) {
+      self.deactivatePac(self.activePacs.pop());
+    }
   },
 
   showLinks: function(id) {
@@ -386,7 +409,18 @@ var pacdag = {
       .attr('x', 80)
       .attr('y', 91)
       .text('$10,000 spent')
+  },
 
+  setTextHovers: function() {
+    var self = this;
+
+    d3.selectAll('.pac-hover')
+      .on('click', function(d) {
+        self.deactivateAllPacs();
+        var thisd3 = d3.select(this);
+        var id = thisd3.attr('data-pacid');
+        self.activatePac(id);
+      })
   }
 };
 
