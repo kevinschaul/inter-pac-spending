@@ -26,6 +26,7 @@ $stage-border: 1px solid #999;
     font-family: $sans-serif;
     font-weight: normal;
     font-size: 1.3em;
+    line-height: 1.3em;
     margin: 0;
   }
 
@@ -50,9 +51,24 @@ $stage-border: 1px solid #999;
 }
 
 .col {
-  width: 50%;
   float: left;
+  width: 360px;
+  margin-left: 10px;
+  margin-top: 20px;
+}
 
+.box {
+  float: left;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 0 6px 0 0;
+}
+.box.receiver {
+  background-color: lighten($receiver-color, 50%);
+}
+.box.feeder {
+  background-color: lighten($feeder-color, 50%);
 }
 
 .stage {
@@ -73,9 +89,10 @@ $stage-border: 1px solid #999;
   background-color: #efefef;
 }
 
-
 #chart-wrapper {
   position: relative;
+  width: 590px;
+  float: left;
 }
 
 #tooltip-target {
@@ -149,19 +166,23 @@ text {
   }
 }
 
-circle {
+.pac {
   fill: $circle-color;
   stroke: darken($circle-color, 50%);
   opacity: 0.8;
   cursor: pointer;
 }
-circle.active {
+.pac.active {
     stroke-width: 2px;
 }
 
-path {
+.link {
   stroke: #666;
   pointer-events: none;
+  display: none;
+}
+.link.link-to {
+  stroke-dasharray: 1,4;
 }
 
 .highlights {
@@ -181,6 +202,28 @@ path {
 .annotations {
   text {
     font-size: 13px;
+  }
+}
+
+#legend-target {
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+
+  text {
+    text-anchor: start;
+  }
+
+  line {
+    shape-rendering: crispEdges;
+    stroke-width: 1px;
+    stroke: $gray;
+  }
+
+  .link {
+    shape-rendering: crispEdges;
+    stroke-width: 2px;
+    display: block;
   }
 }
 

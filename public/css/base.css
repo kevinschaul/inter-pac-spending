@@ -16,9 +16,10 @@
   font-family: Arial, sans-serif;
   font-weight: normal;
   font-size: 1.3em;
+  line-height: 1.3em;
   margin: 0;
 }
-/* line 32, ../../sass/base.scss */
+/* line 33, ../../sass/base.scss */
 .graphic h4 {
   font-family: Arial, sans-serif;
   text-transform: uppercase;
@@ -27,24 +28,45 @@
   color: #999999;
   margin: 0;
 }
-/* line 41, ../../sass/base.scss */
+/* line 42, ../../sass/base.scss */
 .graphic p {
   margin: 10px 0;
   font-family: Georgia, serif;
   font-size: 1.1em;
 }
-/* line 47, ../../sass/base.scss */
+/* line 48, ../../sass/base.scss */
 .graphic ul, .graphic ol {
   margin: 5px 0;
 }
 
-/* line 52, ../../sass/base.scss */
+/* line 53, ../../sass/base.scss */
 .col {
-  width: 50%;
   float: left;
+  width: 360px;
+  margin-left: 10px;
+  margin-top: 20px;
 }
 
-/* line 58, ../../sass/base.scss */
+/* line 60, ../../sass/base.scss */
+.box {
+  float: left;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 0 6px 0 0;
+}
+
+/* line 67, ../../sass/base.scss */
+.box.receiver {
+  background-color: #cbe5bf;
+}
+
+/* line 70, ../../sass/base.scss */
+.box.feeder {
+  background-color: #eababa;
+}
+
+/* line 74, ../../sass/base.scss */
 .stage {
   float: left;
   background-color: #fff;
@@ -54,27 +76,29 @@
   cursor: pointer;
 }
 
-/* line 66, ../../sass/base.scss */
+/* line 82, ../../sass/base.scss */
 .stage:last-child {
   border-right: 1px solid #999999;
 }
 
-/* line 69, ../../sass/base.scss */
+/* line 85, ../../sass/base.scss */
 .stage:hover {
   background-color: #efefef;
 }
 
-/* line 72, ../../sass/base.scss */
+/* line 88, ../../sass/base.scss */
 .stage.active {
   background-color: #efefef;
 }
 
-/* line 77, ../../sass/base.scss */
+/* line 92, ../../sass/base.scss */
 #chart-wrapper {
   position: relative;
+  width: 590px;
+  float: left;
 }
 
-/* line 81, ../../sass/base.scss */
+/* line 98, ../../sass/base.scss */
 #tooltip-target {
   display: none;
   position: absolute;
@@ -84,35 +108,35 @@
   padding: 4px 10px;
   line-height: 1.1em;
 }
-/* line 90, ../../sass/base.scss */
+/* line 107, ../../sass/base.scss */
 #tooltip-target .info-wrapper {
   width: 180px;
 }
-/* line 94, ../../sass/base.scss */
+/* line 111, ../../sass/base.scss */
 #tooltip-target .name {
   font-size: 1.1em;
   margin-bottom: 4px;
 }
-/* line 98, ../../sass/base.scss */
+/* line 115, ../../sass/base.scss */
 #tooltip-target .label {
   color: #333333;
   font-size: 0.9em;
   float: left;
 }
-/* line 103, ../../sass/base.scss */
+/* line 120, ../../sass/base.scss */
 #tooltip-target .value {
   font-weight: bold;
   float: right;
 }
 
-/* line 109, ../../sass/base.scss */
+/* line 126, ../../sass/base.scss */
 .triangle-left {
   position: absolute;
   width: 0;
   height: 0;
 }
 
-/* line 114, ../../sass/base.scss */
+/* line 131, ../../sass/base.scss */
 .triangle-left.outer {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
@@ -121,7 +145,7 @@
   left: -12px;
 }
 
-/* line 121, ../../sass/base.scss */
+/* line 138, ../../sass/base.scss */
 .triangle-left.inner {
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
@@ -131,7 +155,7 @@
   z-index: 1;
 }
 
-/* line 130, ../../sass/base.scss */
+/* line 147, ../../sass/base.scss */
 text {
   fill: #333;
   stroke: none;
@@ -140,54 +164,83 @@ text {
   text-anchor: middle;
 }
 
-/* line 138, ../../sass/base.scss */
+/* line 155, ../../sass/base.scss */
 .axis {
   shape-rendering: crispEdges;
   fill: none;
   stroke: #eee;
 }
-/* line 143, ../../sass/base.scss */
+/* line 160, ../../sass/base.scss */
 .axis .tick:first-child {
   stroke: #000;
 }
-/* line 147, ../../sass/base.scss */
+/* line 164, ../../sass/base.scss */
 .axis .domain {
   stroke: none;
 }
 
-/* line 152, ../../sass/base.scss */
-circle {
+/* line 169, ../../sass/base.scss */
+.pac {
   fill: #cccccc;
   stroke: #4d4d4d;
   opacity: 0.8;
   cursor: pointer;
 }
 
-/* line 158, ../../sass/base.scss */
-circle.active {
+/* line 175, ../../sass/base.scss */
+.pac.active {
   stroke-width: 2px;
 }
 
-/* line 162, ../../sass/base.scss */
-path {
+/* line 179, ../../sass/base.scss */
+.link {
   stroke: #666;
   pointer-events: none;
+  display: none;
 }
 
-/* line 168, ../../sass/base.scss */
+/* line 184, ../../sass/base.scss */
+.link.link-to {
+  stroke-dasharray: 1,4;
+}
+
+/* line 189, ../../sass/base.scss */
 .highlights rect {
   opacity: 0.4;
 }
-/* line 172, ../../sass/base.scss */
+/* line 193, ../../sass/base.scss */
 .highlights .receivers {
   fill: #5c993f;
 }
-/* line 176, ../../sass/base.scss */
+/* line 197, ../../sass/base.scss */
 .highlights .feeders {
   fill: #a53333;
 }
 
-/* line 182, ../../sass/base.scss */
+/* line 203, ../../sass/base.scss */
 .annotations text {
   font-size: 13px;
+}
+
+/* line 208, ../../sass/base.scss */
+#legend-target {
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+/* line 213, ../../sass/base.scss */
+#legend-target text {
+  text-anchor: start;
+}
+/* line 217, ../../sass/base.scss */
+#legend-target line {
+  shape-rendering: crispEdges;
+  stroke-width: 1px;
+  stroke: #999999;
+}
+/* line 223, ../../sass/base.scss */
+#legend-target .link {
+  shape-rendering: crispEdges;
+  stroke-width: 2px;
+  display: block;
 }

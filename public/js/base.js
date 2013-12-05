@@ -1,12 +1,12 @@
 var pacdag = {
 
   height: 500,
-  width: 760,
+  width: 500,
   margin: {
     top: 20,
-    right: 100,
-    bottom: 50,
-    left: 100
+    right: 20,
+    bottom: 60,
+    left: 70
   },
 
   // TODO Fix decimal
@@ -25,9 +25,13 @@ var pacdag = {
       .attr('width', self.width + self.margin.left + self.margin.right)
       .attr('height', self.height + self.margin.top + self.margin.bottom)
       .append('g')
-        .attr('transform', 'translate(' + self.margin.left + ',' + self.margin.top + ')');
+        .attr('transform', 'translate(' + self.margin.left + ',' + self.margin.top + ')')
 
     self.defs = self.svg.append('defs')
+
+    self.legend = d3.select('#legend-target').append('svg')
+      .attr('width', 360)
+      .attr('height', 135)
 
     d3.selectAll('.stage')
       .on('click', function() {
@@ -55,6 +59,8 @@ var pacdag = {
     self.prepHighlights();
     self.drawAnnotations();
     self.drawChart();
+    self.drawLinks();
+    self.drawLegend();
   },
 
   handleData: function(error, pacSummary, interPacDonations) {
@@ -98,7 +104,7 @@ var pacdag = {
 
     self.w = d3.scale.linear()
       .domain([0, d3.max(self.interPacDonations, function(d) { return d.amt; })])
-      .range([0.1, 3])
+      .range([1, 10])
 
     self.go();
   },
@@ -121,6 +127,7 @@ var pacdag = {
       .orient('bottom')
       .tickSize(self.height - 1)
       .tickPadding(20)
+      .tickFormat(function(d) { return d + '%'; })
       .ticks(5)
 
     self.yAxis = d3.svg.axis()
@@ -128,6 +135,7 @@ var pacdag = {
       .orient('left')
       .tickSize(self.width)
       .tickPadding(20)
+      .tickFormat(function(d) { return d + '%'; })
       .ticks(5)
 
     self.axis = self.svg.append('g')
@@ -156,19 +164,19 @@ var pacdag = {
   prepHighlights: function() {
     var self = this;
 
-    self.receivers = self.highlights.append('g')
-      .attr('class', 'receivers')
+    self.feeders = self.highlights.append('g')
+      .attr('class', 'feeders')
 
-    self.receivers.append('rect')
+    self.feeders.append('rect')
       .attr('x', self.x(60))
       .attr('width', self.x(100) - self.x(60))
       .attr('y', 0)
       .attr('height', self.height)
 
-    self.feeders = self.highlights.append('g')
-      .attr('class', 'feeders')
+    self.receivers = self.highlights.append('g')
+      .attr('class', 'receivers')
 
-    self.feeders.append('rect')
+    self.receivers.append('rect')
       .attr('x', 0)
       .attr('width', self.width)
       .attr('y', 0)
@@ -203,33 +211,27 @@ var pacdag = {
 
           thisd3.classed('active', true)
 
-          console.log(d);
-          console.log(this);
-
           var pac = {
             name: d.Committee,
             receivedTotal: self.formatDollar(d.received),
             spentTotal: self.formatDollar(d.spent)
           };
 
-          console.log(thisd3.attr('cy'));
-          console.log(thisd3.attr('cx'));
-
-          var offset = 10;
           var r = parseInt(thisd3.attr('r'));
 
           var top = (parseInt(thisd3.attr('cy')) + self.margin.top
               - 32)  + 'px';
 
           var left = (parseInt(thisd3.attr('cx')) + self.margin.left
-              + r + offset) + 'px';
-          console.log(left);
+              + r + 10) + 'px';
 
           self.tooltip
             .html(self.tooltipTemplate(pac))
             .style('top', top)
             .style('left', left)
             .style('display', 'block')
+
+          self.showLinks(d.ComID);
         })
         .on('mouseout', function(d) {
           d3.select(this)
@@ -237,7 +239,33 @@ var pacdag = {
 
           self.tooltip
             .style('display', 'none')
+
+          self.hideLinks(d.ComID);
         })
+  },
+
+  showLinks: function(id) {
+    var self = this;
+
+    d3.selectAll('.to-' + id)
+      .style('display', 'block')
+      .classed('link-to', true)
+
+    d3.selectAll('.from-' + id)
+      .style('display', 'block')
+      .classed('link-from', true)
+  },
+
+  hideLinks: function(id) {
+    var self = this;
+
+    d3.selectAll('.to-' + id)
+      .style('display', 'none')
+      .classed('link-to', false)
+
+      d3.selectAll('.from-' + id)
+      .style('display', 'none')
+      .classed('link-from', false)
   },
 
   drawLinks: function() {
@@ -247,7 +275,7 @@ var pacdag = {
       .data(self.interPacDonations)
       .enter().append('path')
         .attr('class', function(d) {
-          var s = 'donation';
+          var s = 'link';
           var srcCircle = d3.select('#comid-' + d.src);
           var dstCircle = d3.select('#comid-' + d.dst);
           if (srcCircle.classed('storefront')) {
@@ -257,34 +285,15 @@ var pacdag = {
             s += ' from-masked-spender';
           }
           if (dstCircle.classed('storefront')) {
-            s += ' from-storefront';
+            s += ' to-storefront';
           }
           if (dstCircle.classed('masked-spender')) {
-            s += ' from-masked-spender';
+            s += ' to-masked-spender';
           }
+          s += ' from-' + d.src;
+          s += ' to-' + d.dst;
           return s;
         })
-        .attr('d', function(d) {
-          var src = d.source;
-          return [
-            'M',
-            self.x(src.spentToPacPercent),
-            ',',
-            self.y(src.receivedFromPacPercent),
-            'L',
-            self.x(src.spentToPacPercent),
-            ',',
-            self.y(src.receivedFromPacPercent),
-          ].join('');
-        })
-        .style('stroke-width', function(d) {
-          return self.w(d.amt);
-        })
-
-    self.path
-      .attr('marker-end', 'url(#triangle)')
-      .transition()
-        .duration(5000)
         .attr('d', function(d) {
           var src = d.source;
           var dst = d.target;
@@ -298,6 +307,9 @@ var pacdag = {
             ',',
             self.y(dst.receivedFromPacPercent),
           ].join('');
+        })
+        .style('stroke-width', function(d) {
+          return self.w(d.amt);
         })
   },
 
@@ -317,6 +329,63 @@ var pacdag = {
       .attr('x', self.x(50))
       .attr('y', 550)
       .text('Feeder PACs →')
+
+  },
+
+  drawLegend: function() {
+    var self = this;
+
+    self.legend.append('path')
+      .attr('class', 'link link-from')
+      .attr('d', 'M5,10L66,10')
+
+    self.legend.append('text')
+      .attr('x', 80)
+      .attr('y', 13)
+      .text('Donation from PAC')
+
+    self.legend.append('path')
+      .attr('class', 'link link-to')
+      .attr('d', 'M5,30L66,30')
+
+    self.legend.append('text')
+      .attr('x', 80)
+      .attr('y', 33)
+      .text('Donation to PAC')
+
+    self.legend.append('circle')
+      .attr('class', 'pac')
+      .attr('cx', 30)
+      .attr('cy', 70)
+      .attr('r', self.r(10000000))
+
+    self.legend.append('circle')
+      .attr('class', 'pac')
+      .attr('cx', 30)
+      .attr('cy', 88)
+      .attr('r', self.r(10000))
+
+    self.legend.append('line')
+      .attr('x1', 53)
+      .attr('x2', 70)
+      .attr('y1', 70)
+      .attr('y2', 70)
+
+    self.legend.append('line')
+      .attr('x1', 35)
+      .attr('x2', 70)
+      .attr('y1', 88)
+      .attr('y2', 88)
+
+    self.legend.append('text')
+      .attr('x', 80)
+      .attr('y', 73)
+      .text('$10 million spent')
+
+    self.legend.append('text')
+      .attr('x', 80)
+      .attr('y', 91)
+      .text('$10,000 spent')
 
   }
 };

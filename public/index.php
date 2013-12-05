@@ -10,8 +10,12 @@
 
 <h1>2013-12-3-pac-dag</h1>
 <div class='graphic'>
+  <div id='chart-wrapper'>
+    <div id='chart-target'></div>
+    <div id='tooltip-target'></div>
+  </div>
   <div class='col'>
-    <h3>Receiver PACs</h3>
+    <span class='box receiver'></span><h3>Receiver PACs</h3>
     <p>Some PACs receive the bulk of their money from other PACs. Some more text describing their general properties and tactics.</p>
     <h4>Top Receiver PACs</h4>
     <ol>
@@ -21,7 +25,7 @@
     </ol>
   </div>
   <div class='col'>
-    <h3>Feeder PACs</h3>
+    <span class='box feeder'></span><h3>Feeder PACs</h3>
     <p>Some PACs spend most of their money directly to other PACs. Some more text describing their general properties and tactics.</p>
     <h4>Top Feeder PACs</h4>
     <ol>
@@ -30,12 +34,8 @@
       <li>Minnesota Future LLC</li>
     </ol>
   </div>
+  <div id='legend-target'></div>
   <div class='clear'></div>
-
-  <div id='chart-wrapper'>
-    <div id='chart-target'></div>
-    <div id='tooltip-target'></div>
-  </div>
 
 </div>
 
