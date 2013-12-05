@@ -1,3 +1,10 @@
+$serif: Georgia, serif;
+$sans-serif: Arial, sans-serif;
+
+$dark-gray: #333;
+$gray: #666;
+$light-gray: #999;
+
 $stage-border: 1px solid #999;
 
 .clear {
@@ -7,6 +14,41 @@ $stage-border: 1px solid #999;
 .graphic {
   width: 960px;
   margin: auto;
+  font-family: $sans-serif;
+  font-size: 16px;
+  color: $dark-gray;
+
+  h3 {
+    font-family: $sans-serif;
+    font-weight: normal;
+    font-size: 1.3em;
+    margin: 0;
+  }
+
+  h4 {
+    font-family: $sans-serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 0.8em;
+    color: $light-gray;
+    margin: 0;
+  }
+
+  p {
+    margin: 10px 0;
+    font-family: $serif;
+    font-size: 1.1em;
+  }
+
+  ul, ol {
+    margin: 5px 0;
+  }
+}
+
+.col {
+  width: 50%;
+  float: left;
+
 }
 
 .stage {

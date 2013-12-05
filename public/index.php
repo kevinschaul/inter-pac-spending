@@ -10,6 +10,28 @@
 
 <h1>2013-12-3-pac-dag</h1>
 <div class='graphic'>
+  <div class='col'>
+    <h3>Receiver PACs</h3>
+    <p>Some PACs receive the bulk of their money from other PACs. Some more text describing their general properties and tactics.</p>
+    <h4>Top Receiver PACs</h4>
+    <ol>
+      <li>Alliance for a Better Minnesota Action Fund</li>
+      <li>North Central States Carpenters PAC</li>
+      <li>Coalition of MN Businesses PAC</li>
+    </ol>
+  </div>
+  <div class='col'>
+    <h3>Feeder PACs</h3>
+    <p>Some PACs spend most of their money directly to other PACs. Some more text describing their general properties and tactics.</p>
+    <h4>Top Feeder PACs</h4>
+    <ol>
+      <li>WIN Minnesota Political Action Fund</li>
+      <li>AFSCME</li>
+      <li>Minnesota Future LLC</li>
+    </ol>
+  </div>
+  <div class='clear'></div>
+
   <button onclick='p.drawLinks();'>Draw lines</button>
 
   <div class='stages'>

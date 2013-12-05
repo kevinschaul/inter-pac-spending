@@ -1,15 +1,50 @@
-/* line 3, ../../sass/base.scss */
+/* line 10, ../../sass/base.scss */
 .clear {
   clear: both;
 }
 
-/* line 7, ../../sass/base.scss */
+/* line 14, ../../sass/base.scss */
 .graphic {
   width: 960px;
   margin: auto;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333333;
+}
+/* line 21, ../../sass/base.scss */
+.graphic h3 {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.3em;
+  margin: 0;
+}
+/* line 28, ../../sass/base.scss */
+.graphic h4 {
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 0.8em;
+  color: #999999;
+  margin: 0;
+}
+/* line 37, ../../sass/base.scss */
+.graphic p {
+  margin: 10px 0;
+  font-family: Georgia, serif;
+  font-size: 1.1em;
+}
+/* line 43, ../../sass/base.scss */
+.graphic ul, .graphic ol {
+  margin: 5px 0;
 }
 
-/* line 12, ../../sass/base.scss */
+/* line 48, ../../sass/base.scss */
+.col {
+  width: 50%;
+  float: left;
+}
+
+/* line 54, ../../sass/base.scss */
 .stage {
   float: left;
   background-color: #fff;
@@ -19,22 +54,22 @@
   cursor: pointer;
 }
 
-/* line 20, ../../sass/base.scss */
+/* line 62, ../../sass/base.scss */
 .stage:last-child {
   border-right: 1px solid #999999;
 }
 
-/* line 23, ../../sass/base.scss */
+/* line 65, ../../sass/base.scss */
 .stage:hover {
   background-color: #efefef;
 }
 
-/* line 26, ../../sass/base.scss */
+/* line 68, ../../sass/base.scss */
 .stage.active {
   background-color: #efefef;
 }
 
-/* line 31, ../../sass/base.scss */
+/* line 73, ../../sass/base.scss */
 text {
   fill: #333;
   stroke: none;
@@ -43,47 +78,47 @@ text {
   text-anchor: middle;
 }
 
-/* line 39, ../../sass/base.scss */
+/* line 81, ../../sass/base.scss */
 .axis {
   shape-rendering: crispEdges;
   fill: none;
   stroke: #eee;
 }
-/* line 44, ../../sass/base.scss */
+/* line 86, ../../sass/base.scss */
 .axis .tick:first-child {
   stroke: #000;
 }
-/* line 48, ../../sass/base.scss */
+/* line 90, ../../sass/base.scss */
 .axis .domain {
   stroke: none;
 }
 
-/* line 53, ../../sass/base.scss */
+/* line 95, ../../sass/base.scss */
 circle {
   fill: #ccc;
   stroke: #333;
   opacity: 0.8;
 }
 
-/* line 59, ../../sass/base.scss */
+/* line 101, ../../sass/base.scss */
 path {
   stroke: #666;
 }
 
-/* line 64, ../../sass/base.scss */
+/* line 106, ../../sass/base.scss */
 .highlights rect {
   opacity: 0.5;
 }
-/* line 68, ../../sass/base.scss */
+/* line 110, ../../sass/base.scss */
 .highlights .masked-spenders {
   fill: #8BC58B;
 }
-/* line 72, ../../sass/base.scss */
+/* line 114, ../../sass/base.scss */
 .highlights .storefronts {
   fill: #E98A5D;
 }
 
-/* line 78, ../../sass/base.scss */
+/* line 120, ../../sass/base.scss */
 .annotations text {
   font-size: 13px;
 }
