@@ -1,12 +1,12 @@
 var pacdag = {
 
   height: 500,
-  width: 800,
+  width: 760,
   margin: {
     top: 20,
-    right: 20,
-    bottom: 20,
-    left: 30
+    right: 100,
+    bottom: 50,
+    left: 100
   },
 
   init: function() {
@@ -49,6 +49,7 @@ var pacdag = {
 
     self.prepChart();
     self.prepHighlights();
+    self.drawAnnotations();
     self.drawChart();
   },
 
@@ -108,14 +109,14 @@ var pacdag = {
       .scale(self.x)
       .orient('bottom')
       .tickSize(self.height - 1)
-      .tickPadding(10)
+      .tickPadding(20)
       .ticks(5)
 
     self.yAxis = d3.svg.axis()
       .scale(self.y)
       .orient('left')
       .tickSize(self.width)
-      .tickPadding(10)
+      .tickPadding(20)
       .ticks(5)
 
     self.axis = self.svg.append('g')
@@ -249,6 +250,24 @@ var pacdag = {
         })
   },
 
+  drawAnnotations: function() {
+    var self = this;
+
+    self.annotations = self.svg.append('g')
+      .attr('class', 'annotations')
+
+    self.annotations.append('text')
+      .attr('x', -self.y(50))
+      .attr('y', -50)
+      .attr('transform', 'rotate(270)')
+      .text('Receiver PACs →')
+
+    self.annotations.append('text')
+      .attr('x', self.x(50))
+      .attr('y', 550)
+      .text('Feeder PACs →')
+
+  }
 };
 
 var p = pacdag.init();

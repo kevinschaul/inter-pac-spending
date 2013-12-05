@@ -9,16 +9,18 @@
 <body>
 
 <h1>2013-12-3-pac-dag</h1>
-<button onclick='p.drawLinks();'>Draw lines</button>
+<div class='graphic'>
+  <button onclick='p.drawLinks();'>Draw lines</button>
 
-<div class='stages'>
-  <div class='stage stage-1' data-stage='1'>1</div>
-  <div class='stage stage-2' data-stage='2'>2</div>
-  <div class='stage stage-3' data-stage='3'>3</div>
+  <div class='stages'>
+    <div class='stage stage-1' data-stage='1'>1</div>
+    <div class='stage stage-2' data-stage='2'>2</div>
+    <div class='stage stage-3' data-stage='3'>3</div>
+  </div>
+  <div class='clear'></div>
+
+  <div id='target'></div>
 </div>
-<div class='clear'></div>
-
-<div id='target'></div>
 
 <script src="lib/d3.v3.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/underscore-min.js" type="text/javascript" charset="utf-8"></script>

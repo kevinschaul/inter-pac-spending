@@ -4,6 +4,11 @@ $stage-border: 1px solid #999;
   clear: both;
 }
 
+.graphic {
+  width: 960px;
+  margin: auto;
+}
+
 .stage {
   float: left;
   background-color: #fff;
@@ -28,6 +33,7 @@ text {
   stroke: none;
   font-family: arial, sans-serif;
   font-size: 11px;
+  text-anchor: middle;
 }
 
 .axis {
@@ -65,6 +71,12 @@ path {
 
   .storefronts {
     fill: #E98A5D;
+  }
+}
+
+.annotations {
+  text {
+    font-size: 13px;
   }
 }
 
