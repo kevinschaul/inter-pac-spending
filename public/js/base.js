@@ -217,17 +217,20 @@ var pacdag = {
         .attr('r', function(d) { return self.r(d.spent); })
         .on('click', function(d) { console.log(d); })
         .on('mouseover', function(d) {
-          self.stickyActive = false;
           self.deactivateTextHovers();
           self.activatePac(d.ComID);
         })
         .on('click', function(d) {
-          self.stickyActive = true;
-          self.deactivateTextHovers();
-          self.activatePac(d.ComID);
+          self.stickyActive = d.ComID;
+          //self.deactivateTextHovers();
+          //self.activatePac(d.ComID);
         })
         .on('mouseout', function(d) {
-          if (!self.stickyActive) {
+          if (self.stickyActive) {
+            self.deactivateAllPacs();
+            self.deactivateTextHovers();
+            self.activatePac(self.stickyActive);
+          } else {
             self.deactivateAllPacs();
             self.deactivateTextHovers();
           }
