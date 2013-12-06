@@ -137,7 +137,6 @@ var pacdag = {
       d.target = self.pacSummaryById[d.dst];
 
       d.percentOfTotalSpending = self.pacSummaryById[d.src].spent > 0 ? d.amt / self.pacSummaryById[d.src].spent : 0;
-      console.log(d.percentOfTotalSpending);
     });
 
     self.x = d3.scale.linear()
@@ -594,11 +593,11 @@ var pacdag = {
   calculatePayments: function(amount, src) {
     var self = this;
 
+    self.initialAmount = amount;
     self.amounts = [];
     self._calculatePayments(amount, src);
 
     var total = 0;
-    console.log(self.amounts);
     _.each(self.amounts, function(d) {
       console.log(d);
       total += d.amount;
@@ -610,7 +609,7 @@ var pacdag = {
     var self = this;
 
     // Sanity check. If this happens, something is wrong.
-    if (amount > 100) {
+    if (amount > self.initialAmount) {
       console.log('Skipping amount: ', amount);
       return;
     }
@@ -624,9 +623,6 @@ var pacdag = {
     var donationsFromSrc = _.filter(self.interPacDonations, function(d) {
       return d.src === src;
     });
-
-    console.log(src);
-    console.log(donationsFromSrc);
 
     // If the amount is greater than the cutoff, recursively find the payments
     // of the `dst` pac.
