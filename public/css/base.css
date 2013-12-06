@@ -204,37 +204,47 @@ text {
   fill: #92b5c4;
 }
 
-/* line 189, ../../sass/base.scss */
+/* line 188, ../../sass/base.scss */
+.pac.lean-r {
+  fill: red;
+}
+
+/* line 191, ../../sass/base.scss */
+.pac.lean-d {
+  fill: blue;
+}
+
+/* line 195, ../../sass/base.scss */
 .link {
   stroke: #666;
   pointer-events: none;
   display: none;
 }
 
-/* line 194, ../../sass/base.scss */
+/* line 200, ../../sass/base.scss */
 .link.link-to {
   stroke-dasharray: 1,4;
 }
 
-/* line 199, ../../sass/base.scss */
+/* line 205, ../../sass/base.scss */
 .highlights rect {
   opacity: 0.6;
 }
-/* line 203, ../../sass/base.scss */
+/* line 209, ../../sass/base.scss */
 .highlights .receivers {
   fill: url(#gradient-receiver);
 }
-/* line 207, ../../sass/base.scss */
+/* line 213, ../../sass/base.scss */
 .highlights .feeders {
   fill: url(#gradient-feeder);
 }
 
-/* line 213, ../../sass/base.scss */
+/* line 219, ../../sass/base.scss */
 .annotations text {
   font-size: 13px;
 }
 
-/* line 218, ../../sass/base.scss */
+/* line 224, ../../sass/base.scss */
 #legend-target {
   float: left;
   margin-top: 10px;
@@ -242,21 +252,21 @@ text {
   border-top: 1px solid #cccccc;
   padding-top: 10px;
 }
-/* line 225, ../../sass/base.scss */
+/* line 231, ../../sass/base.scss */
 #legend-target text {
   text-anchor: start;
 }
-/* line 229, ../../sass/base.scss */
+/* line 235, ../../sass/base.scss */
 #legend-target line {
   shape-rendering: crispEdges;
   stroke-width: 1px;
   stroke: #999999;
 }
-/* line 235, ../../sass/base.scss */
+/* line 241, ../../sass/base.scss */
 #legend-target .pac {
   cursor: auto;
 }
-/* line 239, ../../sass/base.scss */
+/* line 245, ../../sass/base.scss */
 #legend-target .link {
   shape-rendering: crispEdges;
   stroke-width: 2px;

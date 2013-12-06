@@ -185,6 +185,12 @@ text {
   stroke: darken($active-color, 40%);
   fill: $active-color;
 }
+.pac.lean-r {
+  fill: red;
+}
+.pac.lean-d {
+  fill: blue;
+}
 
 .link {
   stroke: #666;

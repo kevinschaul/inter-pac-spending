@@ -116,6 +116,12 @@ var pacdag = {
       d.received = +d.receivedtot;
       d.receivedFromPac = +d.frompac;
 
+      if (+d.todem > +d.torep) {
+        d.lean = 'd';
+      } else if (+d.torep > +d.todem) {
+        d.lean = 'r';
+      }
+
       d.spentToPacPercent = d.spent > 0 ? 100 * d.spentToPac / d.spent : 0;
       d.receivedFromPacPercent = d.received > 0 ? 100 * d.receivedFromPac / d.received : 0;
     });
@@ -243,6 +249,9 @@ var pacdag = {
           }
           if (d.receivedFromPacPercent >= 60) {
             s += ' masked-spender';
+          }
+          if (d.lean) {
+            s += ' lean-' + d.lean;
           }
           return s;
         })
