@@ -11,185 +11,15 @@
   font-size: 16px;
   color: #333333;
 }
-/* line 26, ../../sass/base.scss */
-.graphic h3 {
-  font-family: Arial, sans-serif;
-  font-weight: normal;
-  font-size: 1.3em;
-  line-height: 1.3em;
-  margin: 0;
-}
-/* line 34, ../../sass/base.scss */
-.graphic h4 {
-  font-family: Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 0.8em;
-  color: #999999;
-  margin: 0;
-}
-/* line 43, ../../sass/base.scss */
-.graphic p {
-  margin: 10px 0;
-  font-family: Georgia, serif;
-  font-size: 1.1em;
-}
-/* line 49, ../../sass/base.scss */
-.graphic ul, .graphic ol {
-  margin: 5px 0;
-}
 
-/* line 54, ../../sass/base.scss */
-.col {
-  float: left;
-  width: 360px;
-  margin-left: 10px;
-  margin-top: 20px;
-}
-
-/* line 61, ../../sass/base.scss */
-.box {
-  float: left;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  margin: 0 6px 0 0;
-}
-
-/* line 68, ../../sass/base.scss */
-.box.receiver {
-  background-color: #ffff66;
-}
-
-/* line 71, ../../sass/base.scss */
-.box.feeder {
-  background-color: #ff6666;
-}
-
-/* line 75, ../../sass/base.scss */
-.pac-hover {
-  cursor: pointer;
-  padding: 0 4px;
-  line-height: 1.5em;
-}
-
-/* line 80, ../../sass/base.scss */
-.pac-hover.active {
-  background-color: #92b5c4;
-}
-
-/* line 84, ../../sass/base.scss */
-.stage {
-  float: left;
-  background-color: #fff;
-  border: 1px solid #999999;
-  border-right: none;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-/* line 92, ../../sass/base.scss */
-.stage:last-child {
-  border-right: 1px solid #999999;
-}
-
-/* line 95, ../../sass/base.scss */
-.stage:hover {
-  background-color: #efefef;
-}
-
-/* line 98, ../../sass/base.scss */
-.stage.active {
-  background-color: #efefef;
-}
-
-/* line 102, ../../sass/base.scss */
+/* line 27, ../../sass/base.scss */
 #chart-wrapper {
   position: relative;
   width: 590px;
   float: left;
 }
 
-/* line 108, ../../sass/base.scss */
-#tooltip-target {
-  pointer-events: none;
-  background: #fff;
-  border: 2px solid #92b5c4;
-  padding: 4px 10px;
-  line-height: 1.1em;
-}
-/* line 115, ../../sass/base.scss */
-#tooltip-target .info-wrapper {
-  width: 210px;
-}
-/* line 119, ../../sass/base.scss */
-#tooltip-target .name {
-  font-size: 1.1em;
-  margin-bottom: 4px;
-}
-/* line 123, ../../sass/base.scss */
-#tooltip-target .label {
-  color: #333333;
-  font-size: 0.9em;
-  float: left;
-}
-/* line 128, ../../sass/base.scss */
-#tooltip-target .value {
-  font-weight: bold;
-  float: right;
-}
-
-/* line 134, ../../sass/base.scss */
-.triangle-left {
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-
-/* line 139, ../../sass/base.scss */
-.triangle-left.outer {
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid #666666;
-  top: 20px;
-  left: -12px;
-}
-
-/* line 146, ../../sass/base.scss */
-.triangle-left.inner {
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #fff;
-  top: 22px;
-  left: -8px;
-  z-index: 1;
-}
-
-/* line 155, ../../sass/base.scss */
-text {
-  fill: #333;
-  stroke: none;
-  font-family: arial, sans-serif;
-  font-size: 11px;
-  text-anchor: middle;
-}
-
-/* line 163, ../../sass/base.scss */
-.axis {
-  shape-rendering: crispEdges;
-  fill: none;
-  stroke: #eee;
-}
-/* line 168, ../../sass/base.scss */
-.axis .tick:first-child {
-  stroke: #000;
-}
-/* line 172, ../../sass/base.scss */
-.axis .domain {
-  stroke: none;
-}
-
-/* line 177, ../../sass/base.scss */
+/* line 33, ../../sass/base.scss */
 .pac {
   fill: #cccccc;
   stroke: #4d4d4d;
@@ -197,78 +27,36 @@ text {
   cursor: pointer;
 }
 
-/* line 183, ../../sass/base.scss */
+/* line 39, ../../sass/base.scss */
 .pac.active {
   stroke-width: 2px;
   stroke: #304d5a;
   fill: #92b5c4;
 }
 
-/* line 188, ../../sass/base.scss */
+/* line 44, ../../sass/base.scss */
 .pac.lean-r {
   fill: red;
 }
 
-/* line 191, ../../sass/base.scss */
+/* line 47, ../../sass/base.scss */
 .pac.lean-d {
   fill: blue;
 }
 
-/* line 195, ../../sass/base.scss */
+/* line 51, ../../sass/base.scss */
 .link {
-  stroke: #666;
+  fill: none;
+  stroke: #eee;
   pointer-events: none;
-  display: none;
 }
 
-/* line 200, ../../sass/base.scss */
-.link.link-to {
-  stroke-dasharray: 1,4;
+/* line 56, ../../sass/base.scss */
+.link.active-to {
+  stroke: green;
 }
 
-/* line 205, ../../sass/base.scss */
-.highlights rect {
-  opacity: 0.6;
-}
-/* line 209, ../../sass/base.scss */
-.highlights .receivers {
-  fill: url(#gradient-receiver);
-}
-/* line 213, ../../sass/base.scss */
-.highlights .feeders {
-  fill: url(#gradient-feeder);
-}
-
-/* line 219, ../../sass/base.scss */
-.annotations text {
-  font-size: 13px;
-}
-
-/* line 224, ../../sass/base.scss */
-#legend-target {
-  float: left;
-  margin-top: 10px;
-  margin-left: 10px;
-  border-top: 1px solid #cccccc;
-  padding-top: 10px;
-}
-/* line 231, ../../sass/base.scss */
-#legend-target text {
-  text-anchor: start;
-}
-/* line 235, ../../sass/base.scss */
-#legend-target line {
-  shape-rendering: crispEdges;
-  stroke-width: 1px;
-  stroke: #999999;
-}
-/* line 241, ../../sass/base.scss */
-#legend-target .pac {
-  cursor: auto;
-}
-/* line 245, ../../sass/base.scss */
-#legend-target .link {
-  shape-rendering: crispEdges;
-  stroke-width: 2px;
-  display: block;
+/* line 59, ../../sass/base.scss */
+.link.active-from {
+  stroke: orange;
 }
