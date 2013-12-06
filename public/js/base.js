@@ -16,8 +16,7 @@ var pacdag = {
   stickyActive: false,
   textHovers: [],
 
-  // TODO Fix decimal
-  formatDollar: d3.format('$,'),
+  formatDollar: d3.format('$,.2f'),
 
   init: function() {
     var self = this;
@@ -102,6 +101,8 @@ var pacdag = {
 
     self.stickyActive = '80024';
     self.activatePac('80024');
+
+    self.prepCalculatePayments();
   },
 
   handleData: function(error, pacSummary, interPacDonations) {
@@ -589,6 +590,44 @@ var pacdag = {
       })
   },
 
+  prepCalculatePayments: function() {
+    var self = this;
+
+    self.sentenceResultTemplate = _.template(
+      d3.select('#sentence-results-template').html()
+    );
+    self.sentenceResultTarget = d3.select('#sentence-results-target');
+
+    self.sentenceAmount = d3.select('.sentence input')
+
+    self.sentenceSelect = d3.select('.sentence select')
+
+    self.sentenceSelect.selectAll('option')
+      .data(self.pacSummary)
+      .enter().append('option')
+        .attr('value', function(d) {
+          return d.ComID;
+        })
+        .text(function(d) {
+          return d.Committee;
+        })
+
+    self.sentenceGo = d3.select('.sentence button')
+      .on('click', function() {
+        var amount = self.sentenceAmount.node().value;
+        var pacid = self.sentenceSelect.node().value.toString();
+
+        self.calculatePayments(amount, pacid);
+        self.sentenceResultTarget.html(
+          self.sentenceResultTemplate({
+            amounts: self.amounts
+          })
+        );
+      });
+
+  },
+
+  formatDollarSentence: d3.format('$,.2f'),
   CUTOFF: 0.1,
   calculatePayments: function(amount, src) {
     var self = this;
@@ -597,12 +636,13 @@ var pacdag = {
     self.amounts = [];
     self._calculatePayments(amount, src);
 
-    var total = 0;
     _.each(self.amounts, function(d) {
       console.log(d);
-      total += d.amount;
+      d.amountFormatted = self.formatDollarSentence(d.amount);
+      d.pac = self.pacSummaryById[d.pacid];
+      d.pacName = d.pac.Committee;
+      console.log(d);
     });
-    console.log(total);
   },
 
   _calculatePayments: function(amount, src) {

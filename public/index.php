@@ -38,7 +38,8 @@
   <div class='clear'></div>
 
   <div class='sentence'>
-    If I donate <input type='text' /> to <select></select>, <button>Go</button>
+    If I donate $<input type='text' value='100' /> to <select></select>, <button>Go</button>
+    <div id='sentence-results-target'></div>
   </div>
 
 </div>
@@ -67,6 +68,14 @@
       <div class='clear'></div>
     </div>
   </div>
+</script>
+
+<script id='sentence-results-template' type='text/template'>
+  <ul>
+  <% _.each(amounts, function(d) { %>
+    <li><%= d.amountFormatted %> to <%= d.pacName %></li>
+  <% }); %>
+  </ul>
 </script>
 
 <script src="lib/d3.v3.js" type="text/javascript" charset="utf-8"></script>
