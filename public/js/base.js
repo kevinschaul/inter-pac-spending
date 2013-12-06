@@ -108,8 +108,21 @@ var pacdag = {
   handleData: function(error, pacSummary, interPacDonations) {
     var self = this;
 
-    self.pacSummary = pacSummary;
-    self.interPacDonations = interPacDonations;
+    self.pacSummary = _.filter(pacSummary, function(d) {
+      return (+d.totspend >= 500000) && (+d.topac > 0 || +d.frompac > 0);
+    });
+
+    self.pacSummaryById = {};
+    _.each(self.pacSummary, function(d) {
+      self.pacSummaryById[d.ComID] = d;
+    });
+
+    self.interPacDonations = _.filter(interPacDonations, function(d) {
+      if (self.pacSummaryById[d.src] && self.pacSummaryById[d.dst]) {
+        return true;
+      }
+      return false;
+    });
 
     _.each(self.pacSummary, function(d) {
       d.spent = +d.totspend;
@@ -127,17 +140,14 @@ var pacdag = {
       d.receivedFromPacPercent = d.received > 0 ? 100 * d.receivedFromPac / d.received : 0;
     });
 
-    self.pacSummaryById = {};
-    _.each(self.pacSummary, function(d) {
-      self.pacSummaryById[d.ComID] = d;
-    });
-
     _.each(self.interPacDonations, function(d) {
       d.amt = +d.amt;
       d.source = self.pacSummaryById[d.src];
       d.target = self.pacSummaryById[d.dst];
 
-      d.percentOfTotalSpending = self.pacSummaryById[d.src].spent > 0 ? d.amt / self.pacSummaryById[d.src].spent : 0;
+      if (self.pacSummaryById[d.src]) {
+        d.percentOfTotalSpending = self.pacSummaryById[d.src].spent > 0 ? d.amt / self.pacSummaryById[d.src].spent : 0;
+      }
     });
 
     self.x = d3.scale.linear()
@@ -451,16 +461,16 @@ var pacdag = {
           var s = 'link';
           var srcCircle = d3.select('#comid-' + d.src);
           var dstCircle = d3.select('#comid-' + d.dst);
-          if (srcCircle.classed('storefront')) {
+          if (srcCircle && srcCircle.classed('storefront')) {
             s += ' from-storefront';
           }
-          if (srcCircle.classed('masked-spender')) {
+          if (srcCircle && srcCircle.classed('masked-spender')) {
             s += ' from-masked-spender';
           }
-          if (dstCircle.classed('storefront')) {
+          if (dstCircle && dstCircle.classed('storefront')) {
             s += ' to-storefront';
           }
-          if (dstCircle.classed('masked-spender')) {
+          if (dstCircle && dstCircle.classed('masked-spender')) {
             s += ' to-masked-spender';
           }
           s += ' from-' + d.src;
