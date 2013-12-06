@@ -620,7 +620,9 @@ var pacdag = {
         self.calculatePayments(amount, pacid);
         self.sentenceResultTarget.html(
           self.sentenceResultTemplate({
-            amounts: self.amounts
+            amounts: _.sortBy(self.amounts, function(d) {
+              return -d.amount;
+            })
           })
         );
       });
@@ -628,12 +630,12 @@ var pacdag = {
   },
 
   formatDollarSentence: d3.format('$,.2f'),
-  CUTOFF: 0.1,
+  CUTOFF: 0.01,
   calculatePayments: function(amount, src) {
     var self = this;
 
     self.initialAmount = amount;
-    self.amounts = [];
+    self.amounts = {};
     self._calculatePayments(amount, src);
 
     _.each(self.amounts, function(d) {
@@ -676,13 +678,16 @@ var pacdag = {
       });
     }
 
-    // If the total is greater than 0 after all payments have been subtracted,
+    // If the total is greater than 0.01 after all payments have been subtracted,
     // add this pac to `amounts`. The pac spent this money directly.
-    if (total > 0) {
-      self.amounts.push({
-        pacid: src,
-        amount: total
-      });
+    if (total >= 0.01) {
+      if (!self.amounts[src]) {
+        self.amounts[src] = {
+          pacid: src,
+          amount: 0
+        }
+      }
+      self.amounts[src].amount += total;
     }
   }
 
