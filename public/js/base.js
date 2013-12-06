@@ -135,6 +135,9 @@ var pacdag = {
       d.amt = +d.amt;
       d.source = self.pacSummaryById[d.src];
       d.target = self.pacSummaryById[d.dst];
+
+      d.percentOfTotalSpending = self.pacSummaryById[d.src].spent > 0 ? d.amt / self.pacSummaryById[d.src].spent : 0;
+      console.log(d.percentOfTotalSpending);
     });
 
     self.x = d3.scale.linear()
@@ -258,12 +261,12 @@ var pacdag = {
         .attr('cx', function(d) { return self.x(d.spentToPacPercent); })
         .attr('cy', function(d) { return self.y(d.receivedFromPacPercent); })
         .attr('r', function(d) { return self.r(d.spent); })
-        .on('click', function(d) { console.log(d); })
         .on('mouseover', function(d) {
           self.deactivateTextHovers();
           self.activatePac(d.ComID);
         })
         .on('click', function(d) {
+          console.log(d);
           self.stickyActive = d.ComID;
           //self.deactivateTextHovers();
           //self.activatePac(d.ComID);
@@ -585,7 +588,68 @@ var pacdag = {
 
         thisd3.classed('active', true);
       })
+  },
+
+  CUTOFF: 0.1,
+  calculatePayments: function(amount, src) {
+    var self = this;
+
+    self.amounts = [];
+    self._calculatePayments(amount, src);
+
+    var total = 0;
+    console.log(self.amounts);
+    _.each(self.amounts, function(d) {
+      console.log(d);
+      total += d.amount;
+    });
+    console.log(total);
+  },
+
+  _calculatePayments: function(amount, src) {
+    var self = this;
+
+    // Sanity check. If this happens, something is wrong.
+    if (amount > 100) {
+      console.log('Skipping amount: ', amount);
+      return;
+    }
+
+    // We will subtract from this value each time we recurse.
+    // In the end, this value will tell how much the `src` pac
+    // spend directly, which we must add to `amounts`.
+    var total = amount;
+
+    // Find the donations from `src`.
+    var donationsFromSrc = _.filter(self.interPacDonations, function(d) {
+      return d.src === src;
+    });
+
+    console.log(src);
+    console.log(donationsFromSrc);
+
+    // If the amount is greater than the cutoff, recursively find the payments
+    // of the `dst` pac.
+    if (amount >= self.CUTOFF) {
+      _.each(donationsFromSrc, function(d) {
+        // `a` is the amount donated specifically to this pac.
+        var a = amount * d.percentOfTotalSpending;
+        // Subtract the amount doanted to this pac from the total donations
+        total -= a;
+        self._calculatePayments(a, d.dst);
+      });
+    }
+
+    // If the total is greater than 0 after all payments have been subtracted,
+    // add this pac to `amounts`. The pac spent this money directly.
+    if (total > 0) {
+      self.amounts.push({
+        pacid: src,
+        amount: total
+      });
+    }
   }
+
 };
 
 var p = pacdag.init();

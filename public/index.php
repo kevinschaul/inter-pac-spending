@@ -37,6 +37,10 @@
   <div id='legend-target'></div>
   <div class='clear'></div>
 
+  <div class='sentence'>
+    If I donate <input type='text' /> to <select></select>, <button>Go</button>
+  </div>
+
 </div>
 
   <button onclick='p.drawLinks();'>Draw lines</button>
