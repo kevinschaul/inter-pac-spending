@@ -9,6 +9,9 @@ var pacdag = {
     left: 70
   },
 
+  receiverColor: 'yellow',
+  feederColor: 'red',
+
   activePacs: [],
   stickyActive: false,
   textHovers: [],
@@ -32,6 +35,36 @@ var pacdag = {
         .attr('transform', 'translate(' + self.margin.left + ',' + self.margin.top + ')')
 
     self.defs = self.svg.append('defs')
+
+    self.gradientFeeder = self.defs.append('linearGradient')
+      .attr('id', 'gradient-feeder')
+
+    self.gradientFeeder.append('stop')
+      .attr('offset', '0%')
+      .attr('stop-color', '#fff')
+      .attr('stop-opacity', 0.4)
+
+    self.gradientFeeder.append('stop')
+      .attr('offset', '100%')
+      .attr('stop-color', self.feederColor)
+      .attr('stop-opacity', 1.0)
+
+    self.gradientReceiver = self.defs.append('linearGradient')
+      .attr('id', 'gradient-receiver')
+      .attr('x1', 1)
+      .attr('x2', 1)
+      .attr('y1', 1)
+      .attr('y2', 0)
+
+    self.gradientReceiver.append('stop')
+      .attr('offset', '0%')
+      .attr('stop-color', '#fff')
+      .attr('stop-opacity', 0.4)
+
+    self.gradientReceiver.append('stop')
+      .attr('offset', '100%')
+      .attr('stop-color', self.receiverColor)
+      .attr('stop-opacity', 1.0)
 
     self.legend = d3.select('#legend-target').append('svg')
       .attr('width', 360)
@@ -67,6 +100,7 @@ var pacdag = {
     self.drawLegend();
     self.setTextHovers();
 
+    self.stickyActive = '80024';
     self.activatePac('80024');
   },
 

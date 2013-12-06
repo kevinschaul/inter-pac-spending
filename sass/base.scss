@@ -7,8 +7,8 @@ $light-gray: #ccc;
 $active-color: #92B5C4;
 
 $circle-color: $light-gray;
-$receiver-color: #467530;
-$feeder-color: #7E2727;
+$receiver-color: #FFFF00;
+$feeder-color: #FF0000;
 
 $stage-border: 1px solid #999;
 
@@ -66,10 +66,10 @@ $stage-border: 1px solid #999;
   margin: 0 6px 0 0;
 }
 .box.receiver {
-  background-color: lighten($receiver-color, 50%);
+  background-color: lighten($receiver-color, 20%);
 }
 .box.feeder {
-  background-color: lighten($feeder-color, 50%);
+  background-color: lighten($feeder-color, 20%);
 }
 
 .pac-hover {
@@ -113,7 +113,7 @@ $stage-border: 1px solid #999;
   line-height: 1.1em;
 
   .info-wrapper {
-    width: 180px;
+    width: 210px;
   }
 
   .name {
@@ -197,15 +197,15 @@ text {
 
 .highlights {
   rect {
-    opacity: 0.4;
+    opacity: 0.6;
   }
 
   .receivers {
-    fill: lighten($receiver-color, 10%);
+    fill: url(#gradient-receiver);
   }
 
   .feeders {
-    fill: lighten($feeder-color, 10%);
+    fill: url(#gradient-feeder);
   }
 }
 

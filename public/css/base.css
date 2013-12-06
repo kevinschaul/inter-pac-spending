@@ -58,12 +58,12 @@
 
 /* line 68, ../../sass/base.scss */
 .box.receiver {
-  background-color: #cbe5bf;
+  background-color: #ffff66;
 }
 
 /* line 71, ../../sass/base.scss */
 .box.feeder {
-  background-color: #eababa;
+  background-color: #ff6666;
 }
 
 /* line 75, ../../sass/base.scss */
@@ -120,7 +120,7 @@
 }
 /* line 115, ../../sass/base.scss */
 #tooltip-target .info-wrapper {
-  width: 180px;
+  width: 210px;
 }
 /* line 119, ../../sass/base.scss */
 #tooltip-target .name {
@@ -218,15 +218,15 @@ text {
 
 /* line 199, ../../sass/base.scss */
 .highlights rect {
-  opacity: 0.4;
+  opacity: 0.6;
 }
 /* line 203, ../../sass/base.scss */
 .highlights .receivers {
-  fill: #5c993f;
+  fill: url(#gradient-receiver);
 }
 /* line 207, ../../sass/base.scss */
 .highlights .feeders {
-  fill: #a53333;
+  fill: url(#gradient-feeder);
 }
 
 /* line 213, ../../sass/base.scss */
