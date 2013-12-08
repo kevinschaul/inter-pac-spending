@@ -37,6 +37,15 @@
   <div id='legend-target'></div>
   <div class='clear'></div>
 
+  <select class="combobox">
+    <option></option>
+    <option value="PA">Pennsylvania</option>
+    <option value="CT">Connecticut</option>
+    <option value="NY">New York</option>
+    <option value="MD">Maryland</option>
+    <option value="VA">Virginia</option>
+  </select>
+
   <div class='sentence'>
     If I donate $<input type='text' value='100' /> to <select></select>, <button>Go</button>
     <div id='sentence-results-target'></div>
@@ -81,6 +90,8 @@
 <script src="lib/d3.v3.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/underscore-min.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/queue.v1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/bootstrap-combobox.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

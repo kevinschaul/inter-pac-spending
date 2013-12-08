@@ -77,6 +77,8 @@ var pacdag = {
 
     self.setStage(1);
 
+    $('.combobox').combobox();
+
     return this;
   },
 
