@@ -77,8 +77,6 @@ var pacdag = {
 
     self.setStage(1);
 
-    $('.combobox').combobox();
-
     return this;
   },
 
@@ -623,6 +621,7 @@ var pacdag = {
         .text(function(d) {
           return d.Committee;
         })
+    $('.combobox').combobox();
 
     self.sentenceGo = d3.select('.sentence button')
       .on('click', function() {

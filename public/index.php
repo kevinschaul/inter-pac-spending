@@ -37,17 +37,8 @@
   <div id='legend-target'></div>
   <div class='clear'></div>
 
-  <select class="combobox">
-    <option></option>
-    <option value="PA">Pennsylvania</option>
-    <option value="CT">Connecticut</option>
-    <option value="NY">New York</option>
-    <option value="MD">Maryland</option>
-    <option value="VA">Virginia</option>
-  </select>
-
   <div class='sentence'>
-    If I donate $<input type='text' value='100' /> to <select></select>, <button>Go</button>
+    If I donate $<input type='text' value='100' /> to <select class='combobox'><option></option></select>, <button>Go</button>
     <div id='sentence-results-target'></div>
   </div>
 

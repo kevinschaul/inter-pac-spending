@@ -25,6 +25,7 @@
 
   var Combobox = function ( element, options ) {
     this.options = $.extend({}, $.fn.combobox.defaults, options);
+    console.log(this.options);
     this.$source = $(element);
     this.$container = this.setup();
     this.$element = this.$container.find('input[type=text]');
