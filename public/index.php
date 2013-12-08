@@ -10,65 +10,18 @@
 
 <h1>2013-12-3-pac-dag</h1>
 <div class='graphic'>
-  <div id='chart-wrapper'>
-    <div id='tooltip-target'></div>
-    <div id='chart-target'></div>
-  </div>
-  <div class='col'>
-    <span class='box receiver'></span><h3>Receiver PACs</h3>
-    <p>These PACs receive the bulk of their money from other PACs. Some more text describing their general properties and tactics.</p>
-    <h4>Top Receiver PACs</h4>
-    <ol>
-      <li class='pac-hover pacid-80024' data-pacid='80024'>Alliance for a Better Minnesota Action Fund</li>
-      <li class='pac-hover pacid-30593' data-pacid='30593'>North Central States Carpenters PAC</li>
-      <li class='pac-hover pacid-70007' data-pacid='70007'>Coalition of MN Businesses PAC</li>
-    </ol>
-  </div>
-  <div class='col'>
-    <span class='box feeder'></span><h3>Feeder PACs</h3>
-    <p>These PACs spend most of their money directly to other PACs. Some more text describing their general properties and tactics.</p>
-    <h4>Top Feeder PACs</h4>
-    <ol>
-      <li class='pac-hover pacid-30625' data-pacid='30625'>WIN Minnesota Political Action Fund</li>
-      <li class='pac-hover pacid-30204' data-pacid='30204'>AFSCME</li>
-      <li class='pac-hover pacid-41051' data-pacid='41051'>Minnesota Future LLC</li>
-    </ol>
-  </div>
-  <div id='legend-target'></div>
-  <div class='clear'></div>
-
   <div class='sentence'>
-    If I donate $<input type='text' value='100' /> to <select class='combobox'><option></option></select>, <button>Go</button>
+    If I donated <input type='text' id='amount' class='form-control' value='$100' /> to
+
+    <div class='form-group'>
+      <select class='form-control combobox'><option></option></select>
+    </div>
+
+    <button>Go</button>
+
     <div id='sentence-results-target'></div>
   </div>
-
 </div>
-
-  <button onclick='p.drawLinks();'>Draw lines</button>
-
-  <div class='stages'>
-    <div class='stage stage-1' data-stage='1'>1</div>
-    <div class='stage stage-2' data-stage='2'>2</div>
-    <div class='stage stage-3' data-stage='3'>3</div>
-  </div>
-  <div class='clear'></div>
-
-
-<script id='tooltip-template' type='text/template'>
-  <div class='name'><%= name %></div>
-  <div class='info-wrapper'>
-    <div class='received-total'>
-      <span class='label'>Receieved: </span>
-      <span class='value'><%= receivedTotal %></span>
-      <div class='clear'></div>
-    </div>
-    <div class='spent-total'>
-      <span class='label'>Spent: </span>
-      <span class='value'><%= spentTotal %></span>
-      <div class='clear'></div>
-    </div>
-  </div>
-</script>
 
 <script id='sentence-results-template' type='text/template'>
   <ul>

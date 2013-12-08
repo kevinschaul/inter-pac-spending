@@ -6,6 +6,7 @@ LIBRARY_FILES = \
 	public/lib/queue.v1.min.js \
 	public/lib/jquery-1.10.2.min.js \
 	public/lib/bootstrap-combobox.js \
+	sass/bootstrap-combobox.scss \
 	public/inter-pac-donations.json \
 	public/pacs.csv
 
@@ -37,11 +38,15 @@ public/lib/jquery-1.10.2.min.js:
 
 build/bootstrap-combobox:
 	mkdir -p build
-	git clone https://github.com/danielfarrell/bootstrap-combobox.git $@
+	git clone https://github.com/stdavis/bootstrap-combobox.git $@
 
 public/lib/bootstrap-combobox.js: build/bootstrap-combobox
 	mkdir -p public/lib
 	cp build/bootstrap-combobox/js/bootstrap-combobox.js $@
+
+sass/bootstrap-combobox.scss: build/bootstrap-combobox
+	mkdir -p public/lib
+	cp build/bootstrap-combobox/css/bootstrap-combobox.css $@
 
 public/inter-pac-donations.json: data/workspace/pacout.csv data/workspace/create_dag_data.py
 	./data/workspace/create_dag_data.py data/workspace/pacout.csv $@

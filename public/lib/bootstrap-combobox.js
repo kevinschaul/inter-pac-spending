@@ -25,7 +25,6 @@
 
   var Combobox = function ( element, options ) {
     this.options = $.extend({}, $.fn.combobox.defaults, options);
-    console.log(this.options);
     this.$source = $(element);
     this.$container = this.setup();
     this.$element = this.$container.find('input[type=text]');
@@ -111,12 +110,11 @@
     }
 
   , show: function () {
-      var pos = $.extend({}, this.$element.position(), {
+      var pos = $.extend({}, this.$element.offset(), {
         height: this.$element[0].offsetHeight
       });
 
       this.$menu
-        .insertAfter(this.$element)
         .css({
           top: pos.top + pos.height
         , left: pos.left
