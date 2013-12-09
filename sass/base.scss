@@ -15,13 +15,35 @@ $sans-serif: Arial, sans-serif;
   font-size: 16px;
 }
 
-#amount {
-  width: 100px;
-  display: inline-block;
+.sentence {
+  margin: 20px auto;
 }
 
-.form-control, .combobox-container {
-//  display: inline-block;
-  width: 200px;
+.input-group-addon {
+  width: 20%;
+  float: left;
+  line-height: 20px;
+}
+
+.form-control, #amount {
+  width: 80%;
+}
+
+.add-on {
+  line-height: 24px;
+}
+
+.amount {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+}
+.value {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.committee {
+  font-weight: bold;
 }
 

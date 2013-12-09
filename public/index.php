@@ -11,24 +11,49 @@
 <h1>2013-12-3-pac-dag</h1>
 <div class='graphic'>
   <div class='sentence'>
-    If I donated <input type='text' id='amount' class='form-control' value='$100' /> to
 
-    <div class='form-group'>
-      <select class='form-control combobox'><option></option></select>
-    </div>
+    <form class='form-inline'>
+      If I donated
+      <div class='col-md-2 form-group input-group'>
+        <span class="input-group-addon">$</span>
+        <input type='text' id='amount' class='form-control' value='100' />
+      </div>
+      to
+      <div class='form-group'>
+        <select class='form-control combobox'><option></option></select>
+      </div>
 
-    <button>Go</button>
-
-    <div id='sentence-results-target'></div>
+      <button onclick='return false;' class='btn btn-primary'>Go</button>
+    </form>
   </div>
+
+  <div id='sentence-results-target'></div>
 </div>
 
 <script id='sentence-results-template' type='text/template'>
-  <ul>
-  <% _.each(amounts, function(d) { %>
-    <li><%= d.amountFormatted %> to <%= d.pacName %></li>
-  <% }); %>
-  </ul>
+<% _.each(amounts, function(d) { %>
+  <div class='amount'>
+    <span class='value'>
+      <%= d.amountFormatted %>
+    </span>
+    to
+    <span class='committee'>
+      <%= d.pac.Committee %>
+    </span>
+    <div class='info'>
+      <div class='category'>
+        <% if (d.pac.cat2 === 'labor') { %>
+          (labor icon)
+        <% }; %>
+        <%= d.pac.cat2 %>
+      </div>
+      <div class='category'>
+        <%= d.pac.cat1 %>
+      </div>
+      (more information)
+    </div>
+  </div>
+<% }); %>
 </script>
 
 <script src="lib/d3.v3.js" type="text/javascript" charset="utf-8"></script>

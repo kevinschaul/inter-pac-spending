@@ -8056,12 +8056,41 @@ th.hidden-lg, td.hidden-lg {
 }
 
 /* line 18, ../../sass/base.scss */
-#amount {
-  width: 100px;
-  display: inline-block;
+.sentence {
+  margin: 20px auto;
 }
 
-/* line 23, ../../sass/base.scss */
-.form-control, .combobox-container {
-  width: 200px;
+/* line 22, ../../sass/base.scss */
+.input-group-addon {
+  width: 20%;
+  float: left;
+  line-height: 20px;
+}
+
+/* line 28, ../../sass/base.scss */
+.form-control, #amount {
+  width: 80%;
+}
+
+/* line 32, ../../sass/base.scss */
+.add-on {
+  line-height: 24px;
+}
+
+/* line 36, ../../sass/base.scss */
+.amount {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+}
+
+/* line 41, ../../sass/base.scss */
+.value {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* line 46, ../../sass/base.scss */
+.committee {
+  font-weight: bold;
 }

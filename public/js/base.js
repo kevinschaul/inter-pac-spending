@@ -90,12 +90,12 @@ var pacdag = {
         .text(function(d) {
           return d.Committee;
         })
+
     $('.combobox').combobox();
 
     self.sentenceGo = d3.select('.sentence button')
-      .on('click', function() {
+      .on('click', function(d, e) {
         var amount = self.sentenceAmount.node().value;
-        amount = 100;
         var pacid = self.sentenceSelect.node().value.toString();
 
         self.calculatePayments(amount, pacid);
@@ -106,7 +106,19 @@ var pacdag = {
             })
           })
         );
+
+        return false;
       });
+
+    // TODO for testing only
+    self.calculatePayments(100, '30025');
+    self.sentenceResultTarget.html(
+      self.sentenceResultTemplate({
+        amounts: _.sortBy(self.amounts, function(d) {
+          return -d.amount;
+        })
+      })
+    );
   },
 
   calculatePayments: function(amount, src) {
@@ -117,11 +129,10 @@ var pacdag = {
     self._calculatePayments(amount, src);
 
     _.each(self.amounts, function(d) {
-      console.log(d);
       d.amountFormatted = self.formatDollar(d.amount);
       d.pac = self.pacSummaryById[d.pacid];
-      d.pacName = d.pac.Committee;
       console.log(d);
+      console.log(d.pac);
     });
   },
 
