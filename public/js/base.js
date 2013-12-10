@@ -7,7 +7,10 @@ var pacdag = {
     var self = this;
     _.bindAll(this, 'handleData', 'tick');
 
-    d3.json('inter-pac-donations.json', self.handleData);
+    queue()
+      .defer(d3.csv, 'pacs.csv')
+      .defer(d3.json, 'inter-pac-donations.json')
+      .await(self.handleData);
 
     self.svg = d3.select('#target').append('svg')
       .attr('width', self.width)
@@ -29,10 +32,12 @@ var pacdag = {
     return this;
   },
 
-  handleData: function(error, data) {
+  handleData: function(error, pacs, interPacDonations) {
     var self = this;
 
-    self.links = data;
+    console.log(pacs);
+
+    self.links = interPacDonations;
     self.nodes = {};
 
     _.each(self.links, function(link) {
