@@ -113,16 +113,6 @@ var pacdag = {
 
         return false;
       });
-
-    // TODO for testing only
-    self.calculatePayments(100, '30025');
-    self.sentenceResultTarget.html(
-      self.sentenceResultTemplate({
-        amounts: _.sortBy(self.amounts, function(d) {
-          return -d.amount;
-        })
-      })
-    );
   },
 
   calculatePayments: function(amount, src) {
