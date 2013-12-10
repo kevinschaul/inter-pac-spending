@@ -39,6 +39,7 @@ public/lib/jquery-1.10.2.min.js:
 build/bootstrap-combobox:
 	mkdir -p build
 	git clone https://github.com/stdavis/bootstrap-combobox.git $@
+	cd build/bootstrap-combobox && git checkout bootstrap3
 
 public/lib/bootstrap-combobox.js: build/bootstrap-combobox
 	mkdir -p public/lib

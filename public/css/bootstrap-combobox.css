@@ -1,114 +1,4 @@
-/* line 1, ../../sass/bootstrap-combobox.scss */
-.combobox-container {
-  margin-bottom: 5px;
-  *zoom: 1;
-}
-
-/* line 6, ../../sass/bootstrap-combobox.scss */
-.combobox-container:before,
-.combobox-container:after {
-  display: table;
-  content: "";
-}
-
-/* line 10, ../../sass/bootstrap-combobox.scss */
-.combobox-container:after {
-  clear: both;
-}
-
-/* line 14, ../../sass/bootstrap-combobox.scss */
-.combobox-container input,
-.combobox-container .uneditable-input {
-  -webkit-border-radius: 0 3px 3px 0;
-  -moz-border-radius: 0 3px 3px 0;
-  border-radius: 0 3px 3px 0;
-}
-
-/* line 20, ../../sass/bootstrap-combobox.scss */
-.combobox-container input:focus,
-.combobox-container .uneditable-input:focus {
-  position: relative;
-  z-index: 2;
-}
-
-/* line 24, ../../sass/bootstrap-combobox.scss */
-.combobox-container .uneditable-input {
-  border-left-color: #ccc;
-}
-
-/* line 27, ../../sass/bootstrap-combobox.scss */
-.combobox-container .add-on {
-  float: left;
-  display: inline-block;
-  width: auto;
-  min-width: 16px;
-  height: inherit !important;
-  margin-right: -1px;
-  padding: 4px 5px;
-  font-weight: normal;
-  color: #999999;
-  text-align: center;
-  text-shadow: 0 1px 0 #ffffff;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 3px 0 0 3px;
-  -moz-border-radius: 3px 0 0 3px;
-  border-radius: 3px 0 0 3px;
-}
-
-/* line 46, ../../sass/bootstrap-combobox.scss */
-.combobox-container .active {
-  background-color: #a9dba9;
-  border-color: #46a546;
-}
-
-/* line 51, ../../sass/bootstrap-combobox.scss */
-.combobox-container input,
-.combobox-container .uneditable-input {
-  float: left;
-  -webkit-border-radius: 3px 0 0 3px;
-  -moz-border-radius: 3px 0 0 3px;
-  border-radius: 3px 0 0 3px;
-}
-
-/* line 57, ../../sass/bootstrap-combobox.scss */
-.combobox-container .uneditable-input {
-  border-left-color: #eee;
-  border-right-color: #ccc;
-}
-
-/* line 61, ../../sass/bootstrap-combobox.scss */
-.combobox-container .add-on {
-  margin-right: 0;
-  margin-left: -1px;
-  -webkit-border-radius: 0 3px 3px 0;
-  -moz-border-radius: 0 3px 3px 0;
-  border-radius: 0 3px 3px 0;
-}
-
-/* line 68, ../../sass/bootstrap-combobox.scss */
-.combobox-container input:first-child {
-  *margin-left: -160px;
-}
-
-/* line 71, ../../sass/bootstrap-combobox.scss */
-.combobox-container input:first-child + .add-on {
-  *margin-left: -21px;
-}
-
-/* line 74, ../../sass/bootstrap-combobox.scss */
-.combobox-container select {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  text-indent: -99999px;
-  *text-indent: 0;
-}
-
-/* line 85, ../../sass/bootstrap-combobox.scss */
+/* line 2, ../../sass/bootstrap-combobox.scss */
 .form-search .combobox-container,
 .form-inline .combobox-container {
   display: inline-block;
@@ -116,93 +6,52 @@
   vertical-align: top;
 }
 
-/* line 91, ../../sass/bootstrap-combobox.scss */
-.form-search .combobox-container .add-on,
-.form-inline .combobox-container .add-on {
-  vertical-align: middle;
-}
-
-/* line 94, ../../sass/bootstrap-combobox.scss */
-.combobox-selected .combobox-clear {
-  display: inline-block;
-}
-
-/* line 97, ../../sass/bootstrap-combobox.scss */
+/* line 7, ../../sass/bootstrap-combobox.scss */
 .combobox-selected .caret {
   display: none;
 }
 
-/* line 100, ../../sass/bootstrap-combobox.scss */
-.combobox-clear {
+/* :not doesn't work in IE8 */
+/* line 11, ../../sass/bootstrap-combobox.scss */
+.combobox-container:not(.combobox-selected) .glyphicon-remove {
   display: none;
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-  vertical-align: top;
-  opacity: 0.3;
-  filter: alpha(opacity=30);
 }
 
-/* line 110, ../../sass/bootstrap-combobox.scss */
-.dropdown:hover .combobox-clear,
-.open.dropdown .combobox-clear {
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-
-/* line 114, ../../sass/bootstrap-combobox.scss */
-.btn .combobox-clear {
-  margin-top: 1px;
-  margin-left: 1px;
-}
-
-/* line 119, ../../sass/bootstrap-combobox.scss */
-.btn:hover .combobox-clear,
-.open.btn-group .combobox-clear {
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-
-/* line 123, ../../sass/bootstrap-combobox.scss */
+/* line 14, ../../sass/bootstrap-combobox.scss */
 .typeahead-long {
   max-height: 300px;
   overflow-y: auto;
 }
 
-/* line 127, ../../sass/bootstrap-combobox.scss */
+/* line 18, ../../sass/bootstrap-combobox.scss */
 .control-group.error .combobox-container .add-on {
   color: #B94A48;
   border-color: #B94A48;
 }
 
-/* line 131, ../../sass/bootstrap-combobox.scss */
+/* line 22, ../../sass/bootstrap-combobox.scss */
 .control-group.error .combobox-container .caret {
   border-top-color: #B94A48;
 }
 
-/* line 134, ../../sass/bootstrap-combobox.scss */
+/* line 25, ../../sass/bootstrap-combobox.scss */
 .control-group.warning .combobox-container .add-on {
   color: #C09853;
   border-color: #C09853;
 }
 
-/* line 138, ../../sass/bootstrap-combobox.scss */
+/* line 29, ../../sass/bootstrap-combobox.scss */
 .control-group.warning .combobox-container .caret {
   border-top-color: #C09853;
 }
 
-/* line 141, ../../sass/bootstrap-combobox.scss */
+/* line 32, ../../sass/bootstrap-combobox.scss */
 .control-group.success .combobox-container .add-on {
   color: #468847;
   border-color: #468847;
 }
 
-/* line 145, ../../sass/bootstrap-combobox.scss */
+/* line 36, ../../sass/bootstrap-combobox.scss */
 .control-group.success .combobox-container .caret {
   border-top-color: #468847;
-}
-
-/* line 148, ../../sass/bootstrap-combobox.scss */
-.btn .combobox-clear [class^="icon-"] {
-  line-height: 1.4em;
 }

@@ -14,12 +14,12 @@
 
     <form class='form-inline'>
       If I donated
-      <div class='col-md-2 form-group input-group'>
+      <div id='amount-wrapper' class='col-md-2 form-group input-group'>
         <span class="input-group-addon">$</span>
         <input type='text' id='amount' class='form-control' value='100' />
       </div>
       to
-      <div class='form-group'>
+      <div id='pac-wrapper' class='form-group'>
         <select class='form-control combobox'></select>
       </div>
 
