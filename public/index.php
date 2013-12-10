@@ -20,7 +20,7 @@
       </div>
       to
       <div class='form-group'>
-        <select class='form-control combobox'><option></option></select>
+        <select class='form-control combobox'></select>
       </div>
 
       <button onclick='return false;' class='btn btn-primary'>Go</button>

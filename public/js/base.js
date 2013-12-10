@@ -85,6 +85,10 @@ var pacdag = {
 
     self.sentenceSelect = d3.select('.sentence select')
 
+    self.sentenceSelect.append('option')
+      .attr('value', '')
+      .text('Select a pac')
+
     self.sentenceSelect.selectAll('option')
       .data(self.pacSummary)
       .enter().append('option')
