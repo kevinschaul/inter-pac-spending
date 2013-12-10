@@ -99,23 +99,27 @@ var pacdag = {
           return d.Committee;
         })
 
-    $('.combobox').combobox();
-
-    self.sentenceGo = d3.select('.sentence button')
-      .on('click', function(d, e) {
+    $('.combobox').combobox()
+      .change(function() {
         var amount = self.sentenceAmount.node().value;
         var pacid = self.sentenceSelect.node().value.toString();
 
-        self.calculatePayments(amount, pacid);
-        self.sentenceResultTarget.html(
-          self.sentenceResultTemplate({
-            amounts: _.sortBy(self.amounts, function(d) {
-              return -d.amount;
+        if (amount && pacid) {
+          self.calculatePayments(amount, pacid);
+          self.sentenceResultTarget.html(
+            self.sentenceResultTemplate({
+              amounts: _.sortBy(self.amounts, function(d) {
+                return -d.amount;
+              })
             })
-          })
-        );
-
-        return false;
+          );
+        } else {
+          self.sentenceResultTarget.html(
+            self.sentenceResultTemplate({
+              amounts: []
+            })
+          );
+        }
       });
   },
 

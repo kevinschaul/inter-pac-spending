@@ -7928,12 +7928,12 @@ th.hidden-lg, td.hidden-lg {
 
 /* line 37, ../../sass/base.scss */
 #pac-wrapper .input-group {
-  width: 200px;
+  width: 280px;
 }
 /* line 40, ../../sass/base.scss */
 #pac-wrapper .form-control.combobox {
   float: left;
-  width: 160px;
+  width: 240px;
 }
 /* line 44, ../../sass/base.scss */
 #pac-wrapper .input-group-addon {
