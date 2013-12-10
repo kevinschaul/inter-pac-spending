@@ -8086,11 +8086,21 @@ th.hidden-lg, td.hidden-lg {
 
 /* line 41, ../../sass/base.scss */
 .value {
-  font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
-/* line 46, ../../sass/base.scss */
+/* line 45, ../../sass/base.scss */
 .committee {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* line 50, ../../sass/base.scss */
+.info {
+  margin: 4px 0;
+}
+
+/* line 53, ../../sass/base.scss */
+.info-value {
   font-weight: bold;
 }

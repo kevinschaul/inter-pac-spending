@@ -36,21 +36,21 @@
     <span class='value'>
       <%= d.amountFormatted %>
     </span>
-    to
+    went to
     <span class='committee'>
       <%= d.pac.Committee %>
     </span>
     <div class='info'>
-      <div class='category'>
-        <% if (d.pac.cat2 === 'labor') { %>
-          (labor icon)
-        <% }; %>
-        <%= d.pac.cat2 %>
-      </div>
-      <div class='category'>
-        <%= d.pac.cat1 %>
-      </div>
-      (more information)
+      A <span class='info-value'><%= d.pac.cat2 %> <%= d.pac.stype %></span> based in <span class='info-value'><%= d.pac.CommCity %>, <%= d.pac.CommState %></span>.
+    </div>
+    <div class='info'>
+      Spent <span class='info-value'><%= d.pac.spentFormatted %></span> over the past three election cycles.
+    </div>
+    <div class='info'>
+      Raised <span class='info-value'><%= d.pac.receivedFormatted %></span> in the same time period.
+    </div>
+    <div class='info'>
+      Had <span class='info-value'><%= d.pac.endcash2012 %></span> on hand at the end of 2012.
     </div>
   </div>
 <% }); %>

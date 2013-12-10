@@ -51,6 +51,9 @@ sass/bootstrap-combobox.scss: build/bootstrap-combobox
 public/inter-pac-donations.json: data/workspace/pacout.csv data/workspace/create_dag_data.py
 	./data/workspace/create_dag_data.py data/workspace/pacout.csv $@
 
-public/pacs.csv: data/workspace/pacs.csv
-	csvcut -v -c 1,2,6,10,14,15 $_ > $@
+data/workspace/pacs-joined.csv: data/workspace/pacs.csv data/workspace/pac-categories.csv data/workspace/pacref.csv
+	csvjoin -c 1 data/workspace/pacs.csv data/workspace/pacref.csv data/workspace/pac-categories.csv > $@
+
+public/pacs.csv: data/workspace/pacs-joined.csv
+	csvcut -c 1,2,6,10,14,15,21,22,23,24,25,26,27,29,32,33 $< > $@
 

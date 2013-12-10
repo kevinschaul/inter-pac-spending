@@ -25,6 +25,7 @@ var pacdag = {
     var self = this;
 
     self.pacSummary = _.filter(pacSummary, function(d) {
+      return true;
       return (+d.totspend >= 500000) && (+d.topac > 0 || +d.frompac > 0);
     });
 
@@ -54,6 +55,9 @@ var pacdag = {
 
       d.spentToPacPercent = d.spent > 0 ? 100 * d.spentToPac / d.spent : 0;
       d.receivedFromPacPercent = d.received > 0 ? 100 * d.receivedFromPac / d.received : 0;
+
+      d.spentFormatted = self.formatDollar(d.spent);
+      d.receivedFormatted = self.formatDollar(d.received);
     });
 
     _.each(self.interPacDonations, function(d) {

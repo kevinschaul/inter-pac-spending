@@ -39,11 +39,18 @@ $sans-serif: Arial, sans-serif;
   border-top: 1px solid #ccc;
 }
 .value {
-  font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
 .committee {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.info {
+  margin: 4px 0;
+}
+.info-value {
   font-weight: bold;
 }
 
