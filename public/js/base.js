@@ -60,9 +60,15 @@ var pacdag = {
 
     _.each(self.links, function(link) {
       // http://bl.ocks.org/mbostock/1153292
-      link.source = self.nodes[link.src] || (self.nodes[link.src] = {id: link.src});
-      link.target = self.nodes[link.dst] || (self.nodes[link.dst] = {id: link.dst});
+      link.source = self.nodes[link.src] || (self.nodes[link.src] = {id: link.src, pac: link.srcpac});
+      link.target = self.nodes[link.dst] || (self.nodes[link.dst] = {id: link.dst, pac: link.dstpac});
     });
+
+    self.r = d3.scale.sqrt()
+      .domain(d3.extent(d3.values(self.nodes), function(d) {
+        return d.pac.totspend;
+      }))
+      .range([3, 20])
 
     self.draw();
   },
@@ -73,22 +79,55 @@ var pacdag = {
     self.force = d3.layout.force()
       .nodes(d3.values(self.nodes))
       .links(self.links)
-      .size([self.width, self.height])
+      .size([self.width - 100, self.height + 50])
       .charge(-100)
-      .linkDistance(50)
+      .linkDistance(40)
       .on('tick', self.tick)
       .start();
 
     self.path = self.svg.selectAll('path')
       .data(self.force.links())
       .enter().append('path')
-        .attr('marker-end', 'url(#triangle)')
+        //.attr('marker-end', 'url(#triangle)')
+        .attr('class', function(d) {
+          var s = 'link';
+          s += ' from-' + d.srcpac.ComID;
+          s += ' to-' + d.dstpac.ComID;
+          return s;
+        })
+        .style('opacity', 0.2)
 
     self.circle = self.svg.selectAll('circle')
       .data(self.force.nodes())
       .enter().append('circle')
-        .attr('r', 6)
-        .on('click', function(d) { console.log(d); })
+        .attr('r', function(d) {
+          return self.r(d.pac.totspend);
+        })
+        .attr('class', function(d) {
+          var s = 'node'
+          s += ' pacid-' + d.pac.ComID;
+          return s;
+        })
+        .style('opacity', 0.4)
+        .on('mouseover', function(d) {
+          console.log(d);
+          console.log(d.pac.Committee);
+
+          d3.select(this)
+            .style('opacity', 1)
+
+          var s = '.link.from-' + d.pac.ComID + ', .link.to-' + d.pac.ComID;
+          d3.selectAll(s)
+            .style('opacity', 1)
+        })
+        .on('mouseout', function(d) {
+          d3.select(this)
+            .style('opacity', 0.4)
+
+          var s = '.link.from-' + d.pac.ComID + ', .link.to-' + d.pac.ComID;
+          d3.selectAll(s)
+            .style('opacity', 0.2)
+        })
         .call(self.force.drag);
   },
 
