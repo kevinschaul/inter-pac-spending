@@ -35,9 +35,27 @@ var pacdag = {
   handleData: function(error, pacs, interPacDonations) {
     var self = this;
 
-    console.log(pacs);
+    self.pacsById = {};
+    _.each(pacs, function(d) {
+      d.totspend = +d.totspend;
+      d.receivedspend = +d.receivedspend;
+      d.topac = +d.topac;
 
-    self.links = interPacDonations;
+      self.pacsById[d.ComID] = d;
+    });
+
+    _.each(interPacDonations, function(d) {
+      d.amt = +d.amt;
+
+      d.srcpac = self.pacsById[d.src];
+      d.dstpac = self.pacsById[d.dst];
+    });
+
+    var minSpent = 50000;
+    self.links = _.filter(interPacDonations, function(d) {
+      return (d.srcpac && d.dstpac)
+        && (d.srcpac.totspend >= minSpent && d.dstpac.totspend >= minSpent);
+    });
     self.nodes = {};
 
     _.each(self.links, function(link) {
