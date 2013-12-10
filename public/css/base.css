@@ -7956,6 +7956,13 @@ th.hidden-lg, td.hidden-lg {
 }
 
 /* line 61, ../../sass/base.scss */
+#sentence-results-target {
+  min-height: 200px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* line 67, ../../sass/base.scss */
 .amount {
   margin: 10px 0;
   padding: 10px 0;
@@ -7963,23 +7970,30 @@ th.hidden-lg, td.hidden-lg {
   opacity: 0;
 }
 
-/* line 67, ../../sass/base.scss */
+/* line 73, ../../sass/base.scss */
 .value {
   font-size: 1.6em;
 }
 
-/* line 71, ../../sass/base.scss */
+/* line 77, ../../sass/base.scss */
 .committee {
   font-weight: bold;
   font-size: 1.1em;
 }
 
-/* line 76, ../../sass/base.scss */
+/* line 82, ../../sass/base.scss */
 .info {
   margin: 4px 0;
 }
 
-/* line 79, ../../sass/base.scss */
+/* line 85, ../../sass/base.scss */
 .info-value {
   font-weight: bold;
+}
+
+/* line 89, ../../sass/base.scss */
+.notes {
+  font-size: 0.8em;
+  color: #666;
+  margin: 4px 0;
 }

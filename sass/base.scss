@@ -58,6 +58,12 @@ $sans-serif: Arial, sans-serif;
   line-height: 24px;
 }
 
+#sentence-results-target {
+  min-height: 200px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
 .amount {
   margin: 10px 0;
   padding: 10px 0;
@@ -78,5 +84,11 @@ $sans-serif: Arial, sans-serif;
 }
 .info-value {
   font-weight: bold;
+}
+
+.notes {
+  font-size: 0.8em;
+  color: #666;
+  margin: 4px 0;
 }
 
