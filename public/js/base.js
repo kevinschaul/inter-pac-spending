@@ -5,7 +5,7 @@ var pacdag = {
 
   init: function() {
     var self = this;
-    _.bindAll(this, 'handleData');
+    _.bindAll(this, 'handleData', 'runCalculation');
 
     queue()
       .defer(d3.csv, 'pacs.csv')
@@ -46,12 +46,6 @@ var pacdag = {
       d.spentToPac = +d.topac;
       d.received = +d.receivedtot;
       d.receivedFromPac = +d.frompac;
-
-      if (+d.todem > +d.torep) {
-        d.lean = 'd';
-      } else if (+d.torep > +d.todem) {
-        d.lean = 'r';
-      }
 
       d.spentToPacPercent = d.spent > 0 ? 100 * d.spentToPac / d.spent : 0;
       d.receivedFromPacPercent = d.received > 0 ? 100 * d.receivedFromPac / d.received : 0;
@@ -100,27 +94,43 @@ var pacdag = {
         })
 
     $('.combobox').combobox()
-      .change(function() {
-        var amount = self.sentenceAmount.node().value;
-        var pacid = self.sentenceSelect.node().value.toString();
+      .change(self.runCalculation);
+  },
 
-        if (amount && pacid) {
-          self.calculatePayments(amount, pacid);
-          self.sentenceResultTarget.html(
-            self.sentenceResultTemplate({
-              amounts: _.sortBy(self.amounts, function(d) {
-                return -d.amount;
-              })
-            })
-          );
-        } else {
-          self.sentenceResultTarget.html(
-            self.sentenceResultTemplate({
-              amounts: []
-            })
-          );
-        }
-      });
+  runCalculation: function() {
+    var self = this;
+
+    var amount = self.sentenceAmount.node().value;
+    var pacid = self.sentenceSelect.node().value.toString();
+
+    if (amount && pacid) {
+      self.calculatePayments(amount, pacid);
+      self.sentenceResultTarget.html(
+        self.sentenceResultTemplate({
+          amounts: _.sortBy(self.amounts, function(d) {
+            return -d.amount;
+          })
+        })
+      );
+    } else {
+      self.sentenceResultTarget.html(
+        self.sentenceResultTemplate({
+          amounts: []
+        })
+      );
+    }
+
+    var duration = 200;
+    var amounts = d3.selectAll('.amount');
+
+    _.each(amounts[0], function(d, i) {
+      d3.select(d)
+        .transition()
+        .delay(duration * i)
+        .duration(duration)
+          .style('opacity', 1)
+    });
+
   },
 
   calculatePayments: function(amount, src) {

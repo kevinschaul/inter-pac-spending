@@ -7910,70 +7910,76 @@ th.hidden-lg, td.hidden-lg {
 }
 
 /* line 22, ../../sass/base.scss */
+.form-group {
+  margin: 0 6px;
+}
+
+/* line 26, ../../sass/base.scss */
 #amount-wrapper {
   width: 110px;
 }
 
-/* line 26, ../../sass/base.scss */
+/* line 30, ../../sass/base.scss */
 .input-group-addon {
   width: 30%;
   float: left;
   line-height: 20px;
 }
 
-/* line 32, ../../sass/base.scss */
+/* line 36, ../../sass/base.scss */
 #amount.form-control {
   width: 70%;
 }
 
-/* line 37, ../../sass/base.scss */
+/* line 41, ../../sass/base.scss */
 #pac-wrapper .input-group {
   width: 280px;
 }
-/* line 40, ../../sass/base.scss */
+/* line 44, ../../sass/base.scss */
 #pac-wrapper .form-control.combobox {
   float: left;
   width: 240px;
 }
-/* line 44, ../../sass/base.scss */
+/* line 48, ../../sass/base.scss */
 #pac-wrapper .input-group-addon {
   width: 40px;
   cursor: pointer;
 }
-/* line 48, ../../sass/base.scss */
+/* line 52, ../../sass/base.scss */
 #pac-wrapper .input-group-addon:hover {
   background-color: #e0e0e0;
 }
 
-/* line 53, ../../sass/base.scss */
+/* line 57, ../../sass/base.scss */
 .add-on {
   line-height: 24px;
 }
 
-/* line 57, ../../sass/base.scss */
+/* line 61, ../../sass/base.scss */
 .amount {
   margin: 10px 0;
   padding: 10px 0;
   border-top: 1px solid #ccc;
+  opacity: 0;
 }
 
-/* line 62, ../../sass/base.scss */
+/* line 67, ../../sass/base.scss */
 .value {
   font-size: 1.6em;
 }
 
-/* line 66, ../../sass/base.scss */
+/* line 71, ../../sass/base.scss */
 .committee {
   font-weight: bold;
   font-size: 1.1em;
 }
 
-/* line 71, ../../sass/base.scss */
+/* line 76, ../../sass/base.scss */
 .info {
   margin: 4px 0;
 }
 
-/* line 74, ../../sass/base.scss */
+/* line 79, ../../sass/base.scss */
 .info-value {
   font-weight: bold;
 }
