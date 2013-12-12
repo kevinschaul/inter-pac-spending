@@ -39,28 +39,32 @@ $serif: Georgia, serif;
   float: left;
   width: 22%;
   margin: 1%;
-  height: 70px;
-  background-color: $show-color;
-  text-align: center;
-  border: 2px solid darken($show-color, 50%);
-  @include border-radius(6px);
-  cursor: pointer;
 
-  .title {
-    font-family: $serif;
-    font-size: 1.2em;
-    padding: 6px 0;
+  .button {
+    height: 50px;
+    background-color: $show-color;
+    text-align: center;
+    border: 2px solid darken($show-color, 50%);
+    @include border-radius(6px);
+    cursor: pointer;
+
+    .title {
+      font-family: $serif;
+      font-size: 1.2em;
+      padding: 14px 0;
+    }
   }
+  .button:hover {
+    background-color: darken($show-color, 10%);
+  }
+  .button.active {
+    background-color: darken($show-color, 15%);
+  }
+
   .description {
     font-size: 0.8em;
-    padding: 0 4px;
+    padding: 4px 0;
   }
-}
-.show:hover {
-  background-color: darken($show-color, 10%);
-}
-.show.active {
-  background-color: darken($show-color, 15%);
 }
 
 #graph {
@@ -127,6 +131,10 @@ $serif: Georgia, serif;
   }
   .info {
     margin: 8px 0;
+
+    .info-value {
+      font-weight: bold;
+    }
   }
 }
 

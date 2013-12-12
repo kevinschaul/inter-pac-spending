@@ -13,20 +13,28 @@
 <div class='graphic'>
   <div class='show-wrapper'>
     <div class='show pro-dfl'>
-      <div class='title'>Pro DFL</div>
-      <div class='description'>PACs that donate mostly to the DFL party and its candidates</div>
+      <div class='button'>
+        <div class='title'>Pro DFL</div>
+      </div>
+      <div class='description'>Some PACs send their donations to the DFL party and its candidates. About XX percent of PAC spending is done by Pro-DFL groups.</div>
     </div>
     <div class='show ie'>
-      <div class='title'>To IEs</div>
-      <div class='description'>PACs that spend independently of candidates and campaigns</div>
+      <div class='button'>
+        <div class='title'>To IEs</div>
+      </div>
+      <div class='description'>Some PACs spend their money on independent expenditures. These donations are independent of candidates and parties.</div>
     </div>
     <div class='show to-candidates'>
-      <div class='title'>To Candidates</div>
-      <div class='description'>PACs that spend to candidates</div>
+      <div class='button'>
+        <div class='title'>To Candidates</div>
+      </div>
+      <div class='description'>Other PACs concentrate their spending directly on candidates and parties. These donations are limited to $XX per group per election cycle.</div>
     </div>
     <div class='show feeder'>
-      <div class='title'>Feeders</div>
-      <div class='description'>PACs that donate to other PACs</div>
+      <div class='button'>
+        <div class='title'>Feeders</div>
+      </div>
+      <div class='description'>Some PACs give most of their money to other PACs. These PACs influence indirectly by having others ultimately spend their money.</div>
     </div>
     <div class='clear'></div>
   </div>
