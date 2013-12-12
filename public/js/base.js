@@ -24,7 +24,7 @@ var pacdag = {
     self.defs = self.svg.append('defs')
 
     var i;
-    for (i = 0; i <= 60; i++) {
+    for (i = 0; i <= 100; i++) {
       var triangle = self.defs.append('marker')
         .attr('id', 'triangle-' + i)
         .attr('viewBox', '0 0 10 10')
@@ -34,7 +34,7 @@ var pacdag = {
         .attr('markerHeight', 3)
         .attr('orient', 'auto')
         .append('g')
-          .attr('transform', 'translate(' + (-(i + 18)) + ', 0)')
+          .attr('transform', 'translate(' + (-(i + 14)) + ', 0)')
 
       triangle.append('rect')
         .attr('class', 'underlay')
@@ -50,12 +50,12 @@ var pacdag = {
       triangle.append('path')
         .attr('class', 'triangle inner')
         .attr('d', 'M2,2L8,5L2,8z')
-
     }
 
     self.svg.append('path')
       .attr('d', 'M50,50L200,100')
       .attr('marker-end', 'url(#triangle-0)')
+      .style('stroke-width', 3)
 
     return this;
   },
@@ -96,7 +96,7 @@ var pacdag = {
       .domain(d3.extent(d3.values(self.nodes), function(d) {
         return d.pac.totspend;
       }))
-      .range([3, 20])
+      .range([4, 30])
 
     self.draw();
   },
@@ -109,11 +109,11 @@ var pacdag = {
       .links(self.links)
       .size([self.width - 100, self.height + 50])
       .charge(-100)
-      .linkDistance(40)
+      .linkDistance(60)
       .on('tick', self.tick)
       .start();
 
-    self.path = self.svg.selectAll('path')
+    self.path = self.svg.selectAll('path.link')
       .data(self.force.links())
       .enter().append('path')
         .attr('class', function(d) {
@@ -125,7 +125,7 @@ var pacdag = {
         .style('opacity', self.linkOpacityInitial)
         .attr('marker-end', function(d) {
           console.log(Math.round(self.r(d.dstpac.totspend)));
-          return 'url(#triangle-' + Math.round(3 * self.r(d.dstpac.totspend)) + ')'
+          return 'url(#triangle-' + Math.round(self.r(d.dstpac.totspend)) + ')'
         })
 
     self.circle = self.svg.selectAll('circle')

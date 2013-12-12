@@ -1,12 +1,13 @@
 .node {
   fill: #ccc;
   stroke: #333;
+  stroke-width: 2px;
   opacity: 0.8;
 }
 
 .link {
   stroke: #666;
-  stroke-width: 1;
+  stroke-width: 3px;
 }
 
 marker {
@@ -22,13 +23,13 @@ marker {
 
 .triangle.outer {
   @extend .triangle;
-  stroke-width: 10px;
+  stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
 .inner {
   @extend .triangle;
-  stroke-width: 10px;
+  stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }

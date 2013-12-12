@@ -2,40 +2,41 @@
 .node {
   fill: #ccc;
   stroke: #333;
+  stroke-width: 2px;
   opacity: 0.8;
 }
 
-/* line 7, ../../sass/base.scss */
+/* line 8, ../../sass/base.scss */
 .link {
   stroke: #666;
-  stroke-width: 1;
+  stroke-width: 3px;
 }
 
-/* line 12, ../../sass/base.scss */
+/* line 13, ../../sass/base.scss */
 marker {
   overflow: auto;
 }
 
-/* line 16, ../../sass/base.scss */
+/* line 17, ../../sass/base.scss */
 .underlay {
   fill: #fff;
 }
 
-/* line 23, ../../sass/base.scss */
+/* line 24, ../../sass/base.scss */
 .outer.triangle, .outer.inner {
-  stroke-width: 10px;
+  stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
 
-/* line 29, ../../sass/base.scss */
+/* line 30, ../../sass/base.scss */
 .inner {
-  stroke-width: 10px;
+  stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 36, ../../sass/base.scss */
+/* line 37, ../../sass/base.scss */
 path {
   stroke-width: 1px;
   stroke: #ccc;
