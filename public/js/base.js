@@ -24,7 +24,7 @@ var pacdag = {
     self.defs = self.svg.append('defs')
 
     var i;
-    for (i = 3; i <= 40; i++) {
+    for (i = 0; i <= 60; i++) {
       var triangle = self.defs.append('marker')
         .attr('id', 'triangle-' + i)
         .attr('viewBox', '0 0 10 10')
@@ -34,7 +34,7 @@ var pacdag = {
         .attr('markerHeight', 3)
         .attr('orient', 'auto')
         .append('g')
-          .attr('transform', 'translate(' + (-i) + ', 0)')
+          .attr('transform', 'translate(' + (-(i + 18)) + ', 0)')
 
       triangle.append('path')
         .attr('class', 'triangle outer')
@@ -47,7 +47,7 @@ var pacdag = {
 
     self.svg.append('path')
       .attr('d', 'M50,50L200,100')
-      .attr('marker-end', 'url(#triangle-40)')
+      .attr('marker-end', 'url(#triangle-0)')
 
     return this;
   },
@@ -90,7 +90,7 @@ var pacdag = {
       }))
       .range([3, 20])
 
-    //self.draw();
+    self.draw();
   },
 
   draw: function() {
@@ -115,7 +115,10 @@ var pacdag = {
           return s;
         })
         .style('opacity', self.linkOpacityInitial)
-        .attr('marker-end', 'url(#triangle)')
+        .attr('marker-end', function(d) {
+          console.log(Math.round(self.r(d.dstpac.totspend)));
+          return 'url(#triangle-' + Math.round(3 * self.r(d.dstpac.totspend)) + ')'
+        })
 
     self.circle = self.svg.selectAll('circle')
       .data(self.force.nodes())
