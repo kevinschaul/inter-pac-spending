@@ -14,27 +14,28 @@
   <div class='show-wrapper'>
     <div class='show pro-dfl'>
       <div class='button' data-show='pro-dfl'>
-        <div class='title'>Pro DFL</div>
+        <div class='title'>Independent Expenditures</div>
       </div>
       <div class='description'>Some PACs send their donations to the DFL party and its candidates. About XX percent of PAC spending is done by pro-DFL groups.</div>
+      <div class='party dfl'>
+        <ol>
+          <li>Alliance for a Better Minnesota Action Fund</li>
+          <li>Alliance for a Better Minnesota</li>
+          <li>Education Minn PAC</li>
+        </ol>
+      </div>
     </div>
     <div class='show ie'>
       <div class='button' data-show='ie'>
-        <div class='title'>IE-designated</div>
+        <div class='title'>To Candidates</div>
       </div>
       <div class='description'>Some PACs spend their money on independent expenditures. These donations are independent of candidates and parties.</div>
     </div>
     <div class='show to-candidates'>
       <div class='button' data-show='to-candidates'>
-        <div class='title'>To Candidates</div>
+        <div class='title'>To Parties</div>
       </div>
       <div class='description'>Other PACs concentrate their spending directly on candidates and parties. These donations are limited to $XX per group per election cycle.</div>
-    </div>
-    <div class='show feeder'>
-      <div class='button' data-show='feeder'>
-        <div class='title'>Feeders</div>
-      </div>
-      <div class='description'>Some PACs give most of their money to other PACs. These PACs influence indirectly by having others ultimately spend their money.</div>
     </div>
     <div class='clear'></div>
   </div>

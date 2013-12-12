@@ -74,7 +74,18 @@ var pacdag = {
       d.receivedtot = +d.receivedtot;
       d.topac = +d.topac;
       d.endcash2012 = +d.endcash2012;
+
+      d.ieprodfl = +d.ieprodfl;
+      d.ieprorpm = +d.ieprorpm;
+      d.ieother = +d.ieother;
+
       d.candall = +d.candall;
+      d.canddfl = +d.canddfl;
+      d.candrpm = +d.candrpm;
+
+      d.partyall = +d.partyall;
+      d.partydfl = +d.partydfl;
+      d.partyrpm = +d.partyrpm;
 
       if (d.candall >= (d.totspend / 2)) {
         d.toCandidates = true;
@@ -91,6 +102,21 @@ var pacdag = {
 
       self.pacsById[d.ComID] = d;
     });
+
+    self.sortedByCategory = {
+      ie: {
+        prodfl: _.sortBy(pacs, function(d) { return -d.ieprodfl; }),
+        prorpm: _.sortBy(pacs, function(d) { return -d.ieprorpm; }),
+      },
+      candidate: {
+        prodfl: _.sortBy(pacs, function(d) { return -d.canddfl; }),
+        prorpm: _.sortBy(pacs, function(d) { return -d.candrpm; }),
+      },
+      party: {
+        prodfl: _.sortBy(pacs, function(d) { return -d.partydfl; }),
+        prorpm: _.sortBy(pacs, function(d) { return -d.partyrpm; }),
+      }
+    };
 
     _.each(interPacDonations, function(d) {
       d.amt = +d.amt;

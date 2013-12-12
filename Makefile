@@ -36,5 +36,5 @@ data/workspace/pacs-joined.csv: data/workspace/pacs.csv data/workspace/pacref.cs
 	csvjoin -c 1 data/workspace/pacs.csv data/workspace/pacref.csv data/workspace/paccats.csv data/workspace/pacs-spending.csv > $@
 
 public/pacs.csv: data/workspace/pacs-joined.csv
-	csvcut -c 1,2,6,10,14,15,21,22,23,24,25,26,27,29,32,33,34,37,38,39,40,41,42,43,44,45,46 $< > $@
+	csvcut -c 1,2,6,10,14,15,21,22,23,24,25,26,27,29,32,33,34,37,38,39,40,41,42,43,44,45,46,47 $< > $@
 
