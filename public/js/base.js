@@ -69,12 +69,14 @@ var pacdag = {
     self.pacsById = {};
     _.each(pacs, function(d) {
       d.totspend = +d.totspend;
-      d.receivedspend = +d.receivedspend;
+      d.receivedtot = +d.receivedtot;
       d.topac = +d.topac;
+      d.endcash2012 = +d.endcash2012;
 
       d.totspendFormatted = self.formatDollar(d.totspend);
-      d.totreceivedFormatted = self.formatDollar(d.receivedspend);
+      d.totreceivedFormatted = self.formatDollar(d.receivedtot);
       d.topacFormatted = self.formatDollar(d.topac);
+      d.endcash2012Formatted = self.formatDollar(d.endcash2012);
 
       self.pacsById[d.ComID] = d;
     });
@@ -152,6 +154,7 @@ var pacdag = {
         .style('opacity', self.nodeOpacityInitial)
         .on('mouseover', function(d) {
           console.log(d);
+          console.log(d.pac);
 
           self.nodeInfoTarget.html(self.nodeInfoTemplate({pac: d.pac}));
 
@@ -170,7 +173,7 @@ var pacdag = {
             })
         })
         .on('mouseout', function(d) {
-          //self.nodeInfoTarget.html(self.nodeInfoInitial);
+          self.nodeInfoTarget.html(self.nodeInfoInitial);
 
           d3.selectAll('.node')
             .style('opacity', self.nodeOpacityInitial)

@@ -44,7 +44,7 @@
         Spent <span class='info-value'><%= pac.totspendFormatted %></span> over the past three election cycles.
       </div>
       <div class='info'>
-        Had <span class='info-value'><%= pac.endcash2012 %></span> on hand at the end of 2012.
+        Had <span class='info-value'><%= pac.endcash2012Formatted %></span> on hand at the end of 2012.
       </div>
 
     </script>
