@@ -107,7 +107,14 @@ var pacdag = {
       }))
       .range([4, 30])
 
+    self.go();
+  },
+
+  go: function() {
+    var self = this;
+
     self.draw();
+    self.activateButtons();
   },
 
   draw: function() {
@@ -136,7 +143,6 @@ var pacdag = {
         })
         .style('opacity', self.linkOpacityInitial)
         .attr('marker-end', function(d) {
-          console.log(Math.round(self.r(d.dstpac.totspend)));
           return 'url(#triangle-' + Math.round(self.r(d.dstpac.totspend)) + ')'
         })
 
@@ -149,47 +155,86 @@ var pacdag = {
         .attr('class', function(d) {
           var s = 'node'
           s += ' pacid-' + d.pac.ComID;
+          s += ' category-' + d.pac.cat2;
           return s;
         })
         .style('opacity', self.nodeOpacityInitial)
         .on('mouseover', function(d) {
-          console.log(d);
-          console.log(d.pac);
-
-          self.nodeInfoTarget.html(self.nodeInfoTemplate({pac: d.pac}));
-
-          d3.selectAll('.node')
-            .style('opacity', self.nodeOpacityNotSelected)
-
-          d3.select(this)
-            .style('opacity', self.nodeOpacitySelected)
-
-          var s = '.link.from-' + d.pac.ComID + ', .link.to-' + d.pac.ComID;
-          d3.selectAll(s)
-            .style('opacity', self.linkOpacitySelected)
-            .each(function(d) {
-              d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
-                .style('opacity', self.nodeOpacitySelected)
-            })
+          self.unselectNodes();
+          self.activateNode(d.pac);
+          self.activateNodeLinks(d.pac);
         })
         .on('mouseout', function(d) {
-          self.nodeInfoTarget.html(self.nodeInfoInitial);
-
-          d3.selectAll('.node')
-            .style('opacity', self.nodeOpacityInitial)
-
-          d3.select(this)
-            .style('opacity', self.nodeOpacityInitial)
-
-          var s = '.link.from-' + d.pac.ComID + ', .link.to-' + d.pac.ComID;
-          d3.selectAll(s)
-            .style('opacity', self.linkOpacityInitial)
-            .each(function(d) {
-              d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
-                .style('opacity', self.nodeOpacityInitial)
-            })
+          self.deactivateNode(d.pac);
         })
         .call(self.force.drag);
+  },
+
+  activateButtons: function() {
+    var self = this;
+
+    d3.selectAll('.button')
+      .on('click', function() {
+        var thisd3 = d3.select(this);
+        var show = thisd3.attr('data-show')
+        console.log(show);
+
+        if (show === 'pro-dfl') {
+          d3.selectAll('.node.category-prodfl')
+            .each(function(d) {
+              console.log(d);
+              self.activateNode(d.pac);
+            })
+        }
+      })
+  },
+
+  unselectNodes: function() {
+    var self = this;
+
+    d3.selectAll('.node')
+      .style('opacity', self.nodeOpacityNotSelected)
+  },
+
+  activateNode: function(pac) {
+    var self = this;
+
+    self.nodeInfoTarget.html(self.nodeInfoTemplate({pac: pac}));
+
+    d3.select('.node.pacid-' + pac.ComID)
+      .style('opacity', self.nodeOpacitySelected)
+  },
+
+  activateNodeLinks: function(pac) {
+    var self = this;
+
+    var s = '.link.from-' + pac.ComID + ', .link.to-' + pac.ComID;
+    d3.selectAll(s)
+      .style('opacity', self.linkOpacitySelected)
+      .each(function(d) {
+        d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
+          .style('opacity', self.nodeOpacitySelected)
+      })
+  },
+
+  deactivateNode: function(pac) {
+    var self = this;
+
+    self.nodeInfoTarget.html(self.nodeInfoInitial);
+
+    d3.selectAll('.node')
+      .style('opacity', self.nodeOpacityInitial)
+
+    d3.select('.node.pacid-' + pac.ComID)
+      .style('opacity', self.nodeOpacityInitial)
+
+    var s = '.link.from-' + pac.ComID + ', .link.to-' + pac.ComID;
+    d3.selectAll(s)
+      .style('opacity', self.linkOpacityInitial)
+      .each(function(d) {
+        d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
+          .style('opacity', self.nodeOpacityInitial)
+      })
   },
 
   tick: function() {
