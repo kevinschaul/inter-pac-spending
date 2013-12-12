@@ -95,7 +95,7 @@ var pacdag = {
           s += ' to-' + d.dstpac.ComID;
           return s;
         })
-        .style('opacity', 0.2)
+        .style('opacity', 0.1)
 
     self.circle = self.svg.selectAll('circle')
       .data(self.force.nodes())
@@ -119,6 +119,10 @@ var pacdag = {
           var s = '.link.from-' + d.pac.ComID + ', .link.to-' + d.pac.ComID;
           d3.selectAll(s)
             .style('opacity', 1)
+            .each(function(d) {
+              d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
+                .style('opacity', 1)
+            })
         })
         .on('mouseout', function(d) {
           d3.select(this)
@@ -126,7 +130,11 @@ var pacdag = {
 
           var s = '.link.from-' + d.pac.ComID + ', .link.to-' + d.pac.ComID;
           d3.selectAll(s)
-            .style('opacity', 0.2)
+            .style('opacity', 0.1)
+            .each(function(d) {
+              d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
+                .style('opacity', 0.4)
+            })
         })
         .call(self.force.drag);
   },
