@@ -119,8 +119,7 @@ $serif: Georgia, serif;
   float: left;
   width: 245px;
   height: 600px;
-  border-left: 3px solid #666;
-  padding: 20px 0 0 10px;
+  padding-top: 100px;
 
   .help {
     font-size: 0.8em;
@@ -134,7 +133,11 @@ $serif: Georgia, serif;
   .info {
     margin: 8px 0;
 
-    .info-value {
+    .label {
+      float: left;
+    }
+    .value {
+      float: right;
       font-weight: bold;
     }
   }

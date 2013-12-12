@@ -118,24 +118,28 @@
   float: left;
   width: 245px;
   height: 600px;
-  border-left: 3px solid #666;
-  padding: 20px 0 0 10px;
+  padding-top: 100px;
 }
-/* line 125, ../../sass/base.scss */
+/* line 124, ../../sass/base.scss */
 .sidebar .help {
   font-size: 0.8em;
 }
-/* line 129, ../../sass/base.scss */
+/* line 128, ../../sass/base.scss */
 .sidebar .name {
   font-size: 1.6em;
   line-height: 1.1em;
   margin-bottom: 12px;
 }
-/* line 134, ../../sass/base.scss */
+/* line 133, ../../sass/base.scss */
 .sidebar .info {
   margin: 8px 0;
 }
-/* line 137, ../../sass/base.scss */
-.sidebar .info .info-value {
+/* line 136, ../../sass/base.scss */
+.sidebar .info .label {
+  float: left;
+}
+/* line 139, ../../sass/base.scss */
+.sidebar .info .value {
+  float: right;
   font-weight: bold;
 }

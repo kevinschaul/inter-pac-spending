@@ -46,15 +46,29 @@
       <div class='name'><%= pac.Committee %></div>
 
       <div class='info'>
-        A <span class='info-value'><%= pac.cat2 %> <%= pac.stype %></span> based in <span class='info-value'><%= pac.CommCity %>, <%= pac.CommState %></span>.
-      </div>
-      <div class='info'>
-        Spent <span class='info-value'><%= pac.totspendFormatted %></span> over the past three election cycles.
-      </div>
-      <div class='info'>
-        Had <span class='info-value'><%= pac.endcash2012Formatted %></span> on hand at the end of 2012.
+        <span class='label'>Category</span><span class='value'><%= pac.cat2 %></span>
+        <div class='clear'></div>
       </div>
 
+      <div class='info'>
+        <span class='label'>Type</span><span class='value'><%= pac.stype %></span>
+        <div class='clear'></div>
+      </div>
+
+      <div class='info'>
+        <span class='label'>Based in</span><span class='value'><%= pac.CommCity %>, <%= pac.CommState %></span>
+        <div class='clear'></div>
+      </div>
+
+      <div class='info'>
+        <span class='label'>Spent</span><span class='value'><%= pac.totspendFormatted %></span>
+        <div class='clear'></div>
+      </div>
+
+      <div class='info'>
+        <span class='label'>Cash on hand</span><span class='value'><%= pac.endcash2012Formatted %></span>
+        <div class='clear'></div>
+      </div>
     </script>
     <div id='node-info-target'>
       <div class='help'>Touch a pac to the left for more information.</div>

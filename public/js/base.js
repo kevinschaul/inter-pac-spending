@@ -297,7 +297,7 @@ var pacdag = {
   deactivateNode: function(pac) {
     var self = this;
 
-    self.nodeInfoTarget.html(self.nodeInfoInitial);
+    //self.nodeInfoTarget.html(self.nodeInfoInitial);
 
     d3.selectAll('.node')
       .style('opacity', self.nodeOpacityInitial)
