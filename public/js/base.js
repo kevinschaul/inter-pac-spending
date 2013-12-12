@@ -9,6 +9,8 @@ var pacdag = {
   linkOpacitySelected: 1,
   nodeOpacityNotSelected: 0.1,
 
+  stateActive: false,
+
   nodeInfoTemplate: _.template(d3.select('#node-info-template').html()),
   nodeInfoTarget: d3.select('#node-info-target'),
 
@@ -166,6 +168,9 @@ var pacdag = {
         })
         .on('mouseout', function(d) {
           self.deactivateNode(d.pac);
+          if (self.stateActive) {
+            self.activateState(self.stateActive);
+          }
         })
         .call(self.force.drag);
   },
@@ -173,20 +178,54 @@ var pacdag = {
   activateButtons: function() {
     var self = this;
 
+    self.buttons = {},
+
     d3.selectAll('.button')
       .on('click', function() {
         var thisd3 = d3.select(this);
-        var show = thisd3.attr('data-show')
-        console.log(show);
+        var showState = thisd3.attr('data-show')
 
-        if (show === 'pro-dfl') {
-          d3.selectAll('.node.category-prodfl')
-            .each(function(d) {
-              console.log(d);
-              self.activateNode(d.pac);
-            })
+        // If the button clicked on is active, deactivate it and return.
+        if (self.stateActive === showState) {
+          self.deactivateState();
+        } else {
+
+          // Otherwise, deactivate any state ...
+          if (self.stateActive) {
+            self.deactivateState();
+          }
+
+          // ... and activate the state of the button clicked.
+          self.buttons[showState] = thisd3;
+          self.activateState(showState);
         }
       })
+  },
+
+  activateState: function(state) {
+    var self = this;
+
+    self.stateActive = state;
+    self.buttons[state].classed('active', true);
+
+    if (state === 'pro-dfl') {
+      d3.selectAll('.node.category-prodfl')
+        .each(function(d) {
+          self.activateNode(d.pac);
+        })
+    }
+  },
+
+  deactivateState: function() {
+    var self = this;
+
+    self.stateActive = false;
+
+    d3.selectAll('.button.active')
+      .classed('active', false)
+
+    d3.selectAll('.node')
+      .style('opacity', self.nodeOpacityInitial)
   },
 
   unselectNodes: function() {

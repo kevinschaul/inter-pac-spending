@@ -29,6 +29,7 @@ $serif: Georgia, serif;
   line-height: 18px;
   color: #333;
   width: 960px;
+  margin: auto;
 }
 
 .show-wrapper {
@@ -46,6 +47,7 @@ $serif: Georgia, serif;
     text-align: center;
     border: 2px solid darken($show-color, 50%);
     @include border-radius(6px);
+    @include transition(background-color, .2s);
     cursor: pointer;
 
     .title {
@@ -58,7 +60,7 @@ $serif: Georgia, serif;
     background-color: darken($show-color, 10%);
   }
   .button.active {
-    background-color: darken($show-color, 15%);
+    background-color: darken($show-color, 20%);
   }
 
   .description {
