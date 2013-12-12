@@ -3,6 +3,11 @@ var pacdag = {
   height: 500,
   width: 800,
 
+  nodeOpacityInitial: 0.4,
+  linkOpacityInitial: 0.1,
+  nodeOpacitySelected: 1,
+  linkOpacitySelected: 1,
+
   init: function() {
     var self = this;
     _.bindAll(this, 'handleData', 'tick');
@@ -95,7 +100,7 @@ var pacdag = {
           s += ' to-' + d.dstpac.ComID;
           return s;
         })
-        .style('opacity', 0.1)
+        .style('opacity', self.linkOpacityInitial)
 
     self.circle = self.svg.selectAll('circle')
       .data(self.force.nodes())
@@ -108,32 +113,32 @@ var pacdag = {
           s += ' pacid-' + d.pac.ComID;
           return s;
         })
-        .style('opacity', 0.4)
+        .style('opacity', self.nodeOpacityInitial)
         .on('mouseover', function(d) {
           console.log(d);
           console.log(d.pac.Committee);
 
           d3.select(this)
-            .style('opacity', 1)
+            .style('opacity', self.nodeOpacitySelected)
 
           var s = '.link.from-' + d.pac.ComID + ', .link.to-' + d.pac.ComID;
           d3.selectAll(s)
-            .style('opacity', 1)
+            .style('opacity', self.linkOpacitySelected)
             .each(function(d) {
               d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
-                .style('opacity', 1)
+                .style('opacity', self.nodeOpacitySelected)
             })
         })
         .on('mouseout', function(d) {
           d3.select(this)
-            .style('opacity', 0.4)
+            .style('opacity', self.nodeOpacityInitial)
 
           var s = '.link.from-' + d.pac.ComID + ', .link.to-' + d.pac.ComID;
           d3.selectAll(s)
-            .style('opacity', 0.1)
+            .style('opacity', self.linkOpacityInitial)
             .each(function(d) {
               d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
-                .style('opacity', 0.4)
+                .style('opacity', self.nodeOpacityInitial)
             })
         })
         .call(self.force.drag);
