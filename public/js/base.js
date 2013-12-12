@@ -9,6 +9,11 @@ var pacdag = {
   linkOpacitySelected: 1,
   nodeOpacityNotSelected: 0.1,
 
+  nodeInfoTemplate: _.template(d3.select('#node-info-template').html()),
+  nodeInfoTarget: d3.select('#node-info-target'),
+
+  formatDollar: d3.format('$,.2f'),
+
   init: function() {
     var self = this;
     _.bindAll(this, 'handleData', 'tick');
@@ -17,6 +22,8 @@ var pacdag = {
       .defer(d3.csv, 'pacs.csv')
       .defer(d3.json, 'inter-pac-donations.json')
       .await(self.handleData);
+
+    self.nodeInfoInitial = self.nodeInfoTarget.html();
 
     self.svg = d3.select('#graph').append('svg')
       .attr('width', self.width)
@@ -64,6 +71,10 @@ var pacdag = {
       d.totspend = +d.totspend;
       d.receivedspend = +d.receivedspend;
       d.topac = +d.topac;
+
+      d.totspendFormatted = self.formatDollar(d.totspend);
+      d.totreceivedFormatted = self.formatDollar(d.receivedspend);
+      d.topacFormatted = self.formatDollar(d.topac);
 
       self.pacsById[d.ComID] = d;
     });
@@ -141,7 +152,8 @@ var pacdag = {
         .style('opacity', self.nodeOpacityInitial)
         .on('mouseover', function(d) {
           console.log(d);
-          console.log(d.pac.Committee);
+
+          self.nodeInfoTarget.html(self.nodeInfoTemplate({pac: d.pac}));
 
           d3.selectAll('.node')
             .style('opacity', self.nodeOpacityNotSelected)
@@ -158,6 +170,8 @@ var pacdag = {
             })
         })
         .on('mouseout', function(d) {
+          //self.nodeInfoTarget.html(self.nodeInfoInitial);
+
           d3.selectAll('.node')
             .style('opacity', self.nodeOpacityInitial)
 
