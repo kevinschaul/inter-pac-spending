@@ -74,7 +74,11 @@ var pacdag = {
       d.receivedtot = +d.receivedtot;
       d.topac = +d.topac;
       d.endcash2012 = +d.endcash2012;
+      d.candall = +d.candall;
 
+      if (d.candall >= (d.totspend / 2)) {
+        d.toCandidates = true;
+      }
       d.IEdesignator = d.IEdesignator === '1' ? true : false;
 
       d.totspendFormatted = self.formatDollar(d.totspend);
@@ -163,6 +167,9 @@ var pacdag = {
           if (d.pac.IEdesignator) {
             s += ' designated-ie';
           }
+          if (d.pac.toCandidates) {
+            s += ' to-candidates';
+          }
           s += ' category-' + d.pac.cat2;
           return s;
         })
@@ -224,6 +231,11 @@ var pacdag = {
         })
     } else if (state === 'ie') {
       d3.selectAll('.node.designated-ie')
+        .each(function(d) {
+          self.activateNode(d.pac);
+        })
+    } else if (state === 'to-candidates') {
+      d3.selectAll('.node.to-candidates')
         .each(function(d) {
           self.activateNode(d.pac);
         })
