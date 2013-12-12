@@ -10,7 +10,7 @@ var pacdag = {
 
   init: function() {
     var self = this;
-    _.bindAll(this, 'handleData', 'tick');
+    _.bindAll(this, 'handleData', 'tick', 'link');
 
     queue()
       .defer(d3.csv, 'pacs.csv')
@@ -32,7 +32,7 @@ var pacdag = {
       .attr('markerHeight', 3)
       .attr('orient', 'auto')
       .append('g')
-        .attr('transform', 'translate(-30, 0)')
+        .attr('transform', 'translate(-15, 0)')
 
     self.triangle.append('path')
       .attr('class', 'triangle outer')
@@ -87,7 +87,7 @@ var pacdag = {
       }))
       .range([3, 20])
 
-    //self.draw();
+    self.draw();
   },
 
   draw: function() {
@@ -164,6 +164,25 @@ var pacdag = {
   },
 
   link: function(d) {
+    var self = this;
+
+    var x1 = d.source.x;
+    var y1 = d.source.y;
+    var x2 = d.target.x;
+    var y2 = d.target.y;
+
+    // Compute the distance of the original line
+    var distance = Math.sqrt(
+      Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)
+    )
+
+    // Find the slope
+    var b = (y2 - y1) / (x2 - x1);
+
+    var finalDistance = distance - self.r(d.dstpac.totspend);
+
+    // Find a, b, and c for the quadratic formula
+
     return 'M' + d.source.x + ',' + d.source.y + 'L' + d.target.x + ',' + d.target.y;
   },
 
