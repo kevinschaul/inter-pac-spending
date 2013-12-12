@@ -1,12 +1,13 @@
 var pacdag = {
 
   height: 500,
-  width: 800,
+  width: 960,
 
   nodeOpacityInitial: 0.4,
   linkOpacityInitial: 0.1,
   nodeOpacitySelected: 1,
   linkOpacitySelected: 1,
+  nodeOpacityNotSelected: 0.1,
 
   init: function() {
     var self = this;
@@ -51,11 +52,6 @@ var pacdag = {
         .attr('class', 'triangle inner')
         .attr('d', 'M2,2L8,5L2,8z')
     }
-
-    self.svg.append('path')
-      .attr('d', 'M50,50L200,100')
-      .attr('marker-end', 'url(#triangle-0)')
-      .style('stroke-width', 3)
 
     return this;
   },
@@ -105,9 +101,11 @@ var pacdag = {
     var self = this;
 
     self.force = d3.layout.force()
-      .nodes(d3.values(self.nodes))
+      .nodes(_.sortBy(self.nodes, function(d) {
+         return d.totspend;
+      }))
       .links(self.links)
-      .size([self.width - 100, self.height + 50])
+      .size([self.width - 100, self.height + 30])
       .charge(-100)
       .linkDistance(60)
       .on('tick', self.tick)
@@ -144,6 +142,9 @@ var pacdag = {
           console.log(d);
           console.log(d.pac.Committee);
 
+          d3.selectAll('.node')
+            .style('opacity', self.nodeOpacityNotSelected)
+
           d3.select(this)
             .style('opacity', self.nodeOpacitySelected)
 
@@ -156,6 +157,9 @@ var pacdag = {
             })
         })
         .on('mouseout', function(d) {
+          d3.selectAll('.node')
+            .style('opacity', self.nodeOpacityInitial)
+
           d3.select(this)
             .style('opacity', self.nodeOpacityInitial)
 

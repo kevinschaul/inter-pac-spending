@@ -1,43 +1,45 @@
-/* line 1, ../../sass/base.scss */
+/* line 8, ../../sass/base.scss */
 .node {
   fill: #ccc;
   stroke: #333;
   stroke-width: 2px;
   opacity: 0.8;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  transition: opacity 0.4s;
 }
 
-/* line 8, ../../sass/base.scss */
+/* line 16, ../../sass/base.scss */
 .link {
   stroke: #666;
   stroke-width: 3px;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
-/* line 13, ../../sass/base.scss */
+/* line 22, ../../sass/base.scss */
 marker {
   overflow: auto;
 }
 
-/* line 17, ../../sass/base.scss */
+/* line 26, ../../sass/base.scss */
 .underlay {
   fill: #fff;
 }
 
-/* line 24, ../../sass/base.scss */
+/* line 33, ../../sass/base.scss */
 .outer.triangle, .outer.inner {
   stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
 
-/* line 30, ../../sass/base.scss */
+/* line 39, ../../sass/base.scss */
 .inner {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
-}
-
-/* line 37, ../../sass/base.scss */
-path {
-  stroke-width: 1px;
-  stroke: #ccc;
 }

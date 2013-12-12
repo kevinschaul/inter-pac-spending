@@ -1,13 +1,22 @@
+@mixin transition($property, $time) {
+  -webkit-transition: $property $time;
+  -moz-transition: $property $time;
+  -o-transition: $property $time;
+  transition: $property $time;
+}
+
 .node {
   fill: #ccc;
   stroke: #333;
   stroke-width: 2px;
   opacity: 0.8;
+  @include transition(opacity, 0.4s);
 }
 
 .link {
   stroke: #666;
   stroke-width: 3px;
+  @include transition(opacity, 0.2s);
 }
 
 marker {
@@ -32,10 +41,5 @@ marker {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
-}
-
-path {
-  stroke-width: 1px;
-  stroke: #ccc;
 }
 
