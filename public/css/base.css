@@ -1,17 +1,37 @@
 /* line 1, ../../sass/base.scss */
-circle {
+.node {
   fill: #ccc;
   stroke: #333;
   opacity: 0.8;
 }
 
 /* line 7, ../../sass/base.scss */
-path {
+.link {
   stroke: #666;
   stroke-width: 1;
 }
 
 /* line 12, ../../sass/base.scss */
-marker {
+#triangle {
+  overflow: auto;
+}
+
+/* line 19, ../../sass/base.scss */
+.outer.triangle, .outer.inner {
+  stroke-width: 10px;
+  fill: #fff;
+  stroke: #fff;
+}
+
+/* line 25, ../../sass/base.scss */
+.inner {
+  stroke-width: 10px;
   fill: #666;
+  stroke: #666;
+}
+
+/* line 32, ../../sass/base.scss */
+path {
+  stroke-width: 1px;
+  stroke: #ccc;
 }

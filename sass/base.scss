@@ -1,15 +1,36 @@
-circle {
+.node {
   fill: #ccc;
   stroke: #333;
   opacity: 0.8;
 }
 
-path {
+.link {
   stroke: #666;
   stroke-width: 1;
 }
 
-marker {
+#triangle {
+  overflow: auto;
+}
+
+.triangle {
+}
+
+.triangle.outer {
+  @extend .triangle;
+  stroke-width: 10px;
+  fill: #fff;
+  stroke: #fff;
+}
+.inner {
+  @extend .triangle;
+  stroke-width: 10px;
   fill: #666;
+  stroke: #666;
+}
+
+path {
+  stroke-width: 1px;
+  stroke: #ccc;
 }
 
