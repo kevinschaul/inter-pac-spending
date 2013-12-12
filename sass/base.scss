@@ -1,45 +1,118 @@
 @mixin transition($property, $time) {
   -webkit-transition: $property $time;
-  -moz-transition: $property $time;
-  -o-transition: $property $time;
-  transition: $property $time;
+     -moz-transition: $property $time;
+      -ms-transition: $property $time;
+       -o-transition: $property $time;
+          transition: $property $time;
 }
 
-.node {
-  fill: #ccc;
-  stroke: #333;
-  stroke-width: 2px;
-  opacity: 0.8;
-  @include transition(opacity, 0.4s);
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
 }
 
-.link {
-  stroke: #666;
-  stroke-width: 3px;
-  @include transition(opacity, 0.2s);
+$show-color: #F8F0C4;
+
+$sans-serif: Arial, sans-serif;
+$serif: Georgia, serif;
+
+.clear {
+  clear: both;
 }
 
-marker {
-  overflow: auto;
+.graphic {
+  font-family: $sans-serif;
+  font-size: 16px;
+  color: #333;
+  width: 960px;
 }
 
-.underlay {
-  fill: #fff;
+.show-wrapper {
+  width: 100%;
 }
 
-.triangle {
+.show {
+  float: left;
+  width: 22%;
+  margin: 1%;
+  height: 70px;
+  background-color: $show-color;
+  text-align: center;
+  border: 2px solid darken($show-color, 50%);
+  @include border-radius(6px);
+  cursor: pointer;
+
+  .title {
+    font-family: $serif;
+    font-size: 1.2em;
+    padding: 6px 0;
+  }
+  .description {
+    font-size: 0.8em;
+    padding: 0 4px;
+  }
+}
+.show:hover {
+  background-color: darken($show-color, 10%);
+}
+.show.active {
+  background-color: darken($show-color, 15%);
 }
 
-.triangle.outer {
-  @extend .triangle;
-  stroke-width: 4px;
-  fill: #fff;
-  stroke: #fff;
+#graph {
+  float: left;
+  width: 700px;
+  height: 600px;
+
+  .node {
+    fill: #ccc;
+    stroke: #333;
+    stroke-width: 2px;
+    opacity: 0.8;
+    cursor: pointer;
+    @include transition(opacity, 0.4s);
+  }
+
+  .link {
+    stroke: #666;
+    stroke-width: 3px;
+    pointer-events: none;
+    @include transition(opacity, 0.2s);
+  }
+
+  marker {
+    overflow: auto;
+  }
+
+  .underlay {
+    fill: #fff;
+  }
+
+  .triangle {
+  }
+
+  .triangle.outer {
+    @extend .triangle;
+    stroke-width: 4px;
+    fill: #fff;
+    stroke: #fff;
+  }
+  .inner {
+    @extend .triangle;
+    stroke-width: 4px;
+    fill: #666;
+    stroke: #666;
+  }
 }
-.inner {
-  @extend .triangle;
-  stroke-width: 4px;
-  fill: #666;
-  stroke: #666;
+
+.sidebar {
+  float: left;
+  width: 245px;
+  height: 600px;
+  border-left: 3px solid #666;
+  padding-left: 10px;
 }
 

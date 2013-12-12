@@ -1,7 +1,7 @@
 var pacdag = {
 
-  height: 500,
-  width: 960,
+  height: 600,
+  width: 700,
 
   nodeOpacityInitial: 0.4,
   linkOpacityInitial: 0.1,
@@ -18,7 +18,7 @@ var pacdag = {
       .defer(d3.json, 'inter-pac-donations.json')
       .await(self.handleData);
 
-    self.svg = d3.select('#target').append('svg')
+    self.svg = d3.select('#graph').append('svg')
       .attr('width', self.width)
       .attr('height', self.height)
 
@@ -106,8 +106,9 @@ var pacdag = {
       }))
       .links(self.links)
       .size([self.width - 100, self.height + 30])
-      .charge(-100)
+      .charge(-300)
       .linkDistance(60)
+      .gravity(0.3)
       .on('tick', self.tick)
       .start();
 
