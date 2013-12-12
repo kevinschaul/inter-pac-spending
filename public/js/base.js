@@ -36,6 +36,13 @@ var pacdag = {
         .append('g')
           .attr('transform', 'translate(' + (-(i + 18)) + ', 0)')
 
+      triangle.append('rect')
+        .attr('class', 'underlay')
+        .attr('x', 0)
+        .attr('width', 20 + (i))
+        .attr('y', 2)
+        .attr('height', 6)
+
       triangle.append('path')
         .attr('class', 'triangle outer')
         .attr('d', 'M0,0L10,5L0,10z')
@@ -43,6 +50,7 @@ var pacdag = {
       triangle.append('path')
         .attr('class', 'triangle inner')
         .attr('d', 'M2,2L8,5L2,8z')
+
     }
 
     self.svg.append('path')

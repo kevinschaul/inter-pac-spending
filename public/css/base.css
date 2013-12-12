@@ -16,21 +16,26 @@ marker {
   overflow: auto;
 }
 
-/* line 19, ../../sass/base.scss */
+/* line 16, ../../sass/base.scss */
+.underlay {
+  fill: #fff;
+}
+
+/* line 23, ../../sass/base.scss */
 .outer.triangle, .outer.inner {
   stroke-width: 10px;
   fill: #fff;
   stroke: #fff;
 }
 
-/* line 25, ../../sass/base.scss */
+/* line 29, ../../sass/base.scss */
 .inner {
   stroke-width: 10px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 32, ../../sass/base.scss */
+/* line 36, ../../sass/base.scss */
 path {
   stroke-width: 1px;
   stroke: #ccc;
