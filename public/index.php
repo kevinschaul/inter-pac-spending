@@ -20,7 +20,7 @@
     </div>
     <div class='show ie'>
       <div class='button' data-show='ie'>
-        <div class='title'>To IEs</div>
+        <div class='title'>IE-designated</div>
       </div>
       <div class='description'>Some PACs spend their money on independent expenditures. These donations are independent of candidates and parties.</div>
     </div>

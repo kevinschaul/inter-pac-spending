@@ -75,6 +75,8 @@ var pacdag = {
       d.topac = +d.topac;
       d.endcash2012 = +d.endcash2012;
 
+      d.IEdesignator = d.IEdesignator === '1' ? true : false;
+
       d.totspendFormatted = self.formatDollar(d.totspend);
       d.totreceivedFormatted = self.formatDollar(d.receivedtot);
       d.topacFormatted = self.formatDollar(d.topac);
@@ -158,6 +160,10 @@ var pacdag = {
           var s = 'node'
           s += ' pacid-' + d.pac.ComID;
           s += ' category-' + d.pac.cat2;
+          if (d.pac.IEdesignator) {
+            s += ' designated-ie';
+          }
+          s += ' category-' + d.pac.cat2;
           return s;
         })
         .style('opacity', self.nodeOpacityInitial)
@@ -171,6 +177,9 @@ var pacdag = {
           if (self.stateActive) {
             self.activateState(self.stateActive);
           }
+        })
+        .on('click', function(d) {
+          console.log(d.pac);
         })
         .call(self.force.drag);
   },
@@ -210,6 +219,11 @@ var pacdag = {
 
     if (state === 'pro-dfl') {
       d3.selectAll('.node.category-prodfl')
+        .each(function(d) {
+          self.activateNode(d.pac);
+        })
+    } else if (state === 'ie') {
+      d3.selectAll('.node.designated-ie')
         .each(function(d) {
           self.activateNode(d.pac);
         })
