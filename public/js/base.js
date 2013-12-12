@@ -23,28 +23,31 @@ var pacdag = {
 
     self.defs = self.svg.append('defs')
 
-    self.triangle = self.defs.append('marker')
-      .attr('id', 'triangle')
-      .attr('viewBox', '0 0 10 10')
-      .attr('refX', 0)
-      .attr('refY', 5)
-      .attr('markerWidth', 4)
-      .attr('markerHeight', 3)
-      .attr('orient', 'auto')
-      .append('g')
-        .attr('transform', 'translate(-30, 0)')
+    var i;
+    for (i = 3; i <= 40; i++) {
+      var triangle = self.defs.append('marker')
+        .attr('id', 'triangle-' + i)
+        .attr('viewBox', '0 0 10 10')
+        .attr('refX', 0)
+        .attr('refY', 5)
+        .attr('markerWidth', 4)
+        .attr('markerHeight', 3)
+        .attr('orient', 'auto')
+        .append('g')
+          .attr('transform', 'translate(' + (-i) + ', 0)')
 
-    self.triangle.append('path')
-      .attr('class', 'triangle outer')
-      .attr('d', 'M0,0L10,5L0,10z')
+      triangle.append('path')
+        .attr('class', 'triangle outer')
+        .attr('d', 'M0,0L10,5L0,10z')
 
-    self.triangle.append('path')
-      .attr('class', 'triangle inner')
-      .attr('d', 'M2,2L8,5L2,8z')
+      triangle.append('path')
+        .attr('class', 'triangle inner')
+        .attr('d', 'M2,2L8,5L2,8z')
+    }
 
     self.svg.append('path')
       .attr('d', 'M50,50L200,100')
-      .attr('marker-end', 'url(#triangle)')
+      .attr('marker-end', 'url(#triangle-40)')
 
     return this;
   },
