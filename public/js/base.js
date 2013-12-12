@@ -228,6 +228,7 @@ var pacdag = {
           self.activateNode(d.pac);
         })
     }
+    self.nodeInfoTarget.html(self.nodeInfoInitial);
   },
 
   deactivateState: function() {
