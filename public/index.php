@@ -11,69 +11,59 @@
 <h1>2013-12-3-pac-dag</h1>
 
 <div class='graphic'>
+
+  <div class='infobar'>
+    <script id='node-info-template' type='text/template'>
+      <div class='name'><%= pac.Committee %></div>
+
+    <div class='info'>
+      A <span class='info-value'><%= pac.cat2 %> <%= pac.stype %></span> based in <span class='info-value'><%= pac.CommCity %>, <%= pac.CommState %></span>.
+    </div>
+    <div class='info'>
+      Spent <span class='info-value'><%= pac.spentFormatted %></span> over the past three election cycles.
+    </div>
+    <div class='info'>
+      Raised <span class='info-value'><%= pac.receivedFormatted %></span> in the same time period.
+    </div>
+    <div class='info'>
+      Had <span class='info-value'><%= pac.endcash2012Formatted %></span> on hand at the end of 2012.
+    </div>
+    </script>
+    <div id='node-info-target'>
+      <div class='help'>Touch a pac below for more information.</div>
+    </div>
+  </div>
+
+  <div id='graph'></div>
+
   <div class='show-wrapper'>
-    <div class='show pro-dfl'>
-      <div class='button' data-show='pro-dfl'>
-        <div class='title'>Pro DFL</div>
-      </div>
-      <div class='description'>Some PACs send their donations to the DFL party and its candidates. About XX percent of PAC spending is done by pro-DFL groups.</div>
-    </div>
-    <div class='show ie'>
-      <div class='button' data-show='ie'>
-        <div class='title'>IE-designated</div>
-      </div>
-      <div class='description'>Some PACs spend their money on independent expenditures. These donations are independent of candidates and parties.</div>
-    </div>
-    <div class='show to-candidates'>
-      <div class='button' data-show='to-candidates'>
-        <div class='title'>To Candidates</div>
-      </div>
-      <div class='description'>Other PACs concentrate their spending directly on candidates and parties. These donations are limited to $XX per group per election cycle.</div>
-    </div>
     <div class='show feeder'>
       <div class='button' data-show='feeder'>
         <div class='title'>Feeders</div>
       </div>
       <div class='description'>Some PACs give most of their money to other PACs. These PACs influence indirectly by having others ultimately spend their money.</div>
     </div>
+    <div class='show pro-dfl'>
+      <div class='button' data-show='pro-dfl'>
+        <div class='title'>Receivers</div>
+      </div>
+      <div class='description'>Some PACs send their donations to the DFL party and its candidates. About XX percent of PAC spending is done by pro-DFL groups.</div>
+    </div>
+    <div class='show ie'>
+      <div class='button' data-show='ie'>
+        <div class='title'>Spends To Candidates</div>
+      </div>
+      <div class='description'>Some PACs spend their money on independent expenditures. These donations are independent of candidates and parties.</div>
+    </div>
+    <div class='show to-candidates'>
+      <div class='button' data-show='to-candidates'>
+        <div class='title'>Spends Independently</div>
+      </div>
+      <div class='description'>Other PACs concentrate their spending directly on candidates and parties. These donations are limited to $XX per group per election cycle.</div>
+    </div>
     <div class='clear'></div>
   </div>
 
-  <div id='graph'></div>
-
-  <div class='sidebar'>
-    <script id='node-info-template' type='text/template'>
-      <div class='name'><%= pac.Committee %></div>
-
-      <div class='info'>
-        <span class='label'>Category</span><span class='value'><%= pac.cat2 %></span>
-        <div class='clear'></div>
-      </div>
-
-      <div class='info'>
-        <span class='label'>Type</span><span class='value'><%= pac.stype %></span>
-        <div class='clear'></div>
-      </div>
-
-      <div class='info'>
-        <span class='label'>Based in</span><span class='value'><%= pac.CommCity %>, <%= pac.CommState %></span>
-        <div class='clear'></div>
-      </div>
-
-      <div class='info'>
-        <span class='label'>Spent</span><span class='value'><%= pac.totspendFormatted %></span>
-        <div class='clear'></div>
-      </div>
-
-      <div class='info'>
-        <span class='label'>Cash on hand</span><span class='value'><%= pac.endcash2012Formatted %></span>
-        <div class='clear'></div>
-      </div>
-    </script>
-    <div id='node-info-target'>
-      <div class='help'>Touch a pac to the left for more information.</div>
-    </div>
-  </div>
 </div>
 
 

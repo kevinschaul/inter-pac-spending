@@ -64,11 +64,10 @@
 
 /* line 72, ../../sass/base.scss */
 #graph {
-  float: left;
-  width: 700px;
-  height: 600px;
+  width: 960px;
+  height: 590px;
 }
-/* line 77, ../../sass/base.scss */
+/* line 76, ../../sass/base.scss */
 #graph .node {
   fill: #ccc;
   stroke: #333;
@@ -81,15 +80,15 @@
   -o-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
-/* line 85, ../../sass/base.scss */
+/* line 84, ../../sass/base.scss */
 #graph .node.pro-dfl {
   fill: #76BAF0;
 }
-/* line 88, ../../sass/base.scss */
+/* line 87, ../../sass/base.scss */
 #graph .node.pro-rpm {
   fill: #F07676;
 }
-/* line 92, ../../sass/base.scss */
+/* line 91, ../../sass/base.scss */
 #graph .link {
   stroke: #666;
   stroke-width: 3px;
@@ -100,54 +99,48 @@
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-/* line 99, ../../sass/base.scss */
+/* line 98, ../../sass/base.scss */
 #graph marker {
   overflow: auto;
 }
-/* line 103, ../../sass/base.scss */
+/* line 102, ../../sass/base.scss */
 #graph .underlay {
   fill: #fff;
 }
-/* line 110, ../../sass/base.scss */
+/* line 109, ../../sass/base.scss */
 #graph .outer.triangle, #graph .outer.inner {
   stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
-/* line 116, ../../sass/base.scss */
+/* line 115, ../../sass/base.scss */
 #graph .inner {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 124, ../../sass/base.scss */
-.sidebar {
-  float: left;
-  width: 245px;
-  height: 600px;
-  padding-top: 100px;
+/* line 123, ../../sass/base.scss */
+.infobar {
+  width: 960px;
+  height: 100px;
 }
-/* line 130, ../../sass/base.scss */
-.sidebar .help {
+/* line 127, ../../sass/base.scss */
+.infobar .help {
   font-size: 0.8em;
 }
-/* line 134, ../../sass/base.scss */
-.sidebar .name {
+/* line 131, ../../sass/base.scss */
+.infobar .name {
   font-size: 1.6em;
   line-height: 1.1em;
   margin-bottom: 12px;
 }
-/* line 139, ../../sass/base.scss */
-.sidebar .info {
-  margin: 8px 0;
-}
-/* line 142, ../../sass/base.scss */
-.sidebar .info .label {
+/* line 136, ../../sass/base.scss */
+.infobar .info {
   float: left;
+  margin: 8px 10px 8px 0;
 }
-/* line 145, ../../sass/base.scss */
-.sidebar .info .value {
-  float: right;
+/* line 140, ../../sass/base.scss */
+.infobar .info-value {
   font-weight: bold;
 }

@@ -1,7 +1,7 @@
 var pacdag = {
 
   height: 600,
-  width: 700,
+  width: 960,
 
   nodeOpacityInitial: 0.4,
   linkOpacityInitial: 0.1,

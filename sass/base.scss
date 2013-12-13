@@ -70,9 +70,8 @@ $serif: Georgia, serif;
 }
 
 #graph {
-  float: left;
-  width: 700px;
-  height: 600px;
+  width: 960px;
+  height: 590px;
 
   .node {
     fill: #ccc;
@@ -121,11 +120,9 @@ $serif: Georgia, serif;
   }
 }
 
-.sidebar {
-  float: left;
-  width: 245px;
-  height: 600px;
-  padding-top: 100px;
+.infobar {
+  width: 960px;
+  height: 100px;
 
   .help {
     font-size: 0.8em;
@@ -137,15 +134,11 @@ $serif: Georgia, serif;
     margin-bottom: 12px;
   }
   .info {
-    margin: 8px 0;
-
-    .label {
-      float: left;
-    }
-    .value {
-      float: right;
-      font-weight: bold;
-    }
+    float: left;
+    margin: 8px 10px 8px 0;
+  }
+  .info-value {
+    font-weight: bold;
   }
 }
 
