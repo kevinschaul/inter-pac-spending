@@ -20,10 +20,10 @@
       A <span class='info-value'><%= pac.cat2 %> <%= pac.stype %></span> based in <span class='info-value'><%= pac.CommCity %>, <%= pac.CommState %></span>.
     </div>
     <div class='info'>
-      Spent <span class='info-value'><%= pac.spentFormatted %></span> over the past three election cycles.
+      Spent <span class='info-value'><%= pac.totspendFormatted %></span> over the past three election cycles.
     </div>
     <div class='info'>
-      Raised <span class='info-value'><%= pac.receivedFormatted %></span> in the same time period.
+      Raised <span class='info-value'><%= pac.totreceivedFormatted %></span> in the same time period.
     </div>
     <div class='info'>
       Had <span class='info-value'><%= pac.endcash2012Formatted %></span> on hand at the end of 2012.

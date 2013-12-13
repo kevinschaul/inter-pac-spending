@@ -159,7 +159,7 @@ var pacdag = {
          return d.totspend;
       }))
       .links(self.links)
-      .size([self.width - 100, self.height + 30])
+      .size([self.width - 100, self.height - 30])
       .charge(-300)
       .linkDistance(60)
       .gravity(0.3)
