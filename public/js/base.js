@@ -76,6 +76,19 @@ var pacdag = {
       d.endcash2012 = +d.endcash2012;
       d.candall = +d.candall;
 
+      d.ieprodfl = +d.ieprodfl;
+      d.ieprorpm = +d.ieprorpm;
+      d.ieother = +d.ieother;
+
+      d.candall = +d.candall;
+      d.canddfl = +d.canddfl;
+      d.candrpm = +d.candrpm;
+
+      d.partyall = +d.partyall;
+      d.partydfl = +d.partydfl;
+      console.log(d.partyrpm);
+      d.partyrpm = +d.partyrpm;
+
       d.dfltot = d.ieprodfl + d.canddfl + d.partydfl;
       d.rpmtot = d.ieprorpm + d.candrpm + d.partyrpm;
 
