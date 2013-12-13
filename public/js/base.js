@@ -87,6 +87,16 @@ var pacdag = {
       d.partydfl = +d.partydfl;
       d.partyrpm = +d.partyrpm;
 
+      d.dfltot = d.ieprodfl + d.canddfl + d.partydfl;
+      d.rpmtot = d.ieprorpm + d.candrpm + d.partyrpm;
+
+      if (d.dfltot / d.totspend >= .75 || d.cat2 == 'prodfl') {
+        d.party = 'dfl';
+      }
+      if (d.rpmtot / d.totspend >= .75 || d.cat2 == 'prorpm') {
+        d.party = 'rpm';
+      }
+
       if (d.candall >= (d.totspend / 2)) {
         d.toCandidates = true;
       }
@@ -201,6 +211,9 @@ var pacdag = {
           }
           if (d.pac.toPacs) {
             s += ' to-pacs';
+          }
+          if (d.pac.party) {
+            s += ' pro-' + d.pac.party;
           }
           s += ' category-' + d.pac.cat2;
           return s;
