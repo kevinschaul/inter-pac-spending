@@ -91,6 +91,18 @@ var pacdag = {
       d.partydfl = +d.partydfl;
       d.partyrpm = +d.partyrpm;
 
+      d.dfltot = d.ieprodfl + d.canddfl + d.partydfl;
+      d.rpmtot = d.ieprorpm + d.candrpm + d.partyrpm;
+
+      console.log(d);
+
+      // TODO
+      if (d.dfltot > d.rpmtot) {
+        d.party = 'dfl';
+      } else if (d.rpmtot > d.dfltot) {
+        d.party = 'rpm';
+      }
+
       d.ieprodflReadable = self.formatDollar(d.ieprodfl);
       d.canddflReadable = self.formatDollar(d.canddfl);
       d.partydflReadable = self.formatDollar(d.partydfl);
@@ -118,18 +130,18 @@ var pacdag = {
     self.sortedByCategory = {
       ie: {
         categoryReadable: 'Independent Expenditures',
-        dfl: _.sortBy(pacs, function(d) { return -d.ieprodfl; }),
-        rpm: _.sortBy(pacs, function(d) { return -d.ieprorpm; }),
+        dfl: _.sortBy(pacs, function(d) { return -d.ieprodfl; }).splice(0, 5),
+        rpm: _.sortBy(pacs, function(d) { return -d.ieprorpm; }).splice(0, 5),
       },
       candidate: {
         categoryReadable: 'To Candidates',
-        dfl: _.sortBy(pacs, function(d) { return -d.canddfl; }),
-        rpm: _.sortBy(pacs, function(d) { return -d.candrpm; }),
+        dfl: _.sortBy(pacs, function(d) { return -d.canddfl; }).splice(0, 5),
+        rpm: _.sortBy(pacs, function(d) { return -d.candrpm; }).splice(0, 5),
       },
       party: {
         categoryReadable: 'To Parties',
-        dfl: _.sortBy(pacs, function(d) { return -d.partydfl; }),
-        rpm: _.sortBy(pacs, function(d) { return -d.partyrpm; }),
+        dfl: _.sortBy(pacs, function(d) { return -d.partydfl; }).splice(0, 5),
+        rpm: _.sortBy(pacs, function(d) { return -d.partyrpm; }).splice(0, 5),
       }
     };
 
@@ -243,6 +255,9 @@ var pacdag = {
           if (d.pac.toPacs) {
             s += ' to-pacs';
           }
+          if (d.pac.party) {
+            s += ' pro-' + d.pac.party;
+          }
           s += ' category-' + d.pac.cat2;
           return s;
         })
@@ -262,6 +277,19 @@ var pacdag = {
           console.log(d.pac);
         })
         .call(self.force.drag);
+
+    _.each(self.sortedByCategory, function(d, category) {
+      _.each(d.dfl, function(d) {
+        d3.select('.node.pacid-' + d.ComID)
+          .classed('category-' + category, true)
+          .classed('party-dfl', true)
+      });
+      _.each(d.rpm, function(d) {
+        d3.select('.node.pacid-' + d.ComID)
+          .classed('category-' + category, true)
+          .classed('party-rpm', true)
+      });
+    });
   },
 
   activateButtons: function() {
@@ -297,23 +325,18 @@ var pacdag = {
     self.stateActive = state;
     self.buttons[state].classed('active', true);
 
-    if (state === 'pro-dfl') {
-      d3.selectAll('.node.category-prodfl')
+    if (state === 'ie') {
+      d3.selectAll('.node.category-ie')
         .each(function(d) {
           self.activateNode(d.pac);
         })
-    } else if (state === 'ie') {
-      d3.selectAll('.node.designated-ie')
+    } else if (state === 'candidate') {
+      d3.selectAll('.node.category-candidate')
         .each(function(d) {
           self.activateNode(d.pac);
         })
-    } else if (state === 'to-candidates') {
-      d3.selectAll('.node.to-candidates')
-        .each(function(d) {
-          self.activateNode(d.pac);
-        })
-    } else if (state === 'feeder') {
-      d3.selectAll('.node.to-pacs')
+    } else if (state === 'party') {
+      d3.selectAll('.node.category-party')
         .each(function(d) {
           self.activateNode(d.pac);
         })

@@ -114,6 +114,12 @@ $serif: Georgia, serif;
     cursor: pointer;
     @include transition(opacity, 0.4s);
   }
+  .node.pro-dfl {
+    fill: #76BAF0;
+  }
+  .node.pro-rpm {
+    fill: #F07676;
+  }
 
   .link {
     stroke: #666;

@@ -114,7 +114,15 @@
   -o-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
-/* line 118, ../../sass/base.scss */
+/* line 117, ../../sass/base.scss */
+#graph .node.pro-dfl {
+  fill: #76BAF0;
+}
+/* line 120, ../../sass/base.scss */
+#graph .node.pro-rpm {
+  fill: #F07676;
+}
+/* line 124, ../../sass/base.scss */
 #graph .link {
   stroke: #666;
   stroke-width: 3px;
@@ -125,52 +133,52 @@
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-/* line 125, ../../sass/base.scss */
+/* line 131, ../../sass/base.scss */
 #graph marker {
   overflow: auto;
 }
-/* line 129, ../../sass/base.scss */
+/* line 135, ../../sass/base.scss */
 #graph .underlay {
   fill: #fff;
 }
-/* line 136, ../../sass/base.scss */
+/* line 142, ../../sass/base.scss */
 #graph .outer.triangle, #graph .outer.inner {
   stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
-/* line 142, ../../sass/base.scss */
+/* line 148, ../../sass/base.scss */
 #graph .inner {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 150, ../../sass/base.scss */
+/* line 156, ../../sass/base.scss */
 .info {
   width: 245px;
   height: 600px;
   padding-top: 100px;
 }
-/* line 155, ../../sass/base.scss */
+/* line 161, ../../sass/base.scss */
 .info .help {
   font-size: 0.8em;
 }
-/* line 159, ../../sass/base.scss */
+/* line 165, ../../sass/base.scss */
 .info .name {
   font-size: 1.6em;
   line-height: 1.1em;
   margin-bottom: 12px;
 }
-/* line 164, ../../sass/base.scss */
+/* line 170, ../../sass/base.scss */
 .info .info {
   margin: 8px 0;
 }
-/* line 167, ../../sass/base.scss */
+/* line 173, ../../sass/base.scss */
 .info .info .label {
   float: left;
 }
-/* line 170, ../../sass/base.scss */
+/* line 176, ../../sass/base.scss */
 .info .info .value {
   float: right;
   font-weight: bold;
