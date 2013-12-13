@@ -91,6 +91,10 @@ var pacdag = {
       d.partydfl = +d.partydfl;
       d.partyrpm = +d.partyrpm;
 
+      d.candpartyall = d.candall + d.partyall;
+      d.candpartydfl = d.candall + d.partyall;
+      d.candpartyrpm = d.candrpm + d.partyrpm;
+
       d.dfltot = d.ieprodfl + d.canddfl + d.partydfl;
       d.rpmtot = d.ieprorpm + d.candrpm + d.partyrpm;
 
@@ -104,10 +108,12 @@ var pacdag = {
       d.ieprodflReadable = self.formatDollar(d.ieprodfl);
       d.canddflReadable = self.formatDollar(d.canddfl);
       d.partydflReadable = self.formatDollar(d.partydfl);
+      d.candpartydflReadable = self.formatDollar(d.candpartydfl);
 
       d.ieprorpmReadable = self.formatDollar(d.ieprorpm);
       d.candrpmReadable = self.formatDollar(d.candrpm);
       d.partyrpmReadable = self.formatDollar(d.partyrpm);
+      d.candpartyrpmReadable = self.formatDollar(d.candpartyrpm);
 
       if (d.candall >= (d.totspend / 2)) {
         d.toCandidates = true;
@@ -131,15 +137,10 @@ var pacdag = {
         dfl: _.sortBy(pacs, function(d) { return -d.ieprodfl; }).splice(0, 5),
         rpm: _.sortBy(pacs, function(d) { return -d.ieprorpm; }).splice(0, 5),
       },
-      candidate: {
-        categoryReadable: 'To Candidates',
-        dfl: _.sortBy(pacs, function(d) { return -d.canddfl; }).splice(0, 5),
-        rpm: _.sortBy(pacs, function(d) { return -d.candrpm; }).splice(0, 5),
-      },
-      party: {
-        categoryReadable: 'To Parties',
-        dfl: _.sortBy(pacs, function(d) { return -d.partydfl; }).splice(0, 5),
-        rpm: _.sortBy(pacs, function(d) { return -d.partyrpm; }).splice(0, 5),
+      candidateAndParty: {
+        categoryReadable: 'To Candidates and Parties',
+        dfl: _.sortBy(pacs, function(d) { return -d.candpartydfl; }).splice(0, 5),
+        rpm: _.sortBy(pacs, function(d) { return -d.candpartyrpm; }).splice(0, 5),
       }
     };
 
@@ -149,8 +150,7 @@ var pacdag = {
         partyReadable: 'DFL',
         amountsReadable: {
           ie: 'ieprodflReadable',
-          candidate: 'canddflReadable',
-          party: 'partydflReadable'
+          candidateAndParty: 'candpartydflReadable'
         },
         sortedByCategory: self.sortedByCategory
       })
@@ -162,8 +162,7 @@ var pacdag = {
         partyReadable: 'Republican',
         amountsReadable: {
           ie: 'ieprorpmReadable',
-          candidate: 'candrpmReadable',
-          party: 'partyrpmReadable'
+          candidateAndParty: 'candpartyrpmReadable'
         },
         sortedByCategory: self.sortedByCategory
       })
