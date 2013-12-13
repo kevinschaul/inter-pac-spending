@@ -94,12 +94,10 @@ var pacdag = {
       d.dfltot = d.ieprodfl + d.canddfl + d.partydfl;
       d.rpmtot = d.ieprorpm + d.candrpm + d.partyrpm;
 
-      console.log(d);
-
-      // TODO
-      if (d.dfltot > d.rpmtot) {
+      if (d.dfltot / d.totspend >= .75 || d.cat2 == 'prodfl') {
         d.party = 'dfl';
-      } else if (d.rpmtot > d.dfltot) {
+      }
+      if (d.rpmtot / d.totspend >= .75 || d.cat2 == 'prorpm') {
         d.party = 'rpm';
       }
 
