@@ -33,13 +33,20 @@ $serif: Georgia, serif;
 }
 
 .show-wrapper {
-  width: 100%;
+  float: left;
+  width: 200px;
+
+  .title {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
 }
 
 .show {
-  float: left;
-  width: 30%;
-  margin: 1%;
 
   .button {
     height: 50px;
@@ -50,7 +57,7 @@ $serif: Georgia, serif;
     @include transition(background-color, .2s);
     cursor: pointer;
 
-    .title {
+    .label {
       font-family: $serif;
       font-size: 1.2em;
       padding: 14px 0;
@@ -67,11 +74,15 @@ $serif: Georgia, serif;
     font-size: 0.8em;
     padding: 4px 0;
   }
+
+  ol {
+    font-size: 0.8em;
+  }
 }
 
 #graph {
   float: left;
-  width: 700px;
+  width: 560px;
   height: 600px;
 
   .node {

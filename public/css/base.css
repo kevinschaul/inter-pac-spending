@@ -15,16 +15,19 @@
 
 /* line 35, ../../sass/base.scss */
 .show-wrapper {
-  width: 100%;
+  float: left;
+  width: 200px;
+}
+/* line 39, ../../sass/base.scss */
+.show-wrapper .title {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 8px;
 }
 
-/* line 39, ../../sass/base.scss */
-.show {
-  float: left;
-  width: 30%;
-  margin: 1%;
-}
-/* line 44, ../../sass/base.scss */
+/* line 51, ../../sass/base.scss */
 .show .button {
   height: 50px;
   background-color: #f8f0c4;
@@ -42,33 +45,37 @@
   transition: background-color 0.2s;
   cursor: pointer;
 }
-/* line 53, ../../sass/base.scss */
-.show .button .title {
+/* line 60, ../../sass/base.scss */
+.show .button .label {
   font-family: Georgia, serif;
   font-size: 1.2em;
   padding: 14px 0;
 }
-/* line 59, ../../sass/base.scss */
+/* line 66, ../../sass/base.scss */
 .show .button:hover {
   background-color: #f3e496;
 }
-/* line 62, ../../sass/base.scss */
+/* line 69, ../../sass/base.scss */
 .show .button.active {
   background-color: #edd969;
 }
-/* line 66, ../../sass/base.scss */
+/* line 73, ../../sass/base.scss */
 .show .description {
   font-size: 0.8em;
   padding: 4px 0;
 }
+/* line 78, ../../sass/base.scss */
+.show ol {
+  font-size: 0.8em;
+}
 
-/* line 72, ../../sass/base.scss */
+/* line 83, ../../sass/base.scss */
 #graph {
   float: left;
-  width: 700px;
+  width: 560px;
   height: 600px;
 }
-/* line 77, ../../sass/base.scss */
+/* line 88, ../../sass/base.scss */
 #graph .node {
   fill: #ccc;
   stroke: #333;
@@ -81,7 +88,7 @@
   -o-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
-/* line 86, ../../sass/base.scss */
+/* line 97, ../../sass/base.scss */
 #graph .link {
   stroke: #666;
   stroke-width: 3px;
@@ -92,53 +99,53 @@
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-/* line 93, ../../sass/base.scss */
+/* line 104, ../../sass/base.scss */
 #graph marker {
   overflow: auto;
 }
-/* line 97, ../../sass/base.scss */
+/* line 108, ../../sass/base.scss */
 #graph .underlay {
   fill: #fff;
 }
-/* line 104, ../../sass/base.scss */
+/* line 115, ../../sass/base.scss */
 #graph .outer.triangle, #graph .outer.inner {
   stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
-/* line 110, ../../sass/base.scss */
+/* line 121, ../../sass/base.scss */
 #graph .inner {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 118, ../../sass/base.scss */
+/* line 129, ../../sass/base.scss */
 .sidebar {
   float: left;
   width: 245px;
   height: 600px;
   padding-top: 100px;
 }
-/* line 124, ../../sass/base.scss */
+/* line 135, ../../sass/base.scss */
 .sidebar .help {
   font-size: 0.8em;
 }
-/* line 128, ../../sass/base.scss */
+/* line 139, ../../sass/base.scss */
 .sidebar .name {
   font-size: 1.6em;
   line-height: 1.1em;
   margin-bottom: 12px;
 }
-/* line 133, ../../sass/base.scss */
+/* line 144, ../../sass/base.scss */
 .sidebar .info {
   margin: 8px 0;
 }
-/* line 136, ../../sass/base.scss */
+/* line 147, ../../sass/base.scss */
 .sidebar .info .label {
   float: left;
 }
-/* line 139, ../../sass/base.scss */
+/* line 150, ../../sass/base.scss */
 .sidebar .info .value {
   float: right;
   font-weight: bold;
