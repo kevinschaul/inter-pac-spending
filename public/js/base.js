@@ -3,11 +3,12 @@ var pacdag = {
   height: 600,
   width: 960,
 
-  nodeOpacityInitial: 0.4,
+  nodeOpacityInitial: 0.6,
   linkOpacityInitial: 0.1,
-  nodeOpacitySelected: 1,
-  linkOpacitySelected: 1,
+  nodeOpacitySelected: 0.8,
+  linkOpacitySelected: 0.8,
   nodeOpacityNotSelected: 0.1,
+  linkOpacityNotSelected: 0.1,
 
   stateActive: false,
 
@@ -149,6 +150,8 @@ var pacdag = {
 
     self.draw();
     self.activateButtons();
+
+    self.activateState('issue');
   },
 
   draw: function() {
@@ -208,6 +211,7 @@ var pacdag = {
         .style('opacity', self.nodeOpacityInitial)
         .on('mouseover', function(d) {
           self.unselectNodes();
+          self.deactivateLinks();
           self.activateNode(d.pac);
           self.activateNodeLinks(d.pac);
         })
@@ -229,6 +233,12 @@ var pacdag = {
     self.buttons = {},
 
     d3.selectAll('.button')
+      .each(function() {
+        var thisd3 = d3.select(this);
+        var showState = thisd3.attr('data-show')
+
+        self.buttons[showState] = thisd3;
+      })
       .on('click', function() {
         var thisd3 = d3.select(this);
         var showState = thisd3.attr('data-show')
@@ -244,7 +254,6 @@ var pacdag = {
           }
 
           // ... and activate the state of the button clicked.
-          self.buttons[showState] = thisd3;
           self.activateState(showState);
         }
       })
@@ -256,27 +265,14 @@ var pacdag = {
     self.stateActive = state;
     self.buttons[state].classed('active', true);
 
-    if (state === 'pro-dfl') {
-      d3.selectAll('.node.category-prodfl')
-        .each(function(d) {
-          self.activateNode(d.pac);
-        })
-    } else if (state === 'ie') {
-      d3.selectAll('.node.designated-ie')
-        .each(function(d) {
-          self.activateNode(d.pac);
-        })
-    } else if (state === 'to-candidates') {
-      d3.selectAll('.node.to-candidates')
-        .each(function(d) {
-          self.activateNode(d.pac);
-        })
-    } else if (state === 'feeder') {
-      d3.selectAll('.node.to-pacs')
-        .each(function(d) {
-          self.activateNode(d.pac);
-        })
-    }
+    self.unselectNodes();
+
+    d3.selectAll('.node.category-' + state)
+      .each(function(d) {
+        self.activateNode(d.pac);
+        self.activateNodeLinks(d.pac);
+      })
+
     self.nodeInfoTarget.html(self.nodeInfoInitial);
   },
 
@@ -290,6 +286,9 @@ var pacdag = {
 
     d3.selectAll('.node')
       .style('opacity', self.nodeOpacityInitial)
+
+    d3.selectAll('.link')
+      .style('opacity', self.linkOpacityInitial);
   },
 
   unselectNodes: function() {
@@ -297,6 +296,9 @@ var pacdag = {
 
     d3.selectAll('.node')
       .style('opacity', self.nodeOpacityNotSelected)
+
+    d3.selectAll('.link')
+      .style('opacity', self.linkOpacityNotSelected)
   },
 
   activateNode: function(pac) {
@@ -323,7 +325,7 @@ var pacdag = {
   deactivateNode: function(pac) {
     var self = this;
 
-    //self.nodeInfoTarget.html(self.nodeInfoInitial);
+    self.nodeInfoTarget.html(self.nodeInfoInitial);
 
     d3.selectAll('.node')
       .style('opacity', self.nodeOpacityInitial)
@@ -338,6 +340,13 @@ var pacdag = {
         d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
           .style('opacity', self.nodeOpacityInitial)
       })
+  },
+
+  deactivateLinks: function() {
+    var self = this;
+
+    d3.selectAll('.link')
+      .style('opacity', self.linkOpacityInitial)
   },
 
   tick: function() {

@@ -37,29 +37,40 @@
   <div id='graph'></div>
 
   <div class='show-wrapper'>
-    <div class='show feeder'>
-      <div class='button' data-show='feeder'>
-        <div class='title'>Feeders</div>
+    <div class='show'>
+      <div class='button' data-show='labor'>
+        <div class='title'>Labor</div>
       </div>
-      <div class='description'>Some PACs give most of their money to other PACs. These PACs influence indirectly by having others ultimately spend their money.</div>
     </div>
-    <div class='show pro-dfl'>
-      <div class='button' data-show='pro-dfl'>
-        <div class='title'>Receivers</div>
+    <div class='show'>
+      <div class='button' data-show='biz'>
+        <div class='title'>Business</div>
       </div>
-      <div class='description'>Some PACs send their donations to the DFL party and its candidates. About XX percent of PAC spending is done by pro-DFL groups.</div>
     </div>
-    <div class='show ie'>
-      <div class='button' data-show='ie'>
-        <div class='title'>Spends To Candidates</div>
+    <div class='show'>
+      <div class='button' data-show='issue'>
+        <div class='title'>Issue</div>
       </div>
-      <div class='description'>Some PACs spend their money on independent expenditures. These donations are independent of candidates and parties.</div>
     </div>
-    <div class='show to-candidates'>
-      <div class='button' data-show='to-candidates'>
-        <div class='title'>Spends Independently</div>
+    <div class='show'>
+      <div class='button' data-show='indian'>
+        <div class='title'>Indian</div>
       </div>
-      <div class='description'>Other PACs concentrate their spending directly on candidates and parties. These donations are limited to $XX per group per election cycle.</div>
+    </div>
+    <div class='show'>
+      <div class='button' data-show='lawyers'>
+        <div class='title'>Lawyers</div>
+      </div>
+    </div>
+    <div class='show'>
+      <div class='button' data-show='prodfl'>
+        <div class='title'>DFL</div>
+      </div>
+    </div>
+    <div class='show'>
+      <div class='button' data-show='prorpm'>
+        <div class='title'>Republican</div>
+      </div>
     </div>
     <div class='clear'></div>
   </div>

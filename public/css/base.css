@@ -21,8 +21,8 @@
 /* line 39, ../../sass/base.scss */
 .show {
   float: left;
-  width: 22%;
-  margin: 1%;
+  width: 100px;
+  margin: 4px;
 }
 /* line 44, ../../sass/base.scss */
 .show .button {
