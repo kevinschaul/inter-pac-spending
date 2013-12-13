@@ -24,6 +24,7 @@ $serif: Georgia, serif;
 }
 
 .graphic {
+  position: relative;
   font-family: $sans-serif;
   font-size: 16px;
   line-height: 18px;
@@ -32,21 +33,30 @@ $serif: Georgia, serif;
   margin: auto;
 }
 
-.show-wrapper {
+.show-wrapper.dfl {
   float: left;
+}
+.show-wrapper.rpm {
+  float: right;
+}
+
+.show-wrapper {
+  z-index: 1;
+  pointer-events: all;
   width: 200px;
 
   .title {
-    font-size: 0.9em;
+    font-size: 0.8em;
     text-transform: uppercase;
     font-weight: bold;
     color: #666;
-    margin-bottom: 8px;
   }
 
 }
 
 .show {
+
+  margin-top: 8px;
 
   .button {
     height: 50px;
@@ -70,20 +80,31 @@ $serif: Georgia, serif;
     background-color: darken($show-color, 20%);
   }
 
-  .description {
+  .top-spenders {
     font-size: 0.8em;
-    padding: 4px 0;
-  }
+    line-height: 1.2em;
 
-  ol {
-    font-size: 0.8em;
+    .spender {
+      margin: 8px 0;
+    }
+
+    .amount {
+      font-weight: bold;
+    }
   }
 }
 
 #graph {
-  float: left;
+  position: absolute;
+  top: 0px;
+  left: 200px;
   width: 560px;
   height: 600px;
+  overflow: visible;
+
+  svg {
+    overflow: visible;
+  }
 
   .node {
     fill: #ccc;
@@ -126,8 +147,7 @@ $serif: Georgia, serif;
   }
 }
 
-.sidebar {
-  float: left;
+.info {
   width: 245px;
   height: 600px;
   padding-top: 100px;

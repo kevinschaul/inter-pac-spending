@@ -5,6 +5,7 @@
 
 /* line 26, ../../sass/base.scss */
 .graphic {
+  position: relative;
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 18px;
@@ -13,21 +14,35 @@
   margin: auto;
 }
 
-/* line 35, ../../sass/base.scss */
-.show-wrapper {
+/* line 36, ../../sass/base.scss */
+.show-wrapper.dfl {
   float: left;
+}
+
+/* line 39, ../../sass/base.scss */
+.show-wrapper.rpm {
+  float: right;
+}
+
+/* line 43, ../../sass/base.scss */
+.show-wrapper {
+  z-index: 1;
+  pointer-events: all;
   width: 200px;
 }
-/* line 39, ../../sass/base.scss */
+/* line 48, ../../sass/base.scss */
 .show-wrapper .title {
-  font-size: 0.9em;
+  font-size: 0.8em;
   text-transform: uppercase;
   font-weight: bold;
   color: #666;
-  margin-bottom: 8px;
 }
 
-/* line 51, ../../sass/base.scss */
+/* line 57, ../../sass/base.scss */
+.show {
+  margin-top: 8px;
+}
+/* line 61, ../../sass/base.scss */
 .show .button {
   height: 50px;
   background-color: #f8f0c4;
@@ -45,37 +60,48 @@
   transition: background-color 0.2s;
   cursor: pointer;
 }
-/* line 60, ../../sass/base.scss */
+/* line 70, ../../sass/base.scss */
 .show .button .label {
   font-family: Georgia, serif;
   font-size: 1.2em;
   padding: 14px 0;
 }
-/* line 66, ../../sass/base.scss */
+/* line 76, ../../sass/base.scss */
 .show .button:hover {
   background-color: #f3e496;
 }
-/* line 69, ../../sass/base.scss */
+/* line 79, ../../sass/base.scss */
 .show .button.active {
   background-color: #edd969;
 }
-/* line 73, ../../sass/base.scss */
-.show .description {
+/* line 83, ../../sass/base.scss */
+.show .top-spenders {
   font-size: 0.8em;
-  padding: 4px 0;
+  line-height: 1.2em;
 }
-/* line 78, ../../sass/base.scss */
-.show ol {
-  font-size: 0.8em;
+/* line 87, ../../sass/base.scss */
+.show .top-spenders .spender {
+  margin: 8px 0;
+}
+/* line 91, ../../sass/base.scss */
+.show .top-spenders .amount {
+  font-weight: bold;
 }
 
-/* line 83, ../../sass/base.scss */
+/* line 97, ../../sass/base.scss */
 #graph {
-  float: left;
+  position: absolute;
+  top: 0px;
+  left: 200px;
   width: 560px;
   height: 600px;
+  overflow: visible;
 }
-/* line 88, ../../sass/base.scss */
+/* line 105, ../../sass/base.scss */
+#graph svg {
+  overflow: visible;
+}
+/* line 109, ../../sass/base.scss */
 #graph .node {
   fill: #ccc;
   stroke: #333;
@@ -88,7 +114,7 @@
   -o-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
-/* line 97, ../../sass/base.scss */
+/* line 118, ../../sass/base.scss */
 #graph .link {
   stroke: #666;
   stroke-width: 3px;
@@ -99,54 +125,53 @@
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-/* line 104, ../../sass/base.scss */
+/* line 125, ../../sass/base.scss */
 #graph marker {
   overflow: auto;
 }
-/* line 108, ../../sass/base.scss */
+/* line 129, ../../sass/base.scss */
 #graph .underlay {
   fill: #fff;
 }
-/* line 115, ../../sass/base.scss */
+/* line 136, ../../sass/base.scss */
 #graph .outer.triangle, #graph .outer.inner {
   stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
-/* line 121, ../../sass/base.scss */
+/* line 142, ../../sass/base.scss */
 #graph .inner {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 129, ../../sass/base.scss */
-.sidebar {
-  float: left;
+/* line 150, ../../sass/base.scss */
+.info {
   width: 245px;
   height: 600px;
   padding-top: 100px;
 }
-/* line 135, ../../sass/base.scss */
-.sidebar .help {
+/* line 155, ../../sass/base.scss */
+.info .help {
   font-size: 0.8em;
 }
-/* line 139, ../../sass/base.scss */
-.sidebar .name {
+/* line 159, ../../sass/base.scss */
+.info .name {
   font-size: 1.6em;
   line-height: 1.1em;
   margin-bottom: 12px;
 }
-/* line 144, ../../sass/base.scss */
-.sidebar .info {
+/* line 164, ../../sass/base.scss */
+.info .info {
   margin: 8px 0;
 }
-/* line 147, ../../sass/base.scss */
-.sidebar .info .label {
+/* line 167, ../../sass/base.scss */
+.info .info .label {
   float: left;
 }
-/* line 150, ../../sass/base.scss */
-.sidebar .info .value {
+/* line 170, ../../sass/base.scss */
+.info .info .value {
   float: right;
   font-weight: bold;
 }

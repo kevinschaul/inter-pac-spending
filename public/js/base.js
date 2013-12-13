@@ -1,7 +1,7 @@
 var pacdag = {
 
   height: 600,
-  width: 700,
+  width: 560,
 
   nodeOpacityInitial: 0.4,
   linkOpacityInitial: 0.1,
@@ -13,6 +13,10 @@ var pacdag = {
 
   nodeInfoTemplate: _.template(d3.select('#node-info-template').html()),
   nodeInfoTarget: d3.select('#node-info-target'),
+
+  showWrapperTemplate: _.template(d3.select('#show-wrapper-template').html()),
+  showWrapperDFLTarget: d3.select('#show-wrapper-dfl-target'),
+  showWrapperRPMTarget: d3.select('#show-wrapper-rpm-target'),
 
   formatDollar: d3.format('$,.2f'),
 
@@ -87,6 +91,14 @@ var pacdag = {
       d.partydfl = +d.partydfl;
       d.partyrpm = +d.partyrpm;
 
+      d.ieprodflReadable = self.formatDollar(d.ieprodfl);
+      d.canddflReadable = self.formatDollar(d.canddfl);
+      d.partydflReadable = self.formatDollar(d.partydfl);
+
+      d.ieprorpmReadable = self.formatDollar(d.ieprorpm);
+      d.candrpmReadable = self.formatDollar(d.candrpm);
+      d.partyrpmReadable = self.formatDollar(d.partyrpm);
+
       if (d.candall >= (d.totspend / 2)) {
         d.toCandidates = true;
       }
@@ -105,18 +117,47 @@ var pacdag = {
 
     self.sortedByCategory = {
       ie: {
-        prodfl: _.sortBy(pacs, function(d) { return -d.ieprodfl; }),
-        prorpm: _.sortBy(pacs, function(d) { return -d.ieprorpm; }),
+        categoryReadable: 'Independent Expenditures',
+        dfl: _.sortBy(pacs, function(d) { return -d.ieprodfl; }),
+        rpm: _.sortBy(pacs, function(d) { return -d.ieprorpm; }),
       },
       candidate: {
-        prodfl: _.sortBy(pacs, function(d) { return -d.canddfl; }),
-        prorpm: _.sortBy(pacs, function(d) { return -d.candrpm; }),
+        categoryReadable: 'To Candidates',
+        dfl: _.sortBy(pacs, function(d) { return -d.canddfl; }),
+        rpm: _.sortBy(pacs, function(d) { return -d.candrpm; }),
       },
       party: {
-        prodfl: _.sortBy(pacs, function(d) { return -d.partydfl; }),
-        prorpm: _.sortBy(pacs, function(d) { return -d.partyrpm; }),
+        categoryReadable: 'To Parties',
+        dfl: _.sortBy(pacs, function(d) { return -d.partydfl; }),
+        rpm: _.sortBy(pacs, function(d) { return -d.partyrpm; }),
       }
     };
+
+    self.showWrapperDFLTarget.html(
+      self.showWrapperTemplate({
+        party: 'dfl',
+        partyReadable: 'DFL',
+        amountsReadable: {
+          ie: 'ieprodflReadable',
+          candidate: 'canddflReadable',
+          party: 'partydflReadable'
+        },
+        sortedByCategory: self.sortedByCategory
+      })
+    );
+
+    self.showWrapperRPMTarget.html(
+      self.showWrapperTemplate({
+        party: 'rpm',
+        partyReadable: 'Republican',
+        amountsReadable: {
+          ie: 'ieprorpmReadable',
+          candidate: 'candrpmReadable',
+          party: 'partyrpmReadable'
+        },
+        sortedByCategory: self.sortedByCategory
+      })
+    );
 
     _.each(interPacDonations, function(d) {
       d.amt = +d.amt;
@@ -162,7 +203,7 @@ var pacdag = {
          return d.totspend;
       }))
       .links(self.links)
-      .size([self.width - 100, self.height + 30])
+      .size([self.width, self.height])
       .charge(-300)
       .linkDistance(60)
       .gravity(0.3)
