@@ -56,7 +56,7 @@ var pacdag = {
 
       triangle.append('path')
         .attr('class', 'triangle outer')
-        .attr('d', 'M0,0L10,5L0,10z')
+        .attr('d', 'M2,1L10,5L2,9z')
 
       triangle.append('path')
         .attr('class', 'triangle inner')
