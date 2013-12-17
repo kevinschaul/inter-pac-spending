@@ -57,7 +57,7 @@ $serif: Georgia, serif;
 }
 
 .intro {
-  width: 550px;
+  width: 520px;
   margin: 20px auto;
   font-family: $serif;
   line-height: 1.3em;
@@ -69,12 +69,11 @@ $serif: Georgia, serif;
 }
 
 .control-wrapper {
-
   margin-bottom: 20px;
 
   .label {
     float: left;
-    width: 272px;
+    width: 312px;
     margin-right: 5px;
     padding-top: 11px;
     text-align: right;
@@ -114,7 +113,6 @@ $serif: Georgia, serif;
   background-color: darken($button-color, 5%);
 }
 
-
 .graph-wrapper {
   position: relative;
   border-bottom: 1px solid #ccc;
@@ -127,7 +125,7 @@ $serif: Georgia, serif;
   .infobar {
     width: 200px;
     position: absolute;
-    top: 100px;
+    top: 50px;
     left: 20px;
 
     .help {

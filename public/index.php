@@ -7,17 +7,10 @@
   <div class='intro'>
 
     <p>
-      Spending in Minnesota politics may be best described as a web of
-      influence. Nearly all of the state's top political donors are
-      related to each other in some fashion. Donations between PACs reveal a
-      tightly knit network of groups.
-    </p>
-
-    <p>
       Minnesota's leading political donor, Alliance for a Better Minnesota,
       receieved nearly all of its $9.9 million from other PACs in
       the past three election cycles. WIN Minnesota, one of Alliance's largest
-      donors, chose to influence elections indirectly by giving all of its
+      donors, chose to influence indirectly by giving all of its
       money to other PACs instead of spending it directly.
     </p>
 
@@ -29,7 +22,7 @@
   </div>
 
   <div class='control-wrapper'>
-    <div class='label'>Filter by category:</div>
+    <div class='label'>Highlight PACs by category:</div>
     <div class='button-wrapper'>
       <div class='button' data-show='issue'>
         <div class='title'>Issue</div>
@@ -39,9 +32,6 @@
       </div>
       <div class='button' data-show='biz'>
         <div class='title'>Business</div>
-      </div>
-      <div class='button' data-show='indian'>
-        <div class='title'>Indian</div>
       </div>
       <div class='button' data-show='lawyers'>
         <div class='title'>Lawyers</div>
@@ -93,6 +83,7 @@
   </div>
 
   <div class='notes'>Data from last three election cycles (2006-2012). PACs that spent less than $50,000 in this period are not included.</div>
+  <div class='notes'>Source: Star Tribune analysis of Minnesota Campaign Finance and Disclosure Board data</div>
 </div>
 
 

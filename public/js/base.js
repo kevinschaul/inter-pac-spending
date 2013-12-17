@@ -65,7 +65,7 @@ var pacdag = {
 
     self.annotation = self.svg.append('g')
       .attr('class', 'annotation')
-      .attr('transform', 'translate(0, 340)')
+      .attr('transform', 'translate(0, 280)')
 
     return this;
   },
