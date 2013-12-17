@@ -1,6 +1,32 @@
 <?php readfile('http://www.startribune.com/templates/vh?vid=236194001&sosp=/politics'); ?>
 
 <link rel="stylesheet" href="css/base.css" />
+<style>
+.fallback {
+  display: none;
+}
+.fallback-info {
+  width: 750px;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  background-color: #AAC2AF;
+  margin: 60px auto;
+}
+</style>
+<!--[if lte IE 8]>
+<style>
+.fallback {
+  display: block !important;
+}
+.control-wrapper
+.infobar,
+#graph {
+  display: none;
+}
+</style>
+<![endif]-->
 
 <div class='graphic'>
 
@@ -20,6 +46,8 @@
     </p>
 
   </div>
+
+  <div class="fallback fallback-info">Interactive portions of this graphic are not available in this version of Internet Explorer.</div>
 
   <div class='control-wrapper'>
     <div class='label'>Highlight PACs by category:</div>
@@ -80,6 +108,7 @@
     </div>
 
     <div id='graph'></div>
+    <img class="fallback" src="img/issue.png" alt="fallback" />
   </div>
 
   <div class='notes'>Data from last three election cycles (2006-2012). PACs that spent less than $50,000 in this period are not included.</div>
