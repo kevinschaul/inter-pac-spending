@@ -224,12 +224,10 @@ var pacdag = {
           self.activateNodeLinks(d.pac);
         })
         .on('mouseout', function(d) {
-          /*
           self.deactivateNode(d.pac);
           if (self.stateActive) {
             self.activateState(self.stateActive);
           }
-         */
         })
         .on('click', function(d) {
           console.log(d.pac);
@@ -400,6 +398,9 @@ var pacdag = {
           // ... and activate the state of the button clicked.
           self.activateState(showState);
         }
+
+        // Give the graph a jolt.
+        self.force.start();
       })
   },
 
