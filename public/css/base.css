@@ -227,21 +227,22 @@
 /* line 223, ../../sass/base.scss */
 #graph .underlay {
   fill: #fff;
+  stroke: none;
 }
-/* line 230, ../../sass/base.scss */
+/* line 231, ../../sass/base.scss */
 #graph .outer.triangle, #graph .outer.inner {
   stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
-/* line 236, ../../sass/base.scss */
+/* line 237, ../../sass/base.scss */
 #graph .inner {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 244, ../../sass/base.scss */
+/* line 245, ../../sass/base.scss */
 .notes {
   font-size: 0.8em;
   color: #666;
