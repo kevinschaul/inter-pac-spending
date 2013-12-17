@@ -4,6 +4,30 @@
 
 <div class='graphic'>
 
+  <div class='intro'>
+
+    <p>
+      Spending in Minnesota politics may be best described as a web of
+      influence. Nearly all of the state's top political donors are
+      related to each other in some fashion. Donations between PACs reveal a
+      tightly knit network of groups.
+    </p>
+
+    <p>
+      Minnesota's leading political donor, Alliance for a Better Minnesota,
+      receieved XX percent of its $9.9 million from other PACS over
+      the past three election cycles. WIN Minnesota, one of Alliance's largest
+      donors, chose to influence elections indirectly by giving all of its
+      money to other PACs instead of spending it directly.
+    </p>
+
+    <p>
+      The complex web leads us to a firm conclusion: In Minnesota,
+      political spending is a team sport.
+    </p>
+
+  </div>
+
   <div class='button-wrapper'>
     <div class='button' data-show='issue'>
       <div class='title'>Issue</div>

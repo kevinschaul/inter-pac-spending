@@ -38,8 +38,6 @@
           border-bottom-right-radius: $radius;
 }
 
-
-
 $show-color: #efefef;
 
 $sans-serif: Arial, sans-serif;
@@ -56,6 +54,79 @@ $serif: Georgia, serif;
   color: #333;
   width: 960px;
   margin: auto;
+}
+
+.intro {
+  width: 550px;
+  margin: 20px auto;
+  font-family: $serif;
+  line-height: 1.3em;
+
+  p {
+    margin: 12px 0;
+  }
+}
+
+.button-wrapper {
+  margin-bottom: 20px;
+  margin-left: 278px;
+}
+
+.button {
+  float: left;
+  width: 80px;
+  height: 40px;
+  background-color: $show-color;
+  text-align: center;
+  border: 1px solid darken($show-color, 50%);
+  border-right: none;
+  @include transition(background-color, .2s);
+  cursor: pointer;
+
+  .title {
+    padding: 10px 0;
+  }
+}
+.button:first-child {
+  @include border-radius-left(6px);
+}
+.button:last-child {
+  border-right: 1px solid darken($show-color, 50%);
+  @include border-radius-right(6px);
+}
+
+.button:hover {
+  background-color: darken($show-color, 5%);
+}
+.button.active {
+  background-color: darken($show-color, 10%);
+}
+
+.description {
+  font-size: 0.8em;
+  padding: 4px 0;
+}
+
+.infobar {
+  width: 250px;
+  position: absolute;
+
+  .help {
+    font-size: 0.8em;
+  }
+
+  .name {
+    font-size: 1.6em;
+    line-height: 1.1em;
+    margin-bottom: 12px;
+  }
+  .info {
+    float: left;
+    margin: 8px 6px 8px 0;
+  }
+  .info-value {
+    font-weight: bold;
+  }
 }
 
 #graph {
@@ -134,67 +205,5 @@ $serif: Georgia, serif;
     fill: #666;
     stroke: #666;
   }
-}
-
-.infobar {
-  width: 250px;
-  position: absolute;
-
-  .help {
-    font-size: 0.8em;
-  }
-
-  .name {
-    font-size: 1.6em;
-    line-height: 1.1em;
-    margin-bottom: 12px;
-  }
-  .info {
-    float: left;
-    margin: 8px 6px 8px 0;
-  }
-  .info-value {
-    font-weight: bold;
-  }
-}
-
-.button-wrapper {
-  margin-bottom: 20px;
-  margin-left: 278px;
-}
-
-.button {
-  float: left;
-  width: 80px;
-  height: 40px;
-  background-color: $show-color;
-  text-align: center;
-  border: 1px solid darken($show-color, 50%);
-  border-right: none;
-  @include transition(background-color, .2s);
-  cursor: pointer;
-
-  .title {
-    padding: 10px 0;
-  }
-}
-.button:first-child {
-  @include border-radius-left(6px);
-}
-.button:last-child {
-  border-right: 1px solid darken($show-color, 50%);
-  @include border-radius-right(6px);
-}
-
-.button:hover {
-  background-color: darken($show-color, 5%);
-}
-.button.active {
-  background-color: darken($show-color, 10%);
-}
-
-.description {
-  font-size: 0.8em;
-  padding: 4px 0;
 }
 

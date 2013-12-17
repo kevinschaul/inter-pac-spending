@@ -1,9 +1,9 @@
-/* line 48, ../../sass/base.scss */
+/* line 46, ../../sass/base.scss */
 .clear {
   clear: both;
 }
 
-/* line 52, ../../sass/base.scss */
+/* line 50, ../../sass/base.scss */
 .graphic {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -13,125 +13,25 @@
   margin: auto;
 }
 
-/* line 61, ../../sass/base.scss */
-#graph {
-  width: 960px;
-  height: 590px;
+/* line 59, ../../sass/base.scss */
+.intro {
+  width: 550px;
+  margin: 20px auto;
+  font-family: Georgia, serif;
+  line-height: 1.3em;
 }
 /* line 65, ../../sass/base.scss */
-#graph .node {
-  fill: #ccc;
-  stroke: #333;
-  stroke-width: 2px;
-  opacity: 0.8;
-  cursor: pointer;
-  -webkit-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  -ms-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-}
-/* line 74, ../../sass/base.scss */
-#graph .pro-dfl {
-  fill: #76BAF0;
-}
-/* line 77, ../../sass/base.scss */
-#graph .pro-rpm {
-  fill: #F07676;
-}
-/* line 80, ../../sass/base.scss */
-#graph .pro-other {
-  fill: #ccc;
-}
-/* line 84, ../../sass/base.scss */
-#graph .link {
-  stroke: #666;
-  stroke-width: 3px;
-  pointer-events: none;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -ms-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-}
-/* line 92, ../../sass/base.scss */
-#graph .annotation .node {
-  opacity: 0.8 !important;
-}
-/* line 95, ../../sass/base.scss */
-#graph .annotation .link {
-  opacity: 0.8 !important;
-}
-/* line 98, ../../sass/base.scss */
-#graph .annotation .color {
-  opacity: 0.8;
-  stroke: none;
-  shape-rendering: crispEdges;
-}
-/* line 103, ../../sass/base.scss */
-#graph .annotation .leader {
-  shape-rendering: crispEdges;
-  stroke: #666;
-  stroke-width: 1px;
-}
-/* line 108, ../../sass/base.scss */
-#graph .annotation text {
-  fill: #666;
-  font-size: 11px;
-}
-/* line 114, ../../sass/base.scss */
-#graph marker {
-  overflow: auto;
-}
-/* line 118, ../../sass/base.scss */
-#graph .underlay {
-  fill: #fff;
-}
-/* line 125, ../../sass/base.scss */
-#graph .outer.triangle, #graph .outer.inner {
-  stroke-width: 4px;
-  fill: #fff;
-  stroke: #fff;
-}
-/* line 131, ../../sass/base.scss */
-#graph .inner {
-  stroke-width: 4px;
-  fill: #666;
-  stroke: #666;
+.intro p {
+  margin: 12px 0;
 }
 
-/* line 139, ../../sass/base.scss */
-.infobar {
-  width: 250px;
-  position: absolute;
-}
-/* line 143, ../../sass/base.scss */
-.infobar .help {
-  font-size: 0.8em;
-}
-/* line 147, ../../sass/base.scss */
-.infobar .name {
-  font-size: 1.6em;
-  line-height: 1.1em;
-  margin-bottom: 12px;
-}
-/* line 152, ../../sass/base.scss */
-.infobar .info {
-  float: left;
-  margin: 8px 6px 8px 0;
-}
-/* line 156, ../../sass/base.scss */
-.infobar .info-value {
-  font-weight: bold;
-}
-
-/* line 161, ../../sass/base.scss */
+/* line 70, ../../sass/base.scss */
 .button-wrapper {
   margin-bottom: 20px;
   margin-left: 278px;
 }
 
-/* line 166, ../../sass/base.scss */
+/* line 75, ../../sass/base.scss */
 .button {
   float: left;
   width: 80px;
@@ -147,12 +47,12 @@
   transition: background-color 0.2s;
   cursor: pointer;
 }
-/* line 177, ../../sass/base.scss */
+/* line 86, ../../sass/base.scss */
 .button .title {
   padding: 10px 0;
 }
 
-/* line 181, ../../sass/base.scss */
+/* line 90, ../../sass/base.scss */
 .button:first-child {
   -webkit-border-top-left-radius: 6px;
   -moz-border-top-left-radius: 6px;
@@ -166,7 +66,7 @@
   border-bottom-left-radius: 6px;
 }
 
-/* line 184, ../../sass/base.scss */
+/* line 93, ../../sass/base.scss */
 .button:last-child {
   border-right: 1px solid #6f6f6f;
   -webkit-border-top-right-radius: 6px;
@@ -181,18 +81,130 @@
   border-bottom-right-radius: 6px;
 }
 
-/* line 189, ../../sass/base.scss */
+/* line 98, ../../sass/base.scss */
 .button:hover {
   background-color: #e2e2e2;
 }
 
-/* line 192, ../../sass/base.scss */
+/* line 101, ../../sass/base.scss */
 .button.active {
   background-color: #d5d5d5;
 }
 
-/* line 196, ../../sass/base.scss */
+/* line 105, ../../sass/base.scss */
 .description {
   font-size: 0.8em;
   padding: 4px 0;
+}
+
+/* line 110, ../../sass/base.scss */
+.infobar {
+  width: 250px;
+  position: absolute;
+}
+/* line 114, ../../sass/base.scss */
+.infobar .help {
+  font-size: 0.8em;
+}
+/* line 118, ../../sass/base.scss */
+.infobar .name {
+  font-size: 1.6em;
+  line-height: 1.1em;
+  margin-bottom: 12px;
+}
+/* line 123, ../../sass/base.scss */
+.infobar .info {
+  float: left;
+  margin: 8px 6px 8px 0;
+}
+/* line 127, ../../sass/base.scss */
+.infobar .info-value {
+  font-weight: bold;
+}
+
+/* line 132, ../../sass/base.scss */
+#graph {
+  width: 960px;
+  height: 590px;
+}
+/* line 136, ../../sass/base.scss */
+#graph .node {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 2px;
+  opacity: 0.8;
+  cursor: pointer;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+/* line 145, ../../sass/base.scss */
+#graph .pro-dfl {
+  fill: #76BAF0;
+}
+/* line 148, ../../sass/base.scss */
+#graph .pro-rpm {
+  fill: #F07676;
+}
+/* line 151, ../../sass/base.scss */
+#graph .pro-other {
+  fill: #ccc;
+}
+/* line 155, ../../sass/base.scss */
+#graph .link {
+  stroke: #666;
+  stroke-width: 3px;
+  pointer-events: none;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+/* line 163, ../../sass/base.scss */
+#graph .annotation .node {
+  opacity: 0.8 !important;
+}
+/* line 166, ../../sass/base.scss */
+#graph .annotation .link {
+  opacity: 0.8 !important;
+}
+/* line 169, ../../sass/base.scss */
+#graph .annotation .color {
+  opacity: 0.8;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+/* line 174, ../../sass/base.scss */
+#graph .annotation .leader {
+  shape-rendering: crispEdges;
+  stroke: #666;
+  stroke-width: 1px;
+}
+/* line 179, ../../sass/base.scss */
+#graph .annotation text {
+  fill: #666;
+  font-size: 11px;
+}
+/* line 185, ../../sass/base.scss */
+#graph marker {
+  overflow: auto;
+}
+/* line 189, ../../sass/base.scss */
+#graph .underlay {
+  fill: #fff;
+}
+/* line 196, ../../sass/base.scss */
+#graph .outer.triangle, #graph .outer.inner {
+  stroke-width: 4px;
+  fill: #fff;
+  stroke: #fff;
+}
+/* line 202, ../../sass/base.scss */
+#graph .inner {
+  stroke-width: 4px;
+  fill: #666;
+  stroke: #666;
 }
