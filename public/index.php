@@ -20,7 +20,7 @@
 .fallback {
   display: block !important;
 }
-.control-wrapper
+.control-wrapper,
 .infobar,
 #graph {
   display: none;
@@ -108,7 +108,9 @@
     </div>
 
     <div id='graph'></div>
-    <img class="fallback" src="img/issue.png" alt="fallback" />
+    <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left: margin-right: 20px;" />
+    <img class="fallback" src="img/issue.png" alt="fallback" style="float: left;" />
+    <div class='clear'></div>
   </div>
 
   <div class='notes'>Data from last three election cycles (2006-2012). PACs that spent less than $50,000 in this period are not included.</div>
