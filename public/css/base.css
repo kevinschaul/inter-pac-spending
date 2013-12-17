@@ -19,19 +19,32 @@
   margin: 20px auto;
   font-family: Georgia, serif;
   line-height: 1.3em;
+  border-bottom: 1px solid #ccc;
 }
-/* line 65, ../../sass/base.scss */
+/* line 66, ../../sass/base.scss */
 .intro p {
   margin: 12px 0;
 }
 
-/* line 70, ../../sass/base.scss */
-.button-wrapper {
+/* line 71, ../../sass/base.scss */
+.control-wrapper {
   margin-bottom: 20px;
-  margin-left: 278px;
+}
+/* line 75, ../../sass/base.scss */
+.control-wrapper .label {
+  float: left;
+  width: 272px;
+  margin-right: 5px;
+  padding-top: 11px;
+  text-align: right;
+  font-size: 0.8em;
+}
+/* line 84, ../../sass/base.scss */
+.control-wrapper .button-wrapper {
+  float: left;
 }
 
-/* line 77, ../../sass/base.scss */
+/* line 89, ../../sass/base.scss */
 .button {
   float: left;
   width: 80px;
@@ -47,13 +60,13 @@
   transition: background-color 0.2s;
   cursor: pointer;
 }
-/* line 88, ../../sass/base.scss */
+/* line 100, ../../sass/base.scss */
 .button .title {
   font-size: 0.9em;
   padding: 10px 0;
 }
 
-/* line 93, ../../sass/base.scss */
+/* line 105, ../../sass/base.scss */
 .button:first-child {
   -webkit-border-top-left-radius: 6px;
   -moz-border-top-left-radius: 6px;
@@ -67,7 +80,7 @@
   border-bottom-left-radius: 6px;
 }
 
-/* line 96, ../../sass/base.scss */
+/* line 108, ../../sass/base.scss */
 .button:last-child {
   border-right: 1px solid #999;
   -webkit-border-top-right-radius: 6px;
@@ -82,71 +95,71 @@
   border-bottom-right-radius: 6px;
 }
 
-/* line 101, ../../sass/base.scss */
+/* line 113, ../../sass/base.scss */
 .button:hover, .button.active {
   background-color: #f2f2f2;
 }
 
-/* line 106, ../../sass/base.scss */
+/* line 118, ../../sass/base.scss */
 .graph-wrapper {
   position: relative;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
 }
-/* line 111, ../../sass/base.scss */
+/* line 123, ../../sass/base.scss */
 .graph-wrapper .help {
   font-size: 1.1em;
 }
-/* line 115, ../../sass/base.scss */
+/* line 127, ../../sass/base.scss */
 .graph-wrapper .infobar {
   width: 200px;
   position: absolute;
   top: 100px;
   left: 20px;
 }
-/* line 121, ../../sass/base.scss */
+/* line 133, ../../sass/base.scss */
 .graph-wrapper .infobar .help {
   font-size: 0.8em;
 }
-/* line 125, ../../sass/base.scss */
+/* line 137, ../../sass/base.scss */
 .graph-wrapper .infobar .name {
   font-size: 1.2em;
   line-height: 1.1em;
   margin-bottom: 8px;
 }
-/* line 131, ../../sass/base.scss */
+/* line 143, ../../sass/base.scss */
 .graph-wrapper .infobar .info-value {
   font-weight: bold;
 }
-/* line 135, ../../sass/base.scss */
+/* line 147, ../../sass/base.scss */
 .graph-wrapper .infobar .info {
   margin: 4px 0;
   font-size: 0.9em;
 }
-/* line 139, ../../sass/base.scss */
+/* line 151, ../../sass/base.scss */
 .graph-wrapper .infobar .info .info-label {
   float: left;
 }
-/* line 142, ../../sass/base.scss */
+/* line 154, ../../sass/base.scss */
 .graph-wrapper .infobar .info .info-value {
   float: right;
 }
-/* line 146, ../../sass/base.scss */
+/* line 158, ../../sass/base.scss */
 .graph-wrapper .infobar .info.major {
   padding-top: 2px;
   border-top: 1px solid #ccc;
 }
-/* line 150, ../../sass/base.scss */
+/* line 162, ../../sass/base.scss */
 .graph-wrapper .infobar .info.minor {
   margin-bottom: 4px;
 }
 
-/* line 156, ../../sass/base.scss */
+/* line 168, ../../sass/base.scss */
 #graph {
   width: 960px;
   height: 590px;
 }
-/* line 160, ../../sass/base.scss */
+/* line 172, ../../sass/base.scss */
 #graph .node {
   fill: #ccc;
   stroke: #333;
@@ -159,19 +172,19 @@
   -o-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
-/* line 169, ../../sass/base.scss */
+/* line 181, ../../sass/base.scss */
 #graph .pro-dfl {
   fill: #76BAF0;
 }
-/* line 172, ../../sass/base.scss */
+/* line 184, ../../sass/base.scss */
 #graph .pro-rpm {
   fill: #F07676;
 }
-/* line 175, ../../sass/base.scss */
+/* line 187, ../../sass/base.scss */
 #graph .pro-other {
   fill: #ccc;
 }
-/* line 179, ../../sass/base.scss */
+/* line 191, ../../sass/base.scss */
 #graph .link {
   stroke: #666;
   stroke-width: 3px;
@@ -182,53 +195,53 @@
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-/* line 187, ../../sass/base.scss */
+/* line 199, ../../sass/base.scss */
 #graph .annotation .node {
   opacity: 0.8 !important;
 }
-/* line 190, ../../sass/base.scss */
+/* line 202, ../../sass/base.scss */
 #graph .annotation .link {
   opacity: 0.8 !important;
 }
-/* line 193, ../../sass/base.scss */
+/* line 205, ../../sass/base.scss */
 #graph .annotation .color {
   opacity: 0.8;
   stroke: none;
   shape-rendering: crispEdges;
 }
-/* line 198, ../../sass/base.scss */
+/* line 210, ../../sass/base.scss */
 #graph .annotation .leader {
   shape-rendering: crispEdges;
   stroke: #666;
   stroke-width: 1px;
 }
-/* line 203, ../../sass/base.scss */
+/* line 215, ../../sass/base.scss */
 #graph .annotation text {
   fill: #666;
   font-size: 11px;
 }
-/* line 209, ../../sass/base.scss */
+/* line 221, ../../sass/base.scss */
 #graph marker {
   overflow: auto;
 }
-/* line 213, ../../sass/base.scss */
+/* line 225, ../../sass/base.scss */
 #graph .underlay {
   fill: #fff;
 }
-/* line 220, ../../sass/base.scss */
+/* line 232, ../../sass/base.scss */
 #graph .outer.triangle, #graph .outer.inner {
   stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
 }
-/* line 226, ../../sass/base.scss */
+/* line 238, ../../sass/base.scss */
 #graph .inner {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 234, ../../sass/base.scss */
+/* line 246, ../../sass/base.scss */
 .notes {
   font-size: 0.8em;
   color: #666;

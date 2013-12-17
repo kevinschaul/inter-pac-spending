@@ -28,24 +28,27 @@
 
   </div>
 
-  <div class='button-wrapper'>
-    <div class='button' data-show='issue'>
-      <div class='title'>Issue</div>
+  <div class='control-wrapper'>
+    <div class='label'>Filter by category:</div>
+    <div class='button-wrapper'>
+      <div class='button' data-show='issue'>
+        <div class='title'>Issue</div>
+      </div>
+      <div class='button' data-show='labor'>
+        <div class='title'>Labor</div>
+      </div>
+      <div class='button' data-show='biz'>
+        <div class='title'>Business</div>
+      </div>
+      <div class='button' data-show='indian'>
+        <div class='title'>Indian</div>
+      </div>
+      <div class='button' data-show='lawyers'>
+        <div class='title'>Lawyers</div>
+      </div>
     </div>
-    <div class='button' data-show='labor'>
-      <div class='title'>Labor</div>
-    </div>
-    <div class='button' data-show='biz'>
-      <div class='title'>Business</div>
-    </div>
-    <div class='button' data-show='indian'>
-      <div class='title'>Indian</div>
-    </div>
-    <div class='button' data-show='lawyers'>
-      <div class='title'>Lawyers</div>
-    </div>
+    <div class='clear'></div>
   </div>
-  <div class='clear'></div>
 
   <div class='graph-wrapper'>
     <div class='infobar'>
