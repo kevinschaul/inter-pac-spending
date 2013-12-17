@@ -50,23 +50,39 @@
   <div class='graph-wrapper'>
     <div class='infobar'>
       <script id='node-info-template' type='text/template'>
-        <div class='name'><%= pac.Committee %></div>
+      <div class='name'><%= pac.Committee %></div>
 
       <div class='info'>
-        A <span class='info-value'><%= pac.cat2 %> <%= pac.stype %></span> based in <span class='info-value'><%= pac.CommCity %>, <%= pac.CommState %></span>.
+        <span class='info-label'>Based in:</span>
+        <span class='info-value'><%= pac.CommCity %>, <%= pac.CommState %></span>
+        <div class='clear'></div>
       </div>
-      <div class='info'>
-        Spent <span class='info-value'><%= pac.totspendFormatted %></span> over the past three election cycles.
+
+      <div class='info major'>
+        <span class='info-label'>Spent:</span>
+        <span class='info-value'><%= pac.totspendFormatted %></span>
+        <div class='clear'></div>
       </div>
-      <div class='info'>
-        Raised <span class='info-value'><%= pac.totreceivedFormatted %></span> in the same time period.
+      <div class='info minor'>
+        <span class='info-label'>To PACs:</span>
+        <span class='info-value'><%= pac.topacFormatted %></span>
+        <div class='clear'></div>
       </div>
-      <div class='info'>
-        Had <span class='info-value'><%= pac.endcash2012Formatted %></span> on hand at the end of 2012.
+
+      <div class='info major'>
+        <span class='info-label'>Received:</span>
+        <span class='info-value'><%= pac.totreceivedFormatted %></span>
+        <div class='clear'></div>
       </div>
+      <div class='info minor'>
+        <span class='info-label'>From PACs:</span>
+        <span class='info-value'><%= pac.frompacFormatted %></span>
+        <div class='clear'></div>
+      </div>
+
       </script>
       <div id='node-info-target'>
-        <div class='help'>Touch a pac below for more information.</div>
+        <div class='help'>Touch a PAC bubble to the right for more information.</div>
       </div>
     </div>
 

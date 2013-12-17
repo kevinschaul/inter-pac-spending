@@ -77,9 +77,13 @@ var pacdag = {
     _.each(pacs, function(d) {
       d.totspend = +d.totspend;
       d.receivedtot = +d.receivedtot;
+      d.frompac = d.frompac;
       d.topac = +d.topac;
       d.endcash2012 = +d.endcash2012;
       d.candall = +d.candall;
+
+      d.percentGaveToPac = d.totspend > 0 ? 100 * d.topac / d.totspend : 0;
+      d.percentReceivedFromPac = d.receivedtot > 0 ? 100 * d.frompac / d.receivedtot : 0;
 
       d.ieprodfl = +d.ieprodfl;
       d.ieprorpm = +d.ieprorpm;
@@ -114,6 +118,7 @@ var pacdag = {
       d.totspendFormatted = self.formatDollar(d.totspend);
       d.totreceivedFormatted = self.formatDollar(d.receivedtot);
       d.topacFormatted = self.formatDollar(d.topac);
+      d.frompacFormatted = self.formatDollar(d.frompac);
       d.endcash2012Formatted = self.formatDollar(d.endcash2012);
 
       self.pacsById[d.ComID] = d;
@@ -219,10 +224,12 @@ var pacdag = {
           self.activateNodeLinks(d.pac);
         })
         .on('mouseout', function(d) {
+          /*
           self.deactivateNode(d.pac);
           if (self.stateActive) {
             self.activateState(self.stateActive);
           }
+         */
         })
         .on('click', function(d) {
           console.log(d.pac);
@@ -356,6 +363,12 @@ var pacdag = {
       .attr('x', 96)
       .attr('y', 214)
       .text('Donations don\'t lean')
+
+    self.tooltipChartX = d3.scale.linear()
+      .domain([0, d3.max(d3.values(self.nodes), function(d) {
+        return d.pac.percentReceivedFromPac;
+      })])
+      .range([0, 230])
   },
 
   activateButtons: function() {
@@ -436,6 +449,7 @@ var pacdag = {
     var self = this;
 
     self.nodeInfoTarget.html(self.nodeInfoTemplate({pac: pac}));
+    self.buildTooltipCharts(pac);
 
     d3.select('.node.pacid-' + pac.ComID)
       .style('opacity', self.nodeOpacitySelected)
@@ -478,6 +492,44 @@ var pacdag = {
 
     d3.selectAll('.link')
       .style('opacity', self.linkOpacityInitial)
+  },
+
+  buildTooltipCharts: function(pac) {
+    var self = this;
+
+    return;
+    var height = 60;
+    var width = 230;
+    var margin = {
+      top: 10,
+      right: 10,
+      bottom: 10,
+      left: 10
+    };
+
+    var xAxis = d3.svg.axis()
+      .scale(self.tooltipChartX)
+      .ticks(3)
+
+    var chart = d3.select('#info-target').append('svg')
+      .attr('height', height + margin.top + margin.bottom)
+      .attr('width', width + margin.left + margin.right)
+      .append('g')
+        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+
+    chart.append('g')
+      .attr('transform', 'translate(0,40)')
+      .attr('class', 'axis')
+      .call(xAxis)
+
+    var x = self.tooltipChartX(pac.percentReceivedFromPac);
+
+    chart.append('rect')
+      .attr('class', 'value')
+      .attr('x', 0)
+      .attr('y', 20)
+      .attr('height', 20)
+      .attr('width', x)
   },
 
   tick: function() {

@@ -106,25 +106,47 @@ $serif: Georgia, serif;
 .graph-wrapper {
   position: relative;
 
+  .help {
+    font-size: 1.1em;
+  }
+
   .infobar {
-    width: 250px;
+    width: 200px;
     position: absolute;
+    top: 100px;
+    left: 0;
 
     .help {
       font-size: 0.8em;
     }
 
     .name {
-      font-size: 1.6em;
+      font-size: 1.2em;
       line-height: 1.1em;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
-    .info {
-      float: left;
-      margin: 8px 6px 8px 0;
-    }
+
     .info-value {
       font-weight: bold;
+    }
+
+    .info {
+      margin: 4px 0;
+      font-size: 0.9em;
+
+      .info-label {
+        float: left;
+      }
+      .info-value {
+        float: right;
+      }
+    }
+    .info.major {
+      padding-top: 2px;
+      border-top: 1px solid #ccc;
+    }
+    .info.minor {
+      margin-bottom: 4px;
     }
   }
 }
