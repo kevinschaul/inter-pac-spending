@@ -108,7 +108,7 @@
     </div>
 
     <div id='graph'></div>
-    <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left: margin-right: 20px;" />
+    <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left; margin-right: 20px;" />
     <img class="fallback" src="img/issue.png" alt="fallback" style="float: left;" />
     <div class='clear'></div>
   </div>
