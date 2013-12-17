@@ -13,8 +13,34 @@
        -o-border-radius: $radius;
           border-radius: $radius;
 }
+@mixin border-radius-left($radius) {
+  -webkit-border-top-left-radius: $radius;
+     -moz-border-top-left-radius: $radius;
+      -ms-border-top-left-radius: $radius;
+       -o-border-top-left-radius: $radius;
+          border-top-left-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+     -moz-border-bottom-left-radius: $radius;
+      -ms-border-bottom-left-radius: $radius;
+       -o-border-bottom-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+}
+@mixin border-radius-right($radius) {
+  -webkit-border-top-right-radius: $radius;
+     -moz-border-top-right-radius: $radius;
+      -ms-border-top-right-radius: $radius;
+       -o-border-top-right-radius: $radius;
+          border-top-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+     -moz-border-bottom-right-radius: $radius;
+      -ms-border-bottom-right-radius: $radius;
+       -o-border-bottom-right-radius: $radius;
+          border-bottom-right-radius: $radius;
+}
 
-$show-color: #F8F0C4;
+
+
+$show-color: #efefef;
 
 $sans-serif: Arial, sans-serif;
 $serif: Georgia, serif;
@@ -111,8 +137,8 @@ $serif: Georgia, serif;
 }
 
 .infobar {
-  width: 960px;
-  height: 110px;
+  width: 250px;
+  position: absolute;
 
   .help {
     font-size: 0.8em;
@@ -132,40 +158,43 @@ $serif: Georgia, serif;
   }
 }
 
-.show-wrapper {
-  width: 100%;
+.button-wrapper {
+  margin-bottom: 20px;
+  margin-left: 278px;
 }
 
-.show {
+.button {
   float: left;
-  width: 19%;
-  margin: 4px;
+  width: 80px;
+  height: 40px;
+  background-color: $show-color;
+  text-align: center;
+  border: 1px solid darken($show-color, 50%);
+  border-right: none;
+  @include transition(background-color, .2s);
+  cursor: pointer;
 
-  .button {
-    height: 50px;
-    background-color: $show-color;
-    text-align: center;
-    border: 2px solid darken($show-color, 50%);
-    @include border-radius(6px);
-    @include transition(background-color, .2s);
-    cursor: pointer;
+  .title {
+    padding: 10px 0;
+  }
+}
+.button:first-child {
+  @include border-radius-left(6px);
+}
+.button:last-child {
+  border-right: 1px solid darken($show-color, 50%);
+  @include border-radius-right(6px);
+}
 
-    .title {
-      font-family: $serif;
-      font-size: 1.2em;
-      padding: 14px 0;
-    }
-  }
-  .button:hover {
-    background-color: darken($show-color, 10%);
-  }
-  .button.active {
-    background-color: darken($show-color, 20%);
-  }
+.button:hover {
+  background-color: darken($show-color, 5%);
+}
+.button.active {
+  background-color: darken($show-color, 10%);
+}
 
-  .description {
-    font-size: 0.8em;
-    padding: 4px 0;
-  }
+.description {
+  font-size: 0.8em;
+  padding: 4px 0;
 }
 

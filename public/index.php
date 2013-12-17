@@ -4,6 +4,25 @@
 
 <div class='graphic'>
 
+  <div class='button-wrapper'>
+    <div class='button' data-show='issue'>
+      <div class='title'>Issue</div>
+    </div>
+    <div class='button' data-show='labor'>
+      <div class='title'>Labor</div>
+    </div>
+    <div class='button' data-show='biz'>
+      <div class='title'>Business</div>
+    </div>
+    <div class='button' data-show='indian'>
+      <div class='title'>Indian</div>
+    </div>
+    <div class='button' data-show='lawyers'>
+      <div class='title'>Lawyers</div>
+    </div>
+  </div>
+  <div class='clear'></div>
+
   <div class='infobar'>
     <script id='node-info-template' type='text/template'>
       <div class='name'><%= pac.Committee %></div>
@@ -27,37 +46,6 @@
   </div>
 
   <div id='graph'></div>
-
-  Most PACs tend to focus their spending in certain areas.
-  <div class='show-wrapper'>
-    <div class='show'>
-      <div class='button' data-show='issue'>
-        <div class='title'>Issue</div>
-      </div>
-    </div>
-    <div class='show'>
-      <div class='button' data-show='labor'>
-        <div class='title'>Labor</div>
-      </div>
-    </div>
-    <div class='show'>
-      <div class='button' data-show='biz'>
-        <div class='title'>Business</div>
-      </div>
-    </div>
-    <div class='show'>
-      <div class='button' data-show='indian'>
-        <div class='title'>Indian</div>
-      </div>
-    </div>
-    <div class='show'>
-      <div class='button' data-show='lawyers'>
-        <div class='title'>Lawyers</div>
-      </div>
-    </div>
-    <div class='clear'></div>
-  </div>
-
 </div>
 
 
