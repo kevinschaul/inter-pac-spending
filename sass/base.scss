@@ -52,8 +52,10 @@ $serif: Georgia, serif;
   font-size: 16px;
   line-height: 18px;
   color: #333;
-  width: 960px;
+  width: 100%;
+  max-width: 960px;
   margin: auto;
+  clear: both;
 }
 
 .intro {
@@ -229,3 +231,22 @@ $button-color: #FFFFFF;
   }
 }
 
+@media screen and (max-width: 600px) {
+  // "Responsive" version of StarTribune.com
+  #wholePage,
+  #header,
+  #mainContentWraper,
+  .oneColContainer { width: 100%; }
+  body { width: 96%; margin: 0 2%; }
+  .pageHeading,
+  .globalUtilityBarContainer,
+  .mainNavWrapper,
+  .pencilAdd,
+  .sharingToolBar,
+  #footer { display: none; }
+
+  .intro {
+    width: 100%;
+  }
+
+}
