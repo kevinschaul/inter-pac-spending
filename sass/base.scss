@@ -44,11 +44,15 @@ $serif: Georgia, serif;
     cursor: pointer;
     @include transition(opacity, 0.4s);
   }
-  .node.pro-dfl {
+
+  .pro-dfl {
     fill: #76BAF0;
   }
-  .node.pro-rpm {
+  .pro-rpm {
     fill: #F07676;
+  }
+  .pro-other {
+    fill: #ccc;
   }
 
   .link {
@@ -64,6 +68,11 @@ $serif: Georgia, serif;
     }
     .link {
       opacity: 0.8 !important;
+    }
+    .color {
+      opacity: 0.8;
+      stroke: none;
+      shape-rendering: crispEdges;
     }
     .leader {
       shape-rendering: crispEdges;
