@@ -32,43 +32,6 @@ $serif: Georgia, serif;
   margin: auto;
 }
 
-.show-wrapper {
-  width: 100%;
-}
-
-.show {
-  float: left;
-  width: 100px;
-  margin: 4px;
-
-  .button {
-    height: 50px;
-    background-color: $show-color;
-    text-align: center;
-    border: 2px solid darken($show-color, 50%);
-    @include border-radius(6px);
-    @include transition(background-color, .2s);
-    cursor: pointer;
-
-    .title {
-      font-family: $serif;
-      font-size: 1.2em;
-      padding: 14px 0;
-    }
-  }
-  .button:hover {
-    background-color: darken($show-color, 10%);
-  }
-  .button.active {
-    background-color: darken($show-color, 20%);
-  }
-
-  .description {
-    font-size: 0.8em;
-    padding: 4px 0;
-  }
-}
-
 #graph {
   width: 960px;
   height: 590px;
@@ -93,6 +56,24 @@ $serif: Georgia, serif;
     stroke-width: 3px;
     pointer-events: none;
     @include transition(opacity, 0.2s);
+  }
+
+  .annotation {
+    .node {
+      opacity: 0.8 !important;
+    }
+    .link {
+      opacity: 0.8 !important;
+    }
+    .leader {
+      shape-rendering: crispEdges;
+      stroke: #666;
+      stroke-width: 1px;
+    }
+    text {
+      fill: #666;
+      font-size: 11px;
+    }
   }
 
   marker {
@@ -139,6 +120,43 @@ $serif: Georgia, serif;
   }
   .info-value {
     font-weight: bold;
+  }
+}
+
+.show-wrapper {
+  width: 100%;
+}
+
+.show {
+  float: left;
+  width: 19%;
+  margin: 4px;
+
+  .button {
+    height: 50px;
+    background-color: $show-color;
+    text-align: center;
+    border: 2px solid darken($show-color, 50%);
+    @include border-radius(6px);
+    @include transition(background-color, .2s);
+    cursor: pointer;
+
+    .title {
+      font-family: $serif;
+      font-size: 1.2em;
+      padding: 14px 0;
+    }
+  }
+  .button:hover {
+    background-color: darken($show-color, 10%);
+  }
+  .button.active {
+    background-color: darken($show-color, 20%);
+  }
+
+  .description {
+    font-size: 0.8em;
+    padding: 4px 0;
   }
 }
 

@@ -63,6 +63,9 @@ var pacdag = {
         .attr('d', 'M2,2L8,5L2,8z')
     }
 
+    self.annotation = self.svg.append('g')
+      .attr('class', 'annotation')
+
     return this;
   },
 
@@ -87,7 +90,6 @@ var pacdag = {
 
       d.partyall = +d.partyall;
       d.partydfl = +d.partydfl;
-      console.log(d.partyrpm);
       d.partyrpm = +d.partyrpm;
 
       d.dfltot = d.ieprodfl + d.canddfl + d.partydfl;
@@ -225,6 +227,67 @@ var pacdag = {
           console.log(d.pac);
         })
         .call(self.force.drag);
+
+    self.annotation.append('line')
+      .attr('class', 'link')
+      .attr('x1', 56)
+      .attr('y1', 490)
+      .attr('x2', 80)
+      .attr('y2', 440)
+      .attr('marker-end', 'url(#triangle-0)')
+
+    self.annotation.append('line')
+      .attr('class', 'leader')
+      .attr('x1', 66)
+      .attr('y1', 470)
+      .attr('x2', 90)
+      .attr('y2', 470)
+
+    self.annotation.append('text')
+      .attr('x', 96)
+      .attr('y', 468)
+      .text('Inter-PAC')
+
+    self.annotation.append('text')
+      .attr('x', 96)
+      .attr('y', 480)
+      .text('donation')
+
+    self.annotation.append('circle')
+      .attr('class', 'node')
+      .attr('cx', 40)
+      .attr('cy', 520)
+      .attr('r', self.r(10000000))
+
+    self.annotation.append('circle')
+      .attr('class', 'node')
+      .attr('cx', 40)
+      .attr('cy', 550)
+      .attr('r', self.r(100000))
+
+    self.annotation.append('line')
+      .attr('class', 'leader')
+      .attr('x1', 76)
+      .attr('y1', 520)
+      .attr('x2', 90)
+      .attr('y2', 520)
+
+    self.annotation.append('line')
+      .attr('class', 'leader')
+      .attr('x1', 46)
+      .attr('y1', 550)
+      .attr('x2', 90)
+      .attr('y2', 550)
+
+    self.annotation.append('text')
+      .attr('x', 96)
+      .attr('y', 524)
+      .text('$10 million')
+
+    self.annotation.append('text')
+      .attr('x', 96)
+      .attr('y', 554)
+      .text('$10 thousand')
   },
 
   activateButtons: function() {

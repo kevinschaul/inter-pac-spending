@@ -36,7 +36,13 @@
 
   <div id='graph'></div>
 
+  Most PACs tend to focus their spending in certain areas.
   <div class='show-wrapper'>
+    <div class='show'>
+      <div class='button' data-show='issue'>
+        <div class='title'>Issue</div>
+      </div>
+    </div>
     <div class='show'>
       <div class='button' data-show='labor'>
         <div class='title'>Labor</div>
@@ -48,11 +54,6 @@
       </div>
     </div>
     <div class='show'>
-      <div class='button' data-show='issue'>
-        <div class='title'>Issue</div>
-      </div>
-    </div>
-    <div class='show'>
       <div class='button' data-show='indian'>
         <div class='title'>Indian</div>
       </div>
@@ -60,16 +61,6 @@
     <div class='show'>
       <div class='button' data-show='lawyers'>
         <div class='title'>Lawyers</div>
-      </div>
-    </div>
-    <div class='show'>
-      <div class='button' data-show='prodfl'>
-        <div class='title'>DFL</div>
-      </div>
-    </div>
-    <div class='show'>
-      <div class='button' data-show='prorpm'>
-        <div class='title'>Republican</div>
       </div>
     </div>
     <div class='clear'></div>
