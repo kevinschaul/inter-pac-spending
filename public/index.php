@@ -88,6 +88,8 @@
 
     <div id='graph'></div>
   </div>
+
+  <div class='notes'>Data from last three election cycles (2006-2012). PACs that spent less than $50,000 in this period are not included.</div>
 </div>
 
 
