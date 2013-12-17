@@ -288,7 +288,7 @@ var pacdag = {
     self.annotation.append('text')
       .attr('x', 96)
       .attr('y', 100)
-      .text('total PAC spending')
+      .text('total spending')
 
     self.annotation.append('text')
       .attr('x', 96)

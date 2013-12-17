@@ -91,34 +91,32 @@
   background-color: #d5d5d5;
 }
 
-/* line 105, ../../sass/base.scss */
-.description {
-  font-size: 0.8em;
-  padding: 4px 0;
+/* line 106, ../../sass/base.scss */
+.graph-wrapper {
+  position: relative;
 }
-
-/* line 110, ../../sass/base.scss */
-.infobar {
+/* line 109, ../../sass/base.scss */
+.graph-wrapper .infobar {
   width: 250px;
   position: absolute;
 }
-/* line 114, ../../sass/base.scss */
-.infobar .help {
+/* line 113, ../../sass/base.scss */
+.graph-wrapper .infobar .help {
   font-size: 0.8em;
 }
-/* line 118, ../../sass/base.scss */
-.infobar .name {
+/* line 117, ../../sass/base.scss */
+.graph-wrapper .infobar .name {
   font-size: 1.6em;
   line-height: 1.1em;
   margin-bottom: 12px;
 }
-/* line 123, ../../sass/base.scss */
-.infobar .info {
+/* line 122, ../../sass/base.scss */
+.graph-wrapper .infobar .info {
   float: left;
   margin: 8px 6px 8px 0;
 }
-/* line 127, ../../sass/base.scss */
-.infobar .info-value {
+/* line 126, ../../sass/base.scss */
+.graph-wrapper .infobar .info-value {
   font-weight: bold;
 }
 

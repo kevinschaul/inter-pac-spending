@@ -102,30 +102,30 @@ $serif: Georgia, serif;
   background-color: darken($show-color, 10%);
 }
 
-.description {
-  font-size: 0.8em;
-  padding: 4px 0;
-}
 
-.infobar {
-  width: 250px;
-  position: absolute;
+.graph-wrapper {
+  position: relative;
 
-  .help {
-    font-size: 0.8em;
-  }
+  .infobar {
+    width: 250px;
+    position: absolute;
 
-  .name {
-    font-size: 1.6em;
-    line-height: 1.1em;
-    margin-bottom: 12px;
-  }
-  .info {
-    float: left;
-    margin: 8px 6px 8px 0;
-  }
-  .info-value {
-    font-weight: bold;
+    .help {
+      font-size: 0.8em;
+    }
+
+    .name {
+      font-size: 1.6em;
+      line-height: 1.1em;
+      margin-bottom: 12px;
+    }
+    .info {
+      float: left;
+      margin: 8px 6px 8px 0;
+    }
+    .info-value {
+      font-weight: bold;
+    }
   }
 }
 

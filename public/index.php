@@ -15,7 +15,7 @@
 
     <p>
       Minnesota's leading political donor, Alliance for a Better Minnesota,
-      receieved XX percent of its $9.9 million from other PACS over
+      receieved nearly all of its $9.9 million from other PACs in
       the past three election cycles. WIN Minnesota, one of Alliance's largest
       donors, chose to influence elections indirectly by giving all of its
       money to other PACs instead of spending it directly.
@@ -47,29 +47,31 @@
   </div>
   <div class='clear'></div>
 
-  <div class='infobar'>
-    <script id='node-info-template' type='text/template'>
-      <div class='name'><%= pac.Committee %></div>
+  <div class='graph-wrapper'>
+    <div class='infobar'>
+      <script id='node-info-template' type='text/template'>
+        <div class='name'><%= pac.Committee %></div>
 
-    <div class='info'>
-      A <span class='info-value'><%= pac.cat2 %> <%= pac.stype %></span> based in <span class='info-value'><%= pac.CommCity %>, <%= pac.CommState %></span>.
+      <div class='info'>
+        A <span class='info-value'><%= pac.cat2 %> <%= pac.stype %></span> based in <span class='info-value'><%= pac.CommCity %>, <%= pac.CommState %></span>.
+      </div>
+      <div class='info'>
+        Spent <span class='info-value'><%= pac.totspendFormatted %></span> over the past three election cycles.
+      </div>
+      <div class='info'>
+        Raised <span class='info-value'><%= pac.totreceivedFormatted %></span> in the same time period.
+      </div>
+      <div class='info'>
+        Had <span class='info-value'><%= pac.endcash2012Formatted %></span> on hand at the end of 2012.
+      </div>
+      </script>
+      <div id='node-info-target'>
+        <div class='help'>Touch a pac below for more information.</div>
+      </div>
     </div>
-    <div class='info'>
-      Spent <span class='info-value'><%= pac.totspendFormatted %></span> over the past three election cycles.
-    </div>
-    <div class='info'>
-      Raised <span class='info-value'><%= pac.totreceivedFormatted %></span> in the same time period.
-    </div>
-    <div class='info'>
-      Had <span class='info-value'><%= pac.endcash2012Formatted %></span> on hand at the end of 2012.
-    </div>
-    </script>
-    <div id='node-info-target'>
-      <div class='help'>Touch a pac below for more information.</div>
-    </div>
+
+    <div id='graph'></div>
   </div>
-
-  <div id='graph'></div>
 </div>
 
 
