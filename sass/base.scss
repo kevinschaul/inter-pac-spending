@@ -52,8 +52,10 @@ $serif: Georgia, serif;
   font-size: 16px;
   line-height: 18px;
   color: #333;
-  width: 960px;
+  width: 100%;
+  max-width: 960px;
   margin: auto;
+  clear: both;
 }
 
 .intro {
@@ -246,5 +248,54 @@ $serif: Georgia, serif;
   font-size: 0.8em;
   color: #666;
   margin: 4px 0;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  // "Responsive" version of StarTribune.com
+  #wholePage,
+  #header,
+  #mainContentWraper,
+  .oneColContainer { width: 100%; }
+  body { width: 96%; margin: 0 2%; }
+  .pageHeading,
+  .globalUtilityBarContainer,
+  .mainNavWrapper,
+  .pencilAdd,
+  .sharingToolBar,
+  #footer { display: none; }
+
+  .intro {
+    width: 100%;
+  }
+
+  .control-wrapper {
+
+    .label {
+      float: none;
+      margin: 6px 0;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  .infobar {
+    display: none;
+  }
+  .button-wrapper {
+    width: 100%;
+
+    .button {
+      width: 24%;
+      max-width: 80px;
+    }
+  }
+  #graph {
+    display: none;
+  }
+
 }
 
