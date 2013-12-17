@@ -282,11 +282,16 @@
   }
 
   /* line 271, ../../sass/base.scss */
+  .mobile {
+    display: block;
+  }
+
+  /* line 275, ../../sass/base.scss */
   .intro {
     width: 100%;
   }
 
-  /* line 277, ../../sass/base.scss */
+  /* line 281, ../../sass/base.scss */
   .control-wrapper .label {
     float: none;
     margin: 6px 0;
@@ -294,23 +299,33 @@
     text-align: left;
   }
 
-  /* line 285, ../../sass/base.scss */
+  /* line 289, ../../sass/base.scss */
   .infobar {
     display: none;
   }
 
-  /* line 288, ../../sass/base.scss */
+  /* line 292, ../../sass/base.scss */
   .button-wrapper {
     width: 100%;
   }
-  /* line 291, ../../sass/base.scss */
+  /* line 295, ../../sass/base.scss */
   .button-wrapper .button {
     width: 24%;
     max-width: 80px;
   }
 
-  /* line 296, ../../sass/base.scss */
+  /* line 300, ../../sass/base.scss */
   #graph {
     display: none;
+  }
+
+  /* line 304, ../../sass/base.scss */
+  .graph-wrapper {
+    min-height: 400px;
+  }
+
+  /* line 308, ../../sass/base.scss */
+  .image-target img {
+    max-width: 100%;
   }
 }

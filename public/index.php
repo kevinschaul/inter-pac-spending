@@ -110,6 +110,7 @@
     <div id='graph'></div>
     <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left; margin-left: 70px; margin-right: 20px;" />
     <img class="fallback" src="img/issue.png" alt="fallback" style="float: left;" />
+    <div class='mobile image-target'></div>
     <div class='clear'></div>
   </div>
 

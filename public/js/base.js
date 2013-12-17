@@ -229,9 +229,6 @@ var pacdag = {
             self.activateState(self.stateActive);
           }
         })
-        .on('click', function(d) {
-          console.log(d.pac);
-        })
         .call(self.force.drag);
 
     self.annotation.append('line')
@@ -549,5 +546,44 @@ var pacdag = {
   }
 };
 
-var p = pacdag.init();
+var pacdagMobile = {
+  imageMap: {
+    'issue': 'img/issue.png',
+    'labor': 'img/labor.png',
+    'biz': 'img/business.png',
+    'lawyers': 'img/lawyers.png',
+  },
+
+  init: function() {
+    var self = this;
+
+    self.imageTargetd3 = d3.select('.image-target')
+
+    self.imageTargetd3.html('')
+      .append('img')
+        .attr('src', self.imageMap['issue'])
+
+    d3.selectAll('.button')
+      .each(function() {
+        var thisd3 = d3.select(this);
+      })
+      .on('click', function() {
+        console.log(this);
+        var thisd3 = d3.select(this);
+
+        var showState = thisd3.attr('data-show')
+        console.log(showState);
+
+        self.imageTargetd3.html('')
+          .append('img')
+            .attr('src', self.imageMap[showState])
+      })
+  }
+};
+
+if (window.innerWidth && window.innerWidth <= 600) {
+  var m = pacdagMobile.init();
+} else {
+  var p = pacdag.init();
+}
 
