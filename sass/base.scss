@@ -254,7 +254,7 @@ $serif: Georgia, serif;
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-device-width: 600px) {
   // "Responsive" version of StarTribune.com
   #wholePage,
   #header,
