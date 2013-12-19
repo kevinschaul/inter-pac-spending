@@ -1,6 +1,6 @@
 <?php readfile('http://www.startribune.com/templates/vh?vid=236194001&sosp=/politics'); ?>
 
-<link rel="stylesheet" href="css/base.css" />
+<!-- <link rel="stylesheet" href="css/base.css" /> -->
 <style>
 .fallback {
   display: none;
@@ -111,8 +111,8 @@
     <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left; margin-left: 70px; margin-right: 20px;" />
     <img class="fallback" src="img/issue.png" alt="fallback" style="float: left;" />
     <div class='mobile chart-target'>
-      <svg width='960' height='600px'>
-        <g>
+      <svg width='960px' height='600px'>
+        <g class='chart'>
 <path class="link from-30007 to-40295" marker-end="url(#triangle)" d="M659.3728081611915,310.70762844103336L580.0706723556658,295.35931129127556" style="opacity: 0.1;"></path>
 <path class="link from-30011 to-40933" marker-end="url(#triangle)" d="M477.3562027884702,356.1980272652945L421.934847165617,340.1731869508937" style="opacity: 0.1;"></path>
 <path class="link from-30011 to-70026" marker-end="url(#triangle)" d="M477.4261949360432,355.96913684185165L444.21254730881066,345.2547939970575" style="opacity: 0.1;"></path>
