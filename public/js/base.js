@@ -45,13 +45,6 @@ var pacdag = {
       .append('g')
         .attr('transform', 'translate(-13, 0)')
 
-    triangle.append('rect')
-      .attr('class', 'underlay')
-      .attr('x', 0)
-      .attr('width', 20)
-      .attr('y', 2)
-      .attr('height', 6)
-
     triangle.append('path')
       .attr('class', 'triangle outer')
       .attr('d', 'M2,1L10,5L2,9z')
