@@ -6,7 +6,7 @@ var pacdag = {
   nodeOpacityInitial: 0.6,
   linkOpacityInitial: 0.1,
   nodeOpacitySelected: 0.8,
-  linkOpacitySelected: 0.8,
+  linkOpacitySelected: 1,
   nodeOpacityNotSelected: 0.1,
   linkOpacityNotSelected: 0.1,
 
@@ -43,7 +43,7 @@ var pacdag = {
       .attr('markerHeight', 3)
       .attr('orient', 'auto')
       .append('g')
-        .attr('transform', 'translate(-13, 0)')
+        .attr('transform', 'translate(-12, 0)')
 
     triangle.append('path')
       .attr('class', 'triangle outer')
@@ -528,6 +528,8 @@ var pacdag = {
   },
 
   link: function(d) {
+    //http://stackoverflow.com/questions/16660193/get-arrowheads-to-point-at-outer-edge-of-node-in-d3
+
     // Total difference in x and y from source to target
     diffX = d.target.x - d.source.x;
     diffY = d.target.y - d.source.y;
@@ -536,11 +538,14 @@ var pacdag = {
     pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
 
     // x and y distances from center to outside edge of target node
-    offsetX = (diffX * d.target.r) / pathLength;
-    offsetY = (diffY * d.target.r) / pathLength;
+    offsetEndX = (diffX * d.target.r) / pathLength;
+    offsetEndY = (diffY * d.target.r) / pathLength;
 
-    return "M" + d.source.x + "," + d.source.y + "L" + (d.target.x - offsetX) + "," + (d.target.y - offsetY);
-    //return 'M' + d.source.x + ',' + d.source.y + 'L' + d.target.x + ',' + d.target.y;
+    // x and y distances from center to outside edge of source node
+    offsetBeginX = (diffX * d.source.r) / pathLength;
+    offsetBeginY = (diffY * d.source.r) / pathLength;
+
+    return "M" + (d.source.x + offsetBeginX) + "," + (d.source.y + offsetBeginY) + "L" + (d.target.x - offsetEndX) + "," + (d.target.y - offsetEndY);
   },
 
   transform: function(d) {

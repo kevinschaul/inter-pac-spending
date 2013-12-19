@@ -235,6 +235,7 @@ $serif: Georgia, serif;
     stroke-width: 4px;
     fill: #fff;
     stroke: #fff;
+    opacity: 0.5 !important;
   }
   .inner {
     @extend .triangle;
