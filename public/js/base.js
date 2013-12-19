@@ -13,7 +13,7 @@ var pacdag = {
   stateActive: false,
 
   nodeInfoTemplate: _.template(d3.select('#node-info-template').html()),
-  nodeInfoTarget: d3.select('#node-info-target'),
+  nodeInfoTarget: d3.select('.node-info-target'),
 
   formatDollar: d3.format('$,.2f'),
 
@@ -179,7 +179,7 @@ var pacdag = {
       .attr('height', self.heightScale(w))
 
     self.svg.select('g')
-      .attr('transform', 'translate(-150, -50) scale(' + self.scale(window.innerWidth) + ')')
+      .attr('transform', 'translate(-150, -60) scale(' + self.scale(window.innerWidth) + ')')
 
     self.annotation
       .attr('height', self.heightScale(w))
@@ -197,7 +197,7 @@ var pacdag = {
 
     self.heightScale = d3.scale.linear()
       .domain([320, 960])
-      .range([267, 545])
+      .range([217, 495])
 
     self.annotation = d3.select('.legend-target svg')
 
@@ -633,8 +633,8 @@ var pacdagMobile = {
 };
 
 var prerender = false;
-alert(window.innerWidth);
-if (window.innerWidth && window.innerWidth <= 1024) {
+if (window.matchMedia &&
+    window.matchMedia('screen and (max-device-width: 1024px)').matches) {
   prerender = true;
 }
 var p = pacdag.init(prerender);

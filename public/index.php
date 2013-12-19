@@ -102,7 +102,7 @@
       </div>
 
       </script>
-      <div id='node-info-target'>
+      <div class='node-info-target'>
         <div class='help'>Touch a PAC bubble to the right for more information.</div>
       </div>
     </div>
