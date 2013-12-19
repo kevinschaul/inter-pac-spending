@@ -111,6 +111,9 @@
     <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left; margin-left: 70px; margin-right: 20px;" />
     <img class="fallback" src="img/issue.png" alt="fallback" style="float: left;" />
     <div class='mobile image-target'></div>
+    <img class='mobile preload' src="img/labor.png" alt="fallback" style="float: left;" />
+    <img class='mobile preload' src="img/business.png" alt="fallback" style="float: left;" />
+    <img class='mobile preload' src="img/lawyers.png" alt="fallback" style="float: left;" />
     <div class='clear'></div>
   </div>
 
