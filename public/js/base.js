@@ -181,7 +181,7 @@ var pacdag = {
       .attr('height', self.heightScale(w))
 
     self.svg.select('g')
-      .attr('transform', 'translate(-150, -60) scale(' + self.scale(window.innerWidth) + ')')
+      .attr('transform', 'translate(-150, -50) scale(' + self.scale(window.innerWidth) + ')')
 
     self.annotation
       .attr('height', self.heightScale(w) / 2)
