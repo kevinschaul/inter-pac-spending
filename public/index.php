@@ -370,19 +370,6 @@
         <g class="annotation"><line class="link" x1="56" y1="60" x2="80" y2="10" marker-end="url(#triangle)" style="opacity: 0.1;"></line><line class="leader" x1="66" y1="40" x2="90" y2="40"></line><text x="96" y="38">Donation</text><text x="96" y="50">to PAC</text><circle class="node" cx="40" cy="90" r="35.144208604054135" style="opacity: 0.1;"></circle><circle class="node" cx="40" cy="120" r="4.969008711003831" style="opacity: 0.1;"></circle><line class="leader" x1="76" y1="90" x2="90" y2="90"></line><line class="leader" x1="46" y1="120" x2="90" y2="120"></line><text x="96" y="88">$10 million in</text><text x="96" y="100">total spending</text><text x="96" y="124">$10 thousand</text><rect class="color pro-dfl" x="20" y="140" width="40" height="20"></rect><rect class="color pro-rpm" x="20" y="170" width="40" height="20"></rect><rect class="color pro-other" x="20" y="200" width="40" height="20"></rect><line class="leader" x1="60" y1="150" x2="90" y2="150"></line><text x="96" y="148">Donations lean toward</text><text x="96" y="160">Democrat groups</text><line class="leader" x1="60" y1="180" x2="90" y2="180"></line><text x="96" y="184">Republican</text><line class="leader" x1="60" y1="210" x2="90" y2="210"></line><text x="96" y="214">Donations don't lean</text></g>
       </svg>
     </div>
-    <div class='mobile image-wrapper'>
-      <div class='image-target'></div>
-      <div class='label' id='label-0'>Donation to PAC</div>
-      <div class='label' id='label-1'>$10 million in total spending</div>
-      <div class='label' id='label-2'>$10 thousand</div>
-      <div class='label' id='label-3'>Donations lean toward Democrat groups</div>
-      <div class='label' id='label-4'>Republican groups</div>
-      <div class='label' id='label-5'>Donations don't lean</div>
-    </div>
-
-    <img class='mobile preload' src="img/labor.png" alt="fallback" style="float: left;" />
-    <img class='mobile preload' src="img/business.png" alt="fallback" style="float: left;" />
-    <img class='mobile preload' src="img/lawyers.png" alt="fallback" style="float: left;" />
     <div class='clear'></div>
   </div>
 
