@@ -633,7 +633,7 @@ var pacdagMobile = {
 };
 
 var prerender = false;
-if (window.innerWidth && window.innerWidth <= 960) {
+if (window.innerWidth && window.innerWidth <= 1024) {
   prerender = true;
 }
 var p = pacdag.init(prerender);
