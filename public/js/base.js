@@ -559,7 +559,7 @@ var pacdagMobile = {
 
     d3.select('head').append('meta')
       .attr('name', 'viewport')
-      .attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"')
+      .attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
 
     self.imageTargetd3 = d3.select('.image-target')
 
