@@ -181,7 +181,6 @@ var pacdag = {
           pac: pac
         }
       })
-      .style('opacity', self.nodeOpacityInitial)
       .on('mouseover', function(d) {
         self.unselectNodes();
         self.deactivateLinks();
@@ -211,6 +210,8 @@ var pacdag = {
           dst: dstid,
         }
       })
+
+    self.activateButtons();
   },
 
   draw: function() {
@@ -448,7 +449,9 @@ var pacdag = {
         }
 
         // Give the graph a jolt.
-        self.force.start();
+        if (self.force) {
+          self.force.start();
+        }
       })
   },
 
