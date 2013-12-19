@@ -493,7 +493,7 @@ var pacdag = {
 
     self.unselectNodes();
 
-    d3.selectAll('.node.category-' + state)
+    self.svg.selectAll('.node.category-' + state)
       .each(function(d) {
         self.activateNode(d.pac);
         self.activateNodeLinks(d.pac);
@@ -510,20 +510,20 @@ var pacdag = {
     d3.selectAll('.button.active')
       .classed('active', false)
 
-    d3.selectAll('.node')
+    self.svg.selectAll('.node')
       .style('opacity', self.nodeOpacityInitial)
 
-    d3.selectAll('.link')
+    self.svg.selectAll('.link')
       .style('opacity', self.linkOpacityInitial);
   },
 
   unselectNodes: function() {
     var self = this;
 
-    d3.selectAll('.node')
+    self.svg.selectAll('.node')
       .style('opacity', self.nodeOpacityNotSelected)
 
-    d3.selectAll('.link')
+    self.svg.selectAll('.link')
       .style('opacity', self.linkOpacityNotSelected)
   },
 
@@ -532,7 +532,7 @@ var pacdag = {
 
     self.nodeInfoTarget.html(self.nodeInfoTemplate({pac: pac}));
 
-    d3.select('.node.pacid-' + pac.ComID)
+    self.svg.select('.node.pacid-' + pac.ComID)
       .style('opacity', self.nodeOpacitySelected)
   },
 
@@ -540,10 +540,10 @@ var pacdag = {
     var self = this;
 
     var s = '.link.from-' + pac.ComID + ', .link.to-' + pac.ComID;
-    d3.selectAll(s)
+    self.svg.selectAll(s)
       .style('opacity', self.linkOpacitySelected)
       .each(function(d) {
-        d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
+        self.svg.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
           .style('opacity', self.nodeOpacitySelected)
       })
   },
@@ -553,17 +553,17 @@ var pacdag = {
 
     self.nodeInfoTarget.html(self.nodeInfoInitial);
 
-    d3.selectAll('.node')
+    self.svg.selectAll('.node')
       .style('opacity', self.nodeOpacityInitial)
 
-    d3.select('.node.pacid-' + pac.ComID)
+    self.svg.select('.node.pacid-' + pac.ComID)
       .style('opacity', self.nodeOpacityInitial)
 
     var s = '.link.from-' + pac.ComID + ', .link.to-' + pac.ComID;
-    d3.selectAll(s)
+    self.svg.selectAll(s)
       .style('opacity', self.linkOpacityInitial)
       .each(function(d) {
-        d3.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
+        self.svg.selectAll('.node.pacid-' + d.src + ', .node.pacid-' + d.dst)
           .style('opacity', self.nodeOpacityInitial)
       })
   },
@@ -571,7 +571,7 @@ var pacdag = {
   deactivateLinks: function() {
     var self = this;
 
-    d3.selectAll('.link')
+    self.svg.selectAll('.link')
       .style('opacity', self.linkOpacityInitial)
   },
 
