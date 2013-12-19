@@ -205,10 +205,12 @@ var pacdag = {
 
     self.resize();
 
+    /*
     d3.select(window)
       .on('resize', function() {
         self.resize();
       })
+     */
 
     self.chart = self.svg.select('g.chart')
 
