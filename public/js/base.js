@@ -165,8 +165,37 @@ var pacdag = {
   goPrerendered: function() {
     var self = this;
 
+    self.drawPrerendered();
+    self.activateButtons();
+  },
+
+  resize: function() {
+    var self = this;
+
+    self.svg
+      .attr('width', window.innerWidth)
+
+    self.svg.select('g')
+      .attr('transform', 'translate(-150, 0) scale(' + self.scale(window.innerWidth) + ')')
+  },
+
+  drawPrerendered: function() {
+    var self = this;
+
+    self.scale = d3.scale.linear()
+      .domain([320, 960])
+      .range([0.5, 1])
+
+    d3.select(window)
+      .on('resize', function() {
+        self.resize();
+      })
+
     self.svg = d3.select('.chart-target svg')
-    console.log(self.svg);
+      .attr('width', window.innerWidth)
+
+    self.svg.select('g')
+      .attr('transform', 'translate(-150, 0) scale(' + self.scale(window.innerWidth) + ')')
 
     self.chart = self.svg.select('g.chart')
 
@@ -210,8 +239,6 @@ var pacdag = {
           dst: dstid,
         }
       })
-
-    self.activateButtons();
   },
 
   draw: function() {
