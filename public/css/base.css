@@ -224,7 +224,7 @@
 }
 /* line 221, ../../sass/base.scss */
 #graph marker {
-  overflow: auto;
+  overflow: visible;
 }
 /* line 225, ../../sass/base.scss */
 #graph .underlay {
