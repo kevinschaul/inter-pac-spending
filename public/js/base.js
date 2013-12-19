@@ -437,7 +437,6 @@ var pacdag = {
     var self = this;
 
     self.nodeInfoTarget.html(self.nodeInfoTemplate({pac: pac}));
-    self.buildTooltipCharts(pac);
 
     d3.select('.node.pacid-' + pac.ComID)
       .style('opacity', self.nodeOpacitySelected)
@@ -480,44 +479,6 @@ var pacdag = {
 
     d3.selectAll('.link')
       .style('opacity', self.linkOpacityInitial)
-  },
-
-  buildTooltipCharts: function(pac) {
-    var self = this;
-
-    return;
-    var height = 60;
-    var width = 230;
-    var margin = {
-      top: 10,
-      right: 10,
-      bottom: 10,
-      left: 10
-    };
-
-    var xAxis = d3.svg.axis()
-      .scale(self.tooltipChartX)
-      .ticks(3)
-
-    var chart = d3.select('#info-target').append('svg')
-      .attr('height', height + margin.top + margin.bottom)
-      .attr('width', width + margin.left + margin.right)
-      .append('g')
-        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-
-    chart.append('g')
-      .attr('transform', 'translate(0,40)')
-      .attr('class', 'axis')
-      .call(xAxis)
-
-    var x = self.tooltipChartX(pac.percentReceivedFromPac);
-
-    chart.append('rect')
-      .attr('class', 'value')
-      .attr('x', 0)
-      .attr('y', 20)
-      .attr('height', 20)
-      .attr('width', x)
   },
 
   tick: function() {
