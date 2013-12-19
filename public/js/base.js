@@ -591,7 +591,6 @@ var pacdagMobile = {
 };
 
 if (window.innerWidth && window.innerWidth <= 600) {
-  alert('mobile')
   var m = pacdagMobile.init();
 } else {
   var p = pacdag.init();
