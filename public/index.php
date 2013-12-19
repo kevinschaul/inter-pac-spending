@@ -107,10 +107,10 @@
       </div>
     </div>
 
-    <div class='mobile' id='graph'></div>
+    <div id='graph'></div>
     <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left; margin-left: 70px; margin-right: 20px;" />
     <img class="fallback" src="img/issue.png" alt="fallback" style="float: left;" />
-    <div class='image-wrapper'>
+    <div class='mobile image-wrapper'>
       <div class='image-target'></div>
       <div class='label' id='label-0'>Donation to PAC</div>
       <div class='label' id='label-1'>$10 million in total spending</div>
@@ -119,7 +119,6 @@
       <div class='label' id='label-4'>Republican groups</div>
       <div class='label' id='label-5'>Donations don't lean</div>
     </div>
-
 
     <img class='mobile preload' src="img/labor.png" alt="fallback" style="float: left;" />
     <img class='mobile preload' src="img/business.png" alt="fallback" style="float: left;" />
