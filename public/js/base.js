@@ -169,6 +169,8 @@ var pacdag = {
 
     self.drawPrerendered();
     self.activateButtons();
+
+    self.activateState('issue');
   },
 
   resize: function() {
