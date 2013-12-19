@@ -575,11 +575,13 @@ var pacdagMobile = {
         var thisd3 = d3.select(this);
       })
       .on('click', function() {
-        console.log(this);
         var thisd3 = d3.select(this);
 
+        d3.selectAll('.button.active')
+          .classed('active', false)
+        thisd3.classed('active', true)
+
         var showState = thisd3.attr('data-show')
-        console.log(showState);
 
         self.imageTargetd3.html('')
           .append('img')

@@ -52,7 +52,7 @@
   <div class='control-wrapper'>
     <div class='label'>Highlight PAC networks by category:</div>
     <div class='button-wrapper'>
-      <div class='button' data-show='issue'>
+      <div class='button active' data-show='issue'>
         <div class='title'>Issue</div>
       </div>
       <div class='button' data-show='labor'>
