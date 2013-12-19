@@ -134,6 +134,7 @@ var pacdag = {
       return (d.srcpac && d.dstpac)
         && (d.srcpac.totspend >= minSpent && d.dstpac.totspend >= minSpent);
     });
+    console.log(self.links);
     self.nodes = {};
 
     _.each(self.links, function(link) {
