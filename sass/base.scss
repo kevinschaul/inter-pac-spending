@@ -168,6 +168,9 @@ $serif: Georgia, serif;
   width: 960px;
   height: 590px;
 
+}
+
+.graphic {
   .node {
     fill: #ccc;
     stroke: #333;
@@ -254,7 +257,7 @@ $serif: Georgia, serif;
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   // "Responsive" version of StarTribune.com
   #wholePage,
   #header,
