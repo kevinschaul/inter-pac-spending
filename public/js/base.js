@@ -13,7 +13,7 @@ var pacdag = {
   stateActive: false,
 
   nodeInfoTemplate: _.template(d3.select('#node-info-template').html()),
-  nodeInfoTarget: d3.select('.node-info-target'),
+  nodeInfoTarget: d3.selectAll('.node-info-target'),
 
   formatDollar: d3.format('$,.2f'),
 
@@ -182,7 +182,7 @@ var pacdag = {
       .attr('transform', 'translate(-150, -60) scale(' + self.scale(window.innerWidth) + ')')
 
     self.annotation
-      .attr('height', self.heightScale(w))
+      .attr('height', self.heightScale(w) / 2)
       .select('g')
         .attr('transform', 'scale(' + self.scale(window.innerWidth) + ')')
 
@@ -634,7 +634,7 @@ var pacdagMobile = {
 
 var prerender = false;
 if (window.matchMedia &&
-    window.matchMedia('screen and (max-device-width: 1024px)').matches) {
+    window.matchMedia('screen and (max-width: 1024px)').matches) {
   prerender = true;
 }
 var p = pacdag.init(prerender);

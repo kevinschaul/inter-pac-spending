@@ -103,7 +103,7 @@
 
       </script>
       <div class='node-info-target'>
-        <div class='help'>Touch a PAC bubble to the right for more information.</div>
+        <div class='help'>Touch a PAC bubble for more information.</div>
       </div>
     </div>
 
@@ -371,6 +371,11 @@
       </svg>
     </div>
     <div class='clear'></div>
+    <div class='mobile infobar'>
+      <div class='node-info-target'>
+        <div class='help'>Touch a PAC bubble for more information.</div>
+      </div>
+    </div>
   </div>
 
   <div class='notes'>Data from last three election cycles (2006-2012). PACs that spent less than $50,000 in this period are not included.</div>

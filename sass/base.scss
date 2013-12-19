@@ -118,49 +118,49 @@ $serif: Georgia, serif;
   position: relative;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
+}
+
+.help {
+  font-size: 1.1em;
+}
+
+.infobar {
+  width: 200px;
+  position: absolute;
+  top: 50px;
+  left: 20px;
 
   .help {
-    font-size: 1.1em;
+    font-size: 0.8em;
   }
 
-  .infobar {
-    width: 200px;
-    position: absolute;
-    top: 50px;
-    left: 20px;
+  .name {
+    font-size: 1.2em;
+    line-height: 1.1em;
+    margin-bottom: 8px;
+  }
 
-    .help {
-      font-size: 0.8em;
+  .info-value {
+    font-weight: bold;
+  }
+
+  .info {
+    margin: 4px 0;
+    font-size: 0.9em;
+
+    .info-label {
+      float: left;
     }
-
-    .name {
-      font-size: 1.2em;
-      line-height: 1.1em;
-      margin-bottom: 8px;
-    }
-
     .info-value {
-      font-weight: bold;
+      float: right;
     }
-
-    .info {
-      margin: 4px 0;
-      font-size: 0.9em;
-
-      .info-label {
-        float: left;
-      }
-      .info-value {
-        float: right;
-      }
-    }
-    .info.major {
-      padding-top: 2px;
-      border-top: 1px solid #ccc;
-    }
-    .info.minor {
-      margin-bottom: 4px;
-    }
+  }
+  .info.major {
+    padding-top: 2px;
+    border-top: 1px solid #ccc;
+  }
+  .info.minor {
+    margin-bottom: 4px;
   }
 }
 
@@ -257,7 +257,7 @@ $serif: Georgia, serif;
   display: none;
 }
 
-@media screen and (max-device-width: 1024px) {
+@media screen and (max-width: 1024px) {
   // "Responsive" version of StarTribune.com
   #wholePage,
   #header,
@@ -300,9 +300,6 @@ $serif: Georgia, serif;
     }
   }
 
-  .infobar {
-    display: none;
-  }
   .button-wrapper {
     width: 100%;
 
@@ -317,6 +314,16 @@ $serif: Georgia, serif;
 
   .graph-wrapper {
     min-height: 400px;
+  }
+
+  .infobar {
+    display: none;
+  }
+  .infobar.mobile {
+    display: block;
+    position: static;
+    margin-top: 10px;
+    min-height: 200px;
   }
 
   .image-wrapper {
