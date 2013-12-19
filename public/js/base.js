@@ -172,8 +172,10 @@ var pacdag = {
   resize: function() {
     var self = this;
 
+    var w = window.innerWidth;
     self.svg
-      .attr('width', window.innerWidth)
+      .attr('width', w)
+      .attr('height', self.heightScale(w))
 
     self.svg.select('g')
       .attr('transform', 'translate(-150, 0) scale(' + self.scale(window.innerWidth) + ')')
@@ -186,16 +188,17 @@ var pacdag = {
       .domain([320, 960])
       .range([0.5, 1])
 
+    self.heightScale = d3.scale.linear()
+      .domain([320, 960])
+      .range([267, 545])
+
+    self.svg = d3.select('.chart-target svg')
+    self.resize();
+
     d3.select(window)
       .on('resize', function() {
         self.resize();
       })
-
-    self.svg = d3.select('.chart-target svg')
-      .attr('width', window.innerWidth)
-
-    self.svg.select('g')
-      .attr('transform', 'translate(-150, 0) scale(' + self.scale(window.innerWidth) + ')')
 
     self.chart = self.svg.select('g.chart')
 
