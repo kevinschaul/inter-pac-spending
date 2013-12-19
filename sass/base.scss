@@ -307,9 +307,29 @@ $serif: Georgia, serif;
     min-height: 400px;
   }
 
-  .image-target img {
-    max-width: 100%;
+  .image-wrapper {
+    position: relative;
+
+    .image-target img {
+      max-width: 100%;
+    }
+
+    .label {
+      position: absolute;
+      font-size: 11px;
+      color: #666;
+      left: 20%;
+    }
+
+    #label-0 { top: 70%; }
+    #label-1 { top: 77.4%; }
+    #label-2 { top: 82%; }
+    #label-3 { top: 86.5%; }
+    #label-4 { top: 91%; }
+    #label-5 { top: 95.5%; }
   }
+
+
   .preload {
     height: 0px;
     width: 0px;
