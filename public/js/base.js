@@ -179,7 +179,7 @@ var pacdag = {
       .attr('height', self.heightScale(w))
 
     self.svg.select('g')
-      .attr('transform', 'translate(-150, 0) scale(' + self.scale(window.innerWidth) + ')')
+      .attr('transform', 'translate(-150, -50) scale(' + self.scale(window.innerWidth) + ')')
 
     self.annotation
       .attr('height', self.heightScale(w))
@@ -633,6 +633,7 @@ var pacdagMobile = {
 };
 
 var prerender = false;
+alert(window.innerWidth);
 if (window.innerWidth && window.innerWidth <= 1024) {
   prerender = true;
 }
