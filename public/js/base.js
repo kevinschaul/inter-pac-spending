@@ -23,14 +23,14 @@ var pacdag = {
 
     self.prerender = prerender;
 
+    queue()
+      .defer(d3.csv, 'pacs.csv')
+      .defer(d3.json, 'inter-pac-donations.json')
+      .await(self.handleData);
+
+    self.nodeInfoInitial = self.nodeInfoTarget.html();
+
     if (!prerender) {
-      queue()
-        .defer(d3.csv, 'pacs.csv')
-        .defer(d3.json, 'inter-pac-donations.json')
-        .await(self.handleData);
-
-      self.nodeInfoInitial = self.nodeInfoTarget.html();
-
       self.svg = d3.select('#graph').append('svg')
         .attr('width', self.width)
         .attr('height', self.height)
@@ -61,9 +61,6 @@ var pacdag = {
       self.annotation = self.svg.append('g')
         .attr('class', 'annotation')
         .attr('transform', 'translate(0, 280)')
-
-    } else {
-      self.goPrerendered();
     }
 
     return this;
@@ -149,7 +146,11 @@ var pacdag = {
       }))
       .range([4, 30])
 
-    self.go();
+    if (self.prerender) {
+      self.goPrerendered();
+    } else {
+      self.go();
+    }
   },
 
   go: function() {
@@ -170,20 +171,44 @@ var pacdag = {
     self.chart = self.svg.select('g.chart')
 
     self.circle = self.chart.selectAll('circle')
+      .datum(function() {
+        var thisd3 = d3.select(this);
+        var s = thisd3.attr('class')
+        var i = s.indexOf('pacid-') + 'pacid-'.length;
+        var pacid = s.slice(i, i + 5)
+        var pac = self.pacsById[pacid];
+        return {
+          pac: pac
+        }
+      })
       .style('opacity', self.nodeOpacityInitial)
-      .on('mouseover', function() {
-        console.log(this);
-
-
+      .on('mouseover', function(d) {
         self.unselectNodes();
         self.deactivateLinks();
         self.activateNode(d.pac);
         self.activateNodeLinks(d.pac);
       })
-      .on('mouseout', function() {
+      .on('mouseout', function(d) {
         self.deactivateNode(d.pac);
         if (self.stateActive) {
           self.activateState(self.stateActive);
+        }
+      })
+
+    self.chart.selectAll('.link')
+      .datum(function() {
+        var thisd3 = d3.select(this);
+        var s = thisd3.attr('class')
+        var i = s.indexOf('from-') + 'from-'.length;
+        var srcid = s.slice(i, i + 5)
+
+        s = thisd3.attr('class')
+        i = s.indexOf('to-') + 'to-'.length;
+        dstid = s.slice(i, i + 5)
+
+        return {
+          src: srcid,
+          dst: dstid,
         }
       })
   },
