@@ -34,34 +34,36 @@ var pacdag = {
       self.svg = d3.select('#graph').append('svg')
         .attr('width', self.width)
         .attr('height', self.height)
-
-      self.chart = self.svg.append('g')
-
-      self.defs = self.svg.append('defs')
-
-      var triangle = self.defs.append('marker')
-        .attr('id', 'triangle')
-        .attr('viewBox', '0 0 10 10')
-        .attr('refX', 0)
-        .attr('refY', 5)
-        .attr('markerWidth', 4)
-        .attr('markerHeight', 3)
-        .attr('orient', 'auto')
-        .append('g')
-          .attr('transform', 'translate(-12, 0)')
-
-      triangle.append('path')
-        .attr('class', 'triangle outer')
-        .attr('d', 'M2,1L10,5L2,9z')
-
-      triangle.append('path')
-        .attr('class', 'triangle inner')
-        .attr('d', 'M2,2L8,5L2,8z')
-
-      self.annotation = self.svg.append('g')
-        .attr('class', 'annotation')
-        .attr('transform', 'translate(0, 280)')
+    } else {
+      self.svg = d3.select('.chart-target svg')
     }
+
+    self.chart = self.svg.append('g')
+
+    self.defs = self.svg.append('defs')
+
+    var triangle = self.defs.append('marker')
+      .attr('id', 'triangle')
+      .attr('viewBox', '0 0 10 10')
+      .attr('refX', 0)
+      .attr('refY', 5)
+      .attr('markerWidth', 4)
+      .attr('markerHeight', 3)
+      .attr('orient', 'auto')
+      .append('g')
+        .attr('transform', 'translate(-12, 0)')
+
+    triangle.append('path')
+      .attr('class', 'triangle outer')
+      .attr('d', 'M2,1L10,5L2,9z')
+
+    triangle.append('path')
+      .attr('class', 'triangle inner')
+      .attr('d', 'M2,2L8,5L2,8z')
+
+    self.annotation = self.svg.append('g')
+      .attr('class', 'annotation')
+      .attr('transform', 'translate(0, 280)')
 
     return this;
   },
@@ -179,6 +181,13 @@ var pacdag = {
 
     self.svg.select('g')
       .attr('transform', 'translate(-150, 0) scale(' + self.scale(window.innerWidth) + ')')
+
+    self.annotation
+      .attr('width', w)
+      .attr('height', self.heightScale(w))
+      .select('g')
+        .attr('transform', 'scale(' + self.scale(window.innerWidth) + ')')
+
   },
 
   drawPrerendered: function() {
@@ -192,7 +201,8 @@ var pacdag = {
       .domain([320, 960])
       .range([267, 545])
 
-    self.svg = d3.select('.chart-target svg')
+    self.annotation = d3.select('.legend-target svg')
+
     self.resize();
 
     d3.select(window)
