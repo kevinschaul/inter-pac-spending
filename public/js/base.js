@@ -34,34 +34,31 @@ var pacdag = {
 
     self.defs = self.svg.append('defs')
 
-    var i;
-    for (i = 0; i <= 100; i++) {
-      var triangle = self.defs.append('marker')
-        .attr('id', 'triangle-' + i)
-        .attr('viewBox', '0 0 10 10')
-        .attr('refX', 0)
-        .attr('refY', 5)
-        .attr('markerWidth', 4)
-        .attr('markerHeight', 3)
-        .attr('orient', 'auto')
-        .append('g')
-          .attr('transform', 'translate(' + (-(i + 14)) + ', 0)')
+    var triangle = self.defs.append('marker')
+      .attr('id', 'triangle')
+      .attr('viewBox', '0 0 10 10')
+      .attr('refX', 0)
+      .attr('refY', 5)
+      .attr('markerWidth', 4)
+      .attr('markerHeight', 3)
+      .attr('orient', 'auto')
+      .append('g')
+        .attr('transform', 'translate(-13, 0)')
 
-      triangle.append('rect')
-        .attr('class', 'underlay')
-        .attr('x', 0)
-        .attr('width', 20 + (i))
-        .attr('y', 2)
-        .attr('height', 6)
+    triangle.append('rect')
+      .attr('class', 'underlay')
+      .attr('x', 0)
+      .attr('width', 20)
+      .attr('y', 2)
+      .attr('height', 6)
 
-      triangle.append('path')
-        .attr('class', 'triangle outer')
-        .attr('d', 'M2,1L10,5L2,9z')
+    triangle.append('path')
+      .attr('class', 'triangle outer')
+      .attr('d', 'M2,1L10,5L2,9z')
 
-      triangle.append('path')
-        .attr('class', 'triangle inner')
-        .attr('d', 'M2,2L8,5L2,8z')
-    }
+    triangle.append('path')
+      .attr('class', 'triangle inner')
+      .attr('d', 'M2,2L8,5L2,8z')
 
     self.annotation = self.svg.append('g')
       .attr('class', 'annotation')
@@ -187,15 +184,15 @@ var pacdag = {
           return s;
         })
         .style('opacity', self.linkOpacityInitial)
-        .attr('marker-end', function(d) {
-          return 'url(#triangle-' + Math.round(self.r(d.dstpac.totspend)) + ')'
-        })
+        .attr('marker-end', 'url(#triangle)')
 
     self.circle = self.svg.selectAll('circle')
       .data(self.force.nodes())
       .enter().append('circle')
         .attr('r', function(d) {
-          return self.r(d.pac.totspend);
+          var r = self.r(d.pac.totspend);
+          d.r = r
+          return r;
         })
         .attr('class', function(d) {
           var s = 'node'
@@ -237,7 +234,7 @@ var pacdag = {
       .attr('y1', 60)
       .attr('x2', 80)
       .attr('y2', 10)
-      .attr('marker-end', 'url(#triangle-0)')
+      .attr('marker-end', 'url(#triangle)')
 
     self.annotation.append('line')
       .attr('class', 'leader')
@@ -538,7 +535,19 @@ var pacdag = {
   },
 
   link: function(d) {
-    return 'M' + d.source.x + ',' + d.source.y + 'L' + d.target.x + ',' + d.target.y;
+    // Total difference in x and y from source to target
+    diffX = d.target.x - d.source.x;
+    diffY = d.target.y - d.source.y;
+
+    // Length of path from center of source node to center of target node
+    pathLength = Math.sqrt((diffX * diffX) + (diffY * diffY));
+
+    // x and y distances from center to outside edge of target node
+    offsetX = (diffX * d.target.r) / pathLength;
+    offsetY = (diffY * d.target.r) / pathLength;
+
+    return "M" + d.source.x + "," + d.source.y + "L" + (d.target.x - offsetX) + "," + (d.target.y - offsetY);
+    //return 'M' + d.source.x + ',' + d.source.y + 'L' + d.target.x + ',' + d.target.y;
   },
 
   transform: function(d) {
