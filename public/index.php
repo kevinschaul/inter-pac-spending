@@ -111,7 +111,7 @@
     <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left; margin-left: 70px; margin-right: 20px;" />
     <img class="fallback" src="img/issue.png" alt="fallback" style="float: left;" />
     <div class='mobile chart-target'>
-      <svg width='1' height='1'>
+      <svg width='100%' height='1'>
         <g class='chart'>
 <path class="link from-30007 to-40295" marker-end="url(#triangle)" d="M659.3728081611915,310.70762844103336L580.0706723556658,295.35931129127556" style="opacity: 0.1;"></path>
 <path class="link from-30011 to-40933" marker-end="url(#triangle)" d="M477.3562027884702,356.1980272652945L421.934847165617,340.1731869508937" style="opacity: 0.1;"></path>
@@ -366,7 +366,7 @@
       </svg>
     </div>
     <div class='mobile legend-target'>
-      <svg width=1 height=1>
+      <svg width='100%' height='1'>
         <g class="annotation"><line class="link" x1="56" y1="60" x2="80" y2="10" marker-end="url(#triangle)" style="opacity: 0.1;"></line><line class="leader" x1="66" y1="40" x2="90" y2="40"></line><text x="96" y="38">Donation</text><text x="96" y="50">to PAC</text><circle class="node" cx="40" cy="90" r="35.144208604054135" style="opacity: 0.1;"></circle><circle class="node" cx="40" cy="120" r="4.969008711003831" style="opacity: 0.1;"></circle><line class="leader" x1="76" y1="90" x2="90" y2="90"></line><line class="leader" x1="46" y1="120" x2="90" y2="120"></line><text x="96" y="88">$10 million in</text><text x="96" y="100">total spending</text><text x="96" y="124">$10 thousand</text><rect class="color pro-dfl" x="20" y="140" width="40" height="20"></rect><rect class="color pro-rpm" x="20" y="170" width="40" height="20"></rect><rect class="color pro-other" x="20" y="200" width="40" height="20"></rect><line class="leader" x1="60" y1="150" x2="90" y2="150"></line><text x="96" y="148">Donations lean toward</text><text x="96" y="160">Democrat groups</text><line class="leader" x1="60" y1="180" x2="90" y2="180"></line><text x="96" y="184">Republican</text><line class="leader" x1="60" y1="210" x2="90" y2="210"></line><text x="96" y="214">Donations don't lean</text></g>
       </svg>
     </div>

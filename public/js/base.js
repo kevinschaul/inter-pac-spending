@@ -176,14 +176,12 @@ var pacdag = {
 
     var w = window.innerWidth;
     self.svg
-      .attr('width', w)
       .attr('height', self.heightScale(w))
 
     self.svg.select('g')
       .attr('transform', 'translate(-150, 0) scale(' + self.scale(window.innerWidth) + ')')
 
     self.annotation
-      .attr('width', w)
       .attr('height', self.heightScale(w))
       .select('g')
         .attr('transform', 'scale(' + self.scale(window.innerWidth) + ')')
@@ -205,12 +203,10 @@ var pacdag = {
 
     self.resize();
 
-    /*
     d3.select(window)
       .on('resize', function() {
         self.resize();
       })
-     */
 
     self.chart = self.svg.select('g.chart')
 
