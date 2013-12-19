@@ -50,7 +50,7 @@
   <div class="fallback fallback-info">Interactive portions of this graphic are not available in this version of Internet Explorer.</div>
 
   <div class='control-wrapper'>
-    <div class='label'>Highlight PACs by category:</div>
+    <div class='label'>Highlight PAC networks by category:</div>
     <div class='button-wrapper'>
       <div class='button' data-show='issue'>
         <div class='title'>Issue</div>
