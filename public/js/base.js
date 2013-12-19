@@ -634,7 +634,7 @@ var pacdagMobile = {
 
 var prerender = false;
 if (window.matchMedia &&
-    window.matchMedia('screen and (max-width: 1024px)').matches) {
+    window.matchMedia('screen and (max-device-width: 1024px)').matches) {
   prerender = true;
 }
 var p = pacdag.init(prerender);
