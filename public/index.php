@@ -33,11 +33,11 @@
   <div class='intro'>
 
     <p>
-      Alliance for a Better Minnesota, the state's leading political spender,
-      received nearly all of its $9.9 million from other PACs in the
-      past three election cycles. WIN Minnesota, one of Alliance's largest
-      donors, chose to influence indirectly by giving all of its money to other
-      PACs instead of spending it directly.
+      Alliance for a Better Minnesota, the state&rsquo;s leading political
+      spender, received nearly all of its $9.9 million from other PACs in the
+      past three election cycles. WIN Minnesota, one of Alliance&rsquo;s
+      largest donors, chose to influence indirectly by giving all of its money
+      to other PACs instead of spending it directly.
     </p>
 
     <p>
