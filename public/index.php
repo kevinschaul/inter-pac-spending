@@ -108,7 +108,7 @@
     </div>
 
     <div id='graph'></div>
-    <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left; margin-left: 70px; margin-right: 20px;" />
+    <img class="fallback" src="img/legend.png" alt="fallback-legend" style="float: left; margin-left: 50px; margin-right: 20px;" />
     <img class="fallback" src="img/fallback.png" alt="fallback" style="float: left;" />
     <div class='mobile chart-target'>
       <svg width='100%' height='1'>
