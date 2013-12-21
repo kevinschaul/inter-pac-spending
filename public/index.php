@@ -378,7 +378,7 @@
     </div>
   </div>
 
-  <div class='notes'>Data from last three election cycles (2006-2012). PACs that spent less than $50,000 in this period are not included.</div>
+  <div class='notes'>Data from last three election cycles (2007-2012). PACs that spent less than $50,000 in this period are not included.</div>
   <div class='notes'>PACs identified as partisan have given at least 70 percent of their spent money to that party&rsquo;s candidates, as independent expenditures supporting the party or to the party itself.</div>
   <div class='notes'>Source: Star Tribune analysis of Minnesota Campaign Finance and Disclosure Board data</div>
 </div>
