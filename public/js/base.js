@@ -419,13 +419,8 @@ var pacdag = {
 
     self.annotation.append('text')
       .attr('x', 96)
-      .attr('y', 148)
-      .text('Donations lean toward')
-
-    self.annotation.append('text')
-      .attr('x', 96)
-      .attr('y', 160)
-      .text('Democrat groups')
+      .attr('y', 154)
+      .text('Spending favoring Democrats')
 
     self.annotation.append('line')
       .attr('class', 'leader')
@@ -437,7 +432,7 @@ var pacdag = {
     self.annotation.append('text')
       .attr('x', 96)
       .attr('y', 184)
-      .text('Republican')
+      .text('Spending favoring Republicans')
 
     self.annotation.append('line')
       .attr('class', 'leader')
@@ -448,8 +443,13 @@ var pacdag = {
 
     self.annotation.append('text')
       .attr('x', 96)
-      .attr('y', 214)
-      .text('Donations don\'t lean')
+      .attr('y', 208)
+      .text('Spending with no clear')
+
+    self.annotation.append('text')
+      .attr('x', 96)
+      .attr('y', 220)
+      .text('partisan pattern')
 
     self.tooltipChartX = d3.scale.linear()
       .domain([0, d3.max(d3.values(self.nodes), function(d) {
