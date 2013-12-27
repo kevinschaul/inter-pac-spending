@@ -323,6 +323,21 @@ var pacdag = {
         })
         .call(self.force.drag);
 
+    self.annotation.append('text')
+      .attr('class', 'title')
+      .attr('x', 20)
+      .attr('y', 0)
+      .text('Chart Key')
+
+      /*
+    self.annotation.append('line')
+      .attr('class', 'separator')
+      .attr('x1', 20)
+      .attr('y1', 4)
+      .attr('x2', 220)
+      .attr('y2', 4)
+     */
+
     self.annotation.append('line')
       .attr('class', 'link')
       .attr('x1', 56)

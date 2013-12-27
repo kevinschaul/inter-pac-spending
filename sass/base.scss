@@ -77,7 +77,7 @@ $serif: Georgia, serif;
     margin-right: 5px;
     padding-top: 11px;
     text-align: right;
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 
   .button-wrapper {
@@ -130,7 +130,7 @@ $serif: Georgia, serif;
   left: 20px;
 
   .help {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 
   .name {
@@ -207,6 +207,15 @@ $serif: Georgia, serif;
       opacity: 0.8;
       stroke: none;
       shape-rendering: crispEdges;
+    }
+    .title {
+      font-size: 0.7em;
+      text-transform: uppercase;
+    }
+    .separator {
+      shape-rendering: crispEdges;
+      stroke: #ccc;
+      stroke-width: 1px;
     }
     .leader {
       shape-rendering: crispEdges;

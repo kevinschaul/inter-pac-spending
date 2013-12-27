@@ -38,7 +38,7 @@
   margin-right: 5px;
   padding-top: 11px;
   text-align: right;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 /* line 83, ../../sass/base.scss */
 .control-wrapper .button-wrapper {
@@ -121,7 +121,7 @@
 }
 /* line 132, ../../sass/base.scss */
 .infobar .help {
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 /* line 136, ../../sass/base.scss */
 .infobar .name {
@@ -211,53 +211,64 @@
   shape-rendering: crispEdges;
 }
 /* line 211, ../../sass/base.scss */
+.graphic .annotation .title {
+  font-size: 0.7em;
+  text-transform: uppercase;
+}
+/* line 215, ../../sass/base.scss */
+.graphic .annotation .separator {
+  shape-rendering: crispEdges;
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+/* line 220, ../../sass/base.scss */
 .graphic .annotation .leader {
   shape-rendering: crispEdges;
   stroke: #666;
   stroke-width: 1px;
 }
-/* line 216, ../../sass/base.scss */
+/* line 225, ../../sass/base.scss */
 .graphic .annotation text {
   fill: #666;
   font-size: 11px;
 }
-/* line 222, ../../sass/base.scss */
+/* line 231, ../../sass/base.scss */
 .graphic marker {
   overflow: visible;
 }
-/* line 226, ../../sass/base.scss */
+/* line 235, ../../sass/base.scss */
 .graphic .underlay {
   fill: #fff;
   stroke: none;
 }
-/* line 234, ../../sass/base.scss */
+/* line 243, ../../sass/base.scss */
 .graphic .outer.triangle, .graphic .outer.inner {
   stroke-width: 4px;
   fill: #fff;
   stroke: #fff;
   opacity: 0.5 !important;
 }
-/* line 241, ../../sass/base.scss */
+/* line 250, ../../sass/base.scss */
 .graphic .inner {
   stroke-width: 4px;
   fill: #666;
   stroke: #666;
 }
 
-/* line 249, ../../sass/base.scss */
+/* line 258, ../../sass/base.scss */
 .notes {
   font-size: 0.8em;
   color: #666;
   margin: 4px 0;
 }
 
-/* line 255, ../../sass/base.scss */
+/* line 264, ../../sass/base.scss */
 .mobile {
   display: none;
 }
 
 @media screen and (max-device-width: 767px) {
-  /* line 264, ../../sass/base.scss */
+  /* line 273, ../../sass/base.scss */
   #wholePage,
   #header,
   #mainContentWraper,
@@ -265,13 +276,13 @@
     width: 100%;
   }
 
-  /* line 265, ../../sass/base.scss */
+  /* line 274, ../../sass/base.scss */
   body {
     width: 96%;
     margin: 0 2%;
   }
 
-  /* line 273, ../../sass/base.scss */
+  /* line 282, ../../sass/base.scss */
   .pageHeading,
   .globalUtilityBarContainer,
   .mainNavWrapper,
@@ -283,29 +294,29 @@
     display: none;
   }
 
-  /* line 275, ../../sass/base.scss */
+  /* line 284, ../../sass/base.scss */
   .mobile {
     display: block;
   }
 
-  /* line 279, ../../sass/base.scss */
+  /* line 288, ../../sass/base.scss */
   .logoContainer {
     margin-bottom: -15px !important;
     width: 230px;
     overflow: hidden;
   }
 
-  /* line 284, ../../sass/base.scss */
+  /* line 293, ../../sass/base.scss */
   .headingIntro {
     margin-bottom: -28px !important;
   }
 
-  /* line 288, ../../sass/base.scss */
+  /* line 297, ../../sass/base.scss */
   .intro {
     width: 100%;
   }
 
-  /* line 294, ../../sass/base.scss */
+  /* line 303, ../../sass/base.scss */
   .control-wrapper .label {
     float: none;
     margin: 6px 0;
@@ -313,32 +324,32 @@
     text-align: left;
   }
 
-  /* line 302, ../../sass/base.scss */
+  /* line 311, ../../sass/base.scss */
   .button-wrapper {
     width: 100%;
   }
-  /* line 305, ../../sass/base.scss */
+  /* line 314, ../../sass/base.scss */
   .button-wrapper .button {
     width: 24%;
     max-width: 80px;
   }
 
-  /* line 310, ../../sass/base.scss */
+  /* line 319, ../../sass/base.scss */
   #graph {
     display: none;
   }
 
-  /* line 314, ../../sass/base.scss */
+  /* line 323, ../../sass/base.scss */
   .graph-wrapper {
     min-height: 400px;
   }
 
-  /* line 318, ../../sass/base.scss */
+  /* line 327, ../../sass/base.scss */
   .infobar {
     display: none;
   }
 
-  /* line 321, ../../sass/base.scss */
+  /* line 330, ../../sass/base.scss */
   .infobar.mobile {
     display: block;
     position: static;
@@ -346,47 +357,47 @@
     min-height: 200px;
   }
 
-  /* line 328, ../../sass/base.scss */
+  /* line 337, ../../sass/base.scss */
   .image-wrapper {
     position: relative;
   }
-  /* line 331, ../../sass/base.scss */
+  /* line 340, ../../sass/base.scss */
   .image-wrapper .image-target img {
     max-width: 100%;
   }
-  /* line 335, ../../sass/base.scss */
+  /* line 344, ../../sass/base.scss */
   .image-wrapper .label {
     position: absolute;
     font-size: 11px;
     color: #666;
     left: 20%;
   }
-  /* line 342, ../../sass/base.scss */
+  /* line 351, ../../sass/base.scss */
   .image-wrapper #label-0 {
     top: 70%;
   }
-  /* line 343, ../../sass/base.scss */
+  /* line 352, ../../sass/base.scss */
   .image-wrapper #label-1 {
     top: 77.4%;
   }
-  /* line 344, ../../sass/base.scss */
+  /* line 353, ../../sass/base.scss */
   .image-wrapper #label-2 {
     top: 82%;
   }
-  /* line 345, ../../sass/base.scss */
+  /* line 354, ../../sass/base.scss */
   .image-wrapper #label-3 {
     top: 86.5%;
   }
-  /* line 346, ../../sass/base.scss */
+  /* line 355, ../../sass/base.scss */
   .image-wrapper #label-4 {
     top: 91%;
   }
-  /* line 347, ../../sass/base.scss */
+  /* line 356, ../../sass/base.scss */
   .image-wrapper #label-5 {
     top: 95.5%;
   }
 
-  /* line 350, ../../sass/base.scss */
+  /* line 359, ../../sass/base.scss */
   .preload {
     height: 0px;
     width: 0px;
