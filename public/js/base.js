@@ -329,15 +329,6 @@ var pacdag = {
       .attr('y', 0)
       .text('Chart Key')
 
-      /*
-    self.annotation.append('line')
-      .attr('class', 'separator')
-      .attr('x1', 20)
-      .attr('y1', 4)
-      .attr('x2', 220)
-      .attr('y2', 4)
-     */
-
     self.annotation.append('line')
       .attr('class', 'link')
       .attr('x1', 56)
@@ -402,7 +393,7 @@ var pacdag = {
     self.annotation.append('text')
       .attr('x', 96)
       .attr('y', 124)
-      .text('$10 thousand')
+      .text('$100 thousand')
 
     self.annotation.append('rect')
       .attr('class', 'color pro-dfl')
