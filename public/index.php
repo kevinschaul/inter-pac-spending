@@ -35,21 +35,21 @@
     <p>
     Spending in Minnesota politics may be best described as a web of influence.
     Nearly all of the state’s top political donors are related to each other in
-    some fashion. Donations between PACs reveal a tightly knit network of
-    groups.
+    some fashion. Donations between PACs reveal that they are a tightly knit
+    network.
     </p>
 
     <p>
     WIN Minnesota, one of the state&rsquo;s largest political spenders,
-    didn&rsquo;t spend a single cent directly over the last three election
+    didn&rsquo;t spend a cent directly over the last three election
     cycles &mdash; choosing instead to give more than $5.6 million to other
     PACs. Alliance for a Better Minnesota, one of WIN Minnesota&rsquo;s
     recipients, received nearly all its money from other PACs.
     </p>
 
     <p>
-    This web of influence highlights how a significant portion of the money in
-    Minnesota politics was spent not only by PACs but also between them.
+    This web of influence highlights how a significant portion of PAC spending
+    went to other PACs, instead of directly to campaigns.
     </p>
 
   </div>
